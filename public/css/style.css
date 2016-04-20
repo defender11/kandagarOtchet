@@ -1,6 +1,19 @@
-@import "reset.css";
+/*@import "reset.css";*/
 @import "helpers.css";
 @import "jquery-ui.css.css";
 @import "jquery-ui.structure.min.css.css";
 @import "jquery-ui.theme.min.css.css";
 
+.admin_list_service tr{
+    border: 1px solid #333;
+    padding: 5px;
+}
+
+.admin_list_service tr:nth-child(odd) {
+    background: #dddddd;
+}
+
+.admin_list_service tr:hover:not(:nth-child(1)) {
+    background: #fffa90;
+    /*cursor: pointer;*/
+}

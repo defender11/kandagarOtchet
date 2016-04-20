@@ -20,6 +20,7 @@ class Admin_controller extends CI_Controller {
         $allInfo['mainInfo'] = $this->admin_model->select_all_info();
         $allInfo['officeInfo'] = $this->admin_model->select_office();
         $allInfo['serviceInfo'] = $this->admin_model->select_service();
+        $allInfo['selectJoinInfo'] = $this->admin_model->select_all_service_join();
 //        echo "<pre>";
 //        var_dump($allInfo);
 //        echo "</pre>";

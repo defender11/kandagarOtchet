@@ -69,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <input id="service_name_add" type="text" name="service_name_add">
                 <label for="service_about_add">Подробнее об услуге.</label>
                 <input id="service_about_add" type="text" name="service_about_add">
-                <p class="service_block_drop_new_field_btn " style="color: blue; text-decoration: underline; cursor: pointer;">- Отмена</p>
+                <span class="service_block_drop_new_field_btn " style="color: blue; text-decoration: underline; cursor: pointer;">Отмена</span>
             </div>
             <!--            ------------------------------------------------------------------>
         </fieldset>
@@ -113,14 +113,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <input type="submit" value="Добавить" placeholder="Добавить">
     </form>
 
-    <div class="list_service">
-        <ul>
-            <li>Список услуг.</li>
-<!--            --><?php //foreach() :?>
-            <li><a href="#"></a></li>
-<!--            --><?//php?>
-        </ul>
-    </div>
+    <table border="1" class="admin_list_service">
+        <caption> Список сервисов. </caption>
+        <tr>
+            <th>Сервис</th>
+            <th>Описание сервиса</th>
+            <th>Офис</th>
+            <th>Дата получения</th>
+            <th>Статус</th>
+            <th>Сумма</th>
+        </tr>
+        <?php foreach($selectJoinInfo as $valueJoinInfo) :?>
+        <tr>
+            <td class="border: 1px solid;"><?php echo $valueJoinInfo['service_name'];?></td>
+            <td class="border: 1px solid;"><?php echo $valueJoinInfo['service_about']?></td>
+            <td class="border: 1px solid;"><?php echo $valueJoinInfo['office_name']?></td>
+            <td class="border: 1px solid;"><?php echo $valueJoinInfo['date_recieved']?></td>
+            <td class="border: 1px solid;"><?php echo $valueJoinInfo['status_name']?></td>
+            <td class="border: 1px solid;"><?php echo $valueJoinInfo['sum']?> p</td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
 </div>
 
 
