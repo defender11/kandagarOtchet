@@ -12,6 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <script src="http://code.jquery.com/jquery-1.9.0.js"></script>
     <script src="../../public/js/jquery-ui.min.js"></script>
+    <script src="../../public/js/common.js?v=1.0"></script>
     <script>
         $(function() {
             $( "#datepicker_start" ).datepicker({
@@ -42,27 +43,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <form action="http://kandagarotchet/index.php/admin_controller/add_service" method="post">
         <fieldset>
             <legend>Услуги</legend>
-            <label for="service_name">Имя услуги</label>
-            <select name="service_name" id="service_name">
-                <?php foreach($serviceInfo as $value_service) : ?>
-                <option value="<?php echo $value_service['service_id']; ?>"><?php echo $value_service['service_name']; ?></option>
-                <?php endforeach; ?>
-            </select>
-            <label for="service_about">Сфера деятельности</label>
-            <select name="service_about" id="service_about">
-                <?php foreach($serviceInfo as $value_service) : ?>
-                    <option value="<?php echo $value_service['service_id']; ?>"><?php echo $value_service['service_about']; ?></option>
-                <?php endforeach; ?>
-            </select>
 
+            <div class="service_block_add_field">
+                <label for="service_name">Имя услуги</label>
+                <select name="service_name" id="service_name">
+                    <?php foreach ($serviceInfo as $value_service) : ?>
+                        <option
+                            value="<?php echo $value_service['service_id'] . "/" . $value_service['service_name']; ?>"><?php echo $value_service['service_name']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+                <label for="service_about">Сфера деятельности</label>
+                <select name="service_about" id="service_about">
+                    <?php foreach ($serviceInfo as $value_service) : ?>
+                        <option
+                            value="<?php echo $value_service['service_id'] . "/" . $value_service['service_about']; ?>"><?php echo $value_service['service_about']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
             <!--            ------------------------------------------------------------------>
-            <p style="color: blue; text-decoration: underline; cursor: pointer;">+ Добавить новую услугу.</p>
+            <p class="service_block_add_new_field_btn " style="color: blue; text-decoration: underline; cursor: pointer;">+ Добавить новую услугу.</p>
 
             <!--            Этот код добавить в JS, если нету данной услуги в перечне то можно ее добавить с помощью кнопки-->
-            <!--            <label for="service_name">Имя услуги</label>-->
-            <!--            <input id="service_name" type="text" name="service_name">-->
-            <!--            <label for="service_about">Подробнее об услуге.</label>-->
-            <!--            <input id="service_about" type="text" name="service_about">-->
+            <div class="service_block_add_new_field dspNone">
+                <label for="service_name_add">Имя услуги</label>
+                <input id="service_name_add" type="text" name="service_name_add">
+                <label for="service_about_add">Подробнее об услуге.</label>
+                <input id="service_about_add" type="text" name="service_about_add">
+                <p class="service_block_drop_new_field_btn " style="color: blue; text-decoration: underline; cursor: pointer;">- Отмена</p>
+            </div>
             <!--            ------------------------------------------------------------------>
         </fieldset>
         <fieldset>
@@ -83,7 +91,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <br />
             <label for="datepicker_period">Конец услуги.</label>
             <br />
-            <input type="text" id="datepicker_period" value="<?php echo date("Y-m". 1 ."-d") ?>" name="date_period">
+            <input type="text" id="datepicker_period" value="<?php echo date("Y-m-d") ?>" name="date_period">
             <br />
             <label for="month_period">Периуд оплаты</label>
             <br />
