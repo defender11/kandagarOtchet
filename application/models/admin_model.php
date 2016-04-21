@@ -7,28 +7,41 @@ class Admin_model extends CI_Model {
     public $service = "SELECT * FROM service";
     public $select_office = "SELECT * FROM office RIGHT JOIN month_period ON office_id = month_period_id LIMIT 0, 50 ";
 
+    public $select_join = "SELECT *
+                            FROM main
+                            JOIN month_period
+                            ON main.month_period_id = month_period.month_period_id
+                            JOIN office
+                            ON main.office_id = office.office_id
+                            JOIN service
+                            ON main.service_id = service.service_id
+                            JOIN status
+                            ON main.status_id = status.status_id";
+
+
     public function __construct()
     {
         parent::__construct();
     }
 
-
     public function select_all_info()
     {
-//        $q = "SELECT * FROM main";
         return  $this->db->query($this->main)->result_array();
     }
 
     public function select_service()
     {
-
         return  $this->db->query($this->service)->result_array();
+    }
+
+    public function select_all_service_join()
+    {
+        return  $this->db->query($this->select_join)->result_array();
     }
 
 //        Выберим Все оффисы и период оплаты
     public function select_office()
     {
-//        $q = "SELECT * FROM office RIGHT JOIN month_period ON office_id = month_period_id LIMIT 0, 50 ";
         return $this->db->query($this->select_office)->result_array();
     }
 
@@ -107,13 +120,13 @@ class Admin_model extends CI_Model {
                        ".$temp['month_period'].",
                        3,
                        ".intval($temp['summ']).")";
-        echo "<pre>";
-        var_dump($query2);
-        echo "</pre>";
-
-        echo "<pre>";
-        var_dump($q3);
-        echo "</pre>";
+//        echo "<pre>";
+//        var_dump($query2);
+//        echo "</pre>";
+//
+//        echo "<pre>";
+//        var_dump($q3);
+//        echo "</pre>";
 
         $query3 = $this->db->query($q3);
     }

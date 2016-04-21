@@ -5,11 +5,11 @@ $(document).ready(function () {
     $('.service_block_add_new_field_btn').on('click', function() {
         $('.service_block_add_new_field').removeClass('dspNone').addClass('dspBlock');
         $('.service_block_add_field').addClass('dspNone');
+        $(this).addClass('dspNone');
     });
     $('.service_block_drop_new_field_btn').on('click', function() {
         $('.service_block_add_new_field').removeClass('dspBlock').addClass('dspNone');
         $('.service_block_add_field').addClass('dspBlock').removeClass('dspNone');
+        $('.service_block_add_new_field_btn').addClass('dspBlock').removeClass('dspNone');
     });
-
-
 });
