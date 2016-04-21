@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.php/$1 [L]
+
+AddDefaultCharset utf-8
+#Order Deny,Allow
+#Deny from all
+#Allow from 178.219.245.66 78.30.194.100
+#ErrorDocument 403 "  To view songs, coming to work in 'KANDAGAR'   |  http://www.kandagar.com   "

@@ -1,13 +1,25 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class admin_controller extends CI_Controller {
+class Admin_controller extends CI_Controller {
 
+
+
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    public function index()
+    {
+        $this->load->view('admin_main_view');
+    }
     public function page_add_service ()
     {
         $this->load->model('admin_model');
         $allInfo['mainInfo'] = $this->admin_model->select_all_info();
         $allInfo['officeInfo'] = $this->admin_model->select_office();
+        $allInfo['serviceInfo'] = $this->admin_model->select_service();
 //        echo "<pre>";
 //        var_dump($allInfo);
 //        echo "</pre>";

@@ -37,29 +37,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </script>
 </head>
 <body>
-<div class="menu">
-    <div class="menu_box">
-        <ul class="menu_box_">
-            <li><a href="">Главная</a></li>
-            <li><a href="">Управление</a></li>
-        </ul>
-    </div>
-    <div class="user_info">
-        <p>Пользователь: <span> Admin</span></p>
-        <a href="#">Выход</a>
-    </div>
-</div>
+<?php include 'admin_menu.php'; ?>
 <div class="container">
     <form action="http://kandagarotchet/index.php/admin_controller/add_service" method="post">
         <fieldset>
-            <legend >Услуги</legend>
+            <legend>Услуги</legend>
             <label for="service_name">Имя услуги</label>
-            <br />
-            <input id="service_name" type="text" name="service_name">
-            <br />
-            <label for="service_about">Подробнее об услуге.</label>
-            <br />
-            <input id="service_about" type="text" name="service_about">
+            <select name="service_name" id="service_name">
+                <?php foreach($serviceInfo as $value_service) : ?>
+                <option value="<?php echo $value_service['service_id']; ?>"><?php echo $value_service['service_name']; ?></option>
+                <?php endforeach; ?>
+            </select>
+            <label for="service_about">Сфера деятельности</label>
+            <select name="service_about" id="service_about">
+                <?php foreach($serviceInfo as $value_service) : ?>
+                    <option value="<?php echo $value_service['service_id']; ?>"><?php echo $value_service['service_about']; ?></option>
+                <?php endforeach; ?>
+            </select>
+
+            <!--            ------------------------------------------------------------------>
+            <p style="color: blue; text-decoration: underline; cursor: pointer;">+ Добавить новую услугу.</p>
+
+            <!--            Этот код добавить в JS, если нету данной услуги в перечне то можно ее добавить с помощью кнопки-->
+            <!--            <label for="service_name">Имя услуги</label>-->
+            <!--            <input id="service_name" type="text" name="service_name">-->
+            <!--            <label for="service_about">Подробнее об услуге.</label>-->
+            <!--            <input id="service_about" type="text" name="service_about">-->
+            <!--            ------------------------------------------------------------------>
         </fieldset>
         <fieldset>
             <legend>Офисс</legend>
@@ -100,7 +104,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </fieldset>
         <input type="submit" value="Добавить" placeholder="Добавить">
     </form>
+
+    <div class="list_service">
+        <ul>
+            <li>Список услуг.</li>
+<!--            --><?php //foreach() :?>
+            <li><a href="#"></a></li>
+<!--            --><?//php?>
+        </ul>
+    </div>
 </div>
+
+
 
 </body>
 </html>
