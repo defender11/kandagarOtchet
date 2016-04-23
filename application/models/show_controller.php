@@ -6,7 +6,6 @@ class Admin_model extends CI_Model {
     public $main = "SELECT * FROM main";
     public $cash = "SELECT * FROM cash";
     public $service = "SELECT * FROM service";
-    public $status = "SELECT * FROM status";
     public $select_office = "SELECT * FROM office RIGHT JOIN month_period ON office_id = month_period_id LIMIT 0, 50 ";
 
     public $select_join = "SELECT *
@@ -20,9 +19,7 @@ class Admin_model extends CI_Model {
                             JOIN status
                             ON main.status_id = status.status_id
                             JOIN cash
-                            ON main.cash_id = cash.cash_id
-                            JOIN statistic
-                            ON main.stat_id = statistic.main_id";
+                            ON main.cash_id = cash.cash_id";
 
 
     public function __construct()
@@ -33,10 +30,6 @@ class Admin_model extends CI_Model {
     public function select_all_cash()
     {
         return  $this->db->query($this->cash)->result_array();
-    }
-    public function select_all_status()
-    {
-        return  $this->db->query($this->status)->result_array();
     }
     public function select_all_info()
     {
@@ -73,8 +66,7 @@ class Admin_model extends CI_Model {
             'summ' => $_POST['summ'],
             'cash_id' => $_POST['cash_id'],
             'service_name_add' => @$_POST['service_name_add'],
-            'service_about_add' => @$_POST['service_about_add'],
-//            'check'
+            'service_about_add' => @$_POST['service_about_add']
         );
 
 
@@ -107,11 +99,8 @@ class Admin_model extends CI_Model {
 //        Проверка ajax на совпадение сервисы выбранные пользователем с сервисами которые уже есть, сравнение жесткое.
 //        $testing = $this->db->query($this->service)->result_array();
 
-
-
         if ($s_name[0] != $s_about[0]) {
 
-//            if ()
             $this->db->query("INSERT INTO service VALUE(NULL, '".$s_name[1]."', '".$s_about[1]."') ");
             $query2 = $this->db->query("SELECT service_id FROM service ORDER BY service_id DESC LIMIT 1")->result_array();
 
@@ -146,8 +135,8 @@ class Admin_model extends CI_Model {
                        '".$temp['date_period']."',
                        ".$temp['month_period'].",
                        3,
-                       ".$temp['cash_id'].")";
-//                       ".intval($temp['summ']).")";
+                       ".$temp['cash_id'].",
+                       ".intval($temp['summ']).")";
 
         $query3 = $this->db->query($q3);
     }

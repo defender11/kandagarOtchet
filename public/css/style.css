@@ -4,16 +4,49 @@
 @import "jquery-ui.structure.min.css.css";
 @import "jquery-ui.theme.min.css.css";
 
-.admin_list_service tr{
-    border: 1px solid #333;
-    padding: 5px;
+.conteiner,
+.menu {
+    width: 1280px;
+    display: block;
+    position: relative;
+    margin: 0 auto;
 }
 
-.admin_list_service tr:nth-child(odd) {
+.admin_list_service {
+    display: block;
+    position: relative;
+}
+
+
+.admin_list_service tr{
+    border: 1px solid #333;
+    font: normal 12px/24px Courier, sans-serif;
+}
+
+.admin_list_service tr td{
+    padding: 5px 10px;
+    font: normal 12px/24px Courier, sans-serif;
+}
+
+.admin_list_service th{
+    padding: 5px;
+    font: bold 12px/24px Courier, sans-serif;
+}
+
+.admin_list_service tr:nth-child(1) {
     background: #dddddd;
 }
 
 .admin_list_service tr:hover:not(:nth-child(1)) {
     background: #fffa90;
     /*cursor: pointer;*/
+}
+
+.admin_form_add_service_btn {
+    display: block;
+    position: relative;
+    margin: 20px auto;
+    width: 150px;
+    border: 1px solid #333;
+    padding: 5px;
 }

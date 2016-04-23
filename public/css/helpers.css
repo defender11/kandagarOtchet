@@ -10,3 +10,23 @@
 .dspNone {
     display: none;
 }
+
+/* BGCOLOR STATUS*/
+
+.good {
+    background: #EAB375;
+}
+.recieved {
+    background: #F9E238;
+}
+.progress {
+    background: #FFA641;
+}
+.archive {
+    background: rgba(214, 163, 233,1);
+}
+.bad {
+    background: #F06868;
+}
+
+/* BGCOLOR STATUS*/

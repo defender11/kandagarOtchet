@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_controller extends CI_Controller {
+class Show_controller extends CI_Controller {
 
 
 
@@ -23,7 +23,6 @@ class Admin_controller extends CI_Controller {
         $allInfo['serviceInfo'] = $this->admin_model->select_service();
         $allInfo['selectJoinInfo'] = $this->admin_model->select_all_service_join();
         $allInfo['selectCash'] = $this->admin_model->select_all_cash();
-        $allInfo['selectStatus'] = $this->admin_model->select_all_status();
 //        echo "<pre>";
 //        var_dump($allInfo);
 //        echo "</pre>";

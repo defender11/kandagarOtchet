@@ -22,8 +22,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 buttonImage: "../../public/img/calendar.gif",
                 buttonImageOnly: true,
                 buttonText: "Select date",
-                dateFormat: "yy-mm-dd"
+                dateFormat: "yy-mm-dd",
+                minDate: -20
             });
+
             $( "#datepicker_period" ).datepicker({
                 numberOfMonths: 4,
                 showButtonPanel: true,
@@ -31,7 +33,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 buttonImage: "../../public/img/calendar.gif",
                 buttonImageOnly: true,
                 buttonText: "Select date",
-                dateFormat: "yy-mm-dd"
+                dateFormat: "yy-mm-dd",
+                minDate: -20
             });
 
         });
@@ -39,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 <?php include 'admin_menu.php'; ?>
-<div class="container">
+<div class="conteiner">
     <form action="http://kandagarotchet/index.php/admin_controller/add_service" method="post">
         <fieldset>
             <legend>Услуги</legend>
@@ -109,28 +112,71 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <label for="summ">Сумма за месяц</label>
             <br />
             <input type="text" id="summ" name="summ">
+
+            <select name="cash_id" id="cash_id">
+                <?php foreach($selectCash as $value_cash) : ?>
+                    <?php if (!(is_null($value_cash['cash_country']))) { ?>
+                        <option value="<?php echo $value_cash['cash_id']; ?>"><?php echo $value_cash['cash_country']; ?></option>
+                    <?php } else { continue; } ?>
+                <?php endforeach; ?>
+            </select>
         </fieldset>
-        <input type="submit" value="Добавить" placeholder="Добавить">
+        <input type="submit" value="Добавить улсугу." class="admin_form_add_service_btn" placeholder="">
     </form>
 
-    <table border="1" class="admin_list_service">
+    <table border="2" class="admin_list_service">
         <caption> Список сервисов. </caption>
         <tr>
             <th>Сервис</th>
             <th>Описание сервиса</th>
             <th>Офис</th>
+            <th>Дата начала услуги</th>
             <th>Дата получения</th>
+            <th>Дата Окончания</th>
             <th>Статус</th>
             <th>Сумма</th>
+            <th>Валюта</th>
+<!--            <th></th>-->
         </tr>
         <?php foreach($selectJoinInfo as $valueJoinInfo) :?>
-        <tr>
+        <tr class="
+        <?php
+            switch ($valueJoinInfo['status_id']) {
+                case 1:
+                    echo "good";
+                    break;
+                case 2:
+                    echo "recieved";
+                    break;
+                case 3:
+                    echo "progress";
+                    break;
+                case 4:
+                    echo "archive";
+                    break;
+                case 5:
+                    echo "bad";
+                    break;
+            }
+        ?>">
             <td class="border: 1px solid;"><?php echo $valueJoinInfo['service_name'];?></td>
             <td class="border: 1px solid;"><?php echo $valueJoinInfo['service_about']?></td>
             <td class="border: 1px solid;"><?php echo $valueJoinInfo['office_name']?></td>
+            <td class="border: 1px solid;"><?php echo $valueJoinInfo['date_start']?></td>
             <td class="border: 1px solid;"><?php echo $valueJoinInfo['date_recieved']?></td>
-            <td class="border: 1px solid;"><?php echo $valueJoinInfo['status_name']?></td>
-            <td class="border: 1px solid;"><?php echo $valueJoinInfo['sum']?> p</td>
+            <td class="border: 1px solid;"><?php echo $valueJoinInfo['date_period']?></td>
+            <td class="border: 1px solid;">
+                <select name="status_service" id="status_service">
+<!--                    FIX !!!!-->
+                    <option value="<?php echo $valueJoinInfo['status_id']?>"><?php echo $valueJoinInfo['status_name']?></option>
+                    <option>-------------</option>
+                    <?php foreach ($selectStatus as $key => $valusStat) : ?>
+                        <option value="<?php echo $valusStat['status_id']?>"><?php echo $valusStat['status_name']?></option>
+                    <?php endforeach; ?>
+                </select>
+            </td>
+<!--            <td class="border: 1px solid;">--><?php //echo $valueJoinInfo['sum']?><!--</td>-->
+            <td class="border: 1px solid;"><?php echo $valueJoinInfo['cash_country']?></td>
         </tr>
         <?php endforeach; ?>
     </table>
