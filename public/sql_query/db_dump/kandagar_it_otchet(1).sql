@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 30 2016 г., 19:09
+-- Время создания: Апр 30 2016 г., 14:01
 -- Версия сервера: 5.5.48
 -- Версия PHP: 5.3.29
 
@@ -19,17 +19,6 @@ SET time_zone = "+00:00";
 --
 -- База данных: `kandagar_it_otchet`
 --
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `agreement`
---
-
-CREATE TABLE IF NOT EXISTS `agreement` (
-  `agreement_id` int(11) NOT NULL,
-  `agreement_name` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -64,13 +53,20 @@ CREATE TABLE IF NOT EXISTS `main` (
   `service_id` int(11) NOT NULL,
   `office_id` int(11) NOT NULL,
   `date_start` date DEFAULT NULL,
-  `date_recieved` date NOT NULL DEFAULT '0000-00-00',
+  `date_recieved` date DEFAULT NULL,
   `date_period` date DEFAULT NULL,
   `month_period_id` int(11) NOT NULL,
-  `cash_id` int(11) NOT NULL DEFAULT '0',
-  `agreement_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+  `cash_id` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `main`
+--
+
+INSERT INTO `main` (`main_id`, `service_id`, `office_id`, `date_start`, `date_recieved`, `date_period`, `month_period_id`, `cash_id`) VALUES
+(15, 1, 1, '2016-03-03', '2016-04-03', '2016-06-03', 3, 1),
+(16, 1, 3, '2016-04-13', '2016-05-13', '2016-06-13', 8, 1),
+(17, 1, 3, '2016-04-13', '2016-05-13', '2016-06-13', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -135,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `service` (
   `service_id` int(11) NOT NULL,
   `service_name` varchar(60) NOT NULL,
   `service_about` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='Таблица для хранения организаций предоставляющие услуги.';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='Таблица для хранения организаций предоставляющие услуги.';
 
 --
 -- Дамп данных таблицы `service`
@@ -148,9 +144,7 @@ INSERT INTO `service` (`service_id`, `service_name`, `service_about`) VALUES
 (4, 'MTT YouMagicPro', 'IP Телефония'),
 (5, 'Караван телеком', 'Хостинг Сервера'),
 (6, 'MTT Buissnes', 'IP Телефония'),
-(7, 'Ньюком Порт', 'Телефон'),
-(8, 'Рога и Копыта', 'Услуга по осуществлению документации на коров'),
-(9, 'Ньюком Порт', 'IP Телефония');
+(7, 'Ньюком Порт', 'Телефон');
 
 -- --------------------------------------------------------
 
@@ -160,12 +154,23 @@ INSERT INTO `service` (`service_id`, `service_name`, `service_about`) VALUES
 
 CREATE TABLE IF NOT EXISTS `statistic` (
   `stat_id` int(11) NOT NULL,
+  `stat_service_id` int(11) NOT NULL,
   `stat_month` date NOT NULL DEFAULT '0000-00-00',
-  `stat_summ` int(11) DEFAULT NULL,
-  `stat_payment` varchar(255) DEFAULT NULL,
+  `stat_summ` int(11) NOT NULL,
+  `stat_payment` varchar(255) NOT NULL,
   `status_id` int(11) NOT NULL DEFAULT '0',
   `main_id` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `statistic`
+--
+
+INSERT INTO `statistic` (`stat_id`, `stat_service_id`, `stat_month`, `stat_summ`, `stat_payment`, `status_id`, `main_id`) VALUES
+(11, 2, '2016-04-12', 213213, '2313SA', 1, 15),
+(13, 2, '2016-05-12', 12, '62213SA', 1, 15),
+(14, 2, '2016-05-20', 5463, '54654', 2, 16),
+(15, 2, '2016-04-20', 56456, 'trd546', 3, 17);
 
 -- --------------------------------------------------------
 
@@ -189,54 +194,9 @@ INSERT INTO `status` (`status_id`, `status_name`) VALUES
 (4, 'В архиве'),
 (5, 'Просроченно');
 
--- --------------------------------------------------------
-
---
--- Структура таблицы `users`
---
-
-CREATE TABLE IF NOT EXISTS `users` (
-  `user_id` int(11) NOT NULL,
-  `user_login` varchar(50) NOT NULL,
-  `user_passwd` int(11) NOT NULL,
-  `user_access` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `users`
---
-
-INSERT INTO `users` (`user_id`, `user_login`, `user_passwd`, `user_access`) VALUES
-(1, 'test', 1, 2);
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `user_access`
---
-
-CREATE TABLE IF NOT EXISTS `user_access` (
-  `user_access_id` int(11) NOT NULL,
-  `user_access_name` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `user_access`
---
-
-INSERT INTO `user_access` (`user_access_id`, `user_access_name`) VALUES
-(1, 'Normal'),
-(2, 'Proffi');
-
 --
 -- Индексы сохранённых таблиц
 --
-
---
--- Индексы таблицы `agreement`
---
-ALTER TABLE `agreement`
-  ADD PRIMARY KEY (`agreement_id`);
 
 --
 -- Индексы таблицы `cash`
@@ -248,13 +208,11 @@ ALTER TABLE `cash`
 -- Индексы таблицы `main`
 --
 ALTER TABLE `main`
-  ADD PRIMARY KEY (`main_id`,`service_id`,`office_id`,`month_period_id`,`cash_id`,`agreement_id`,`user_id`),
+  ADD PRIMARY KEY (`main_id`,`service_id`,`office_id`,`month_period_id`,`cash_id`),
   ADD KEY `service_id` (`service_id`),
   ADD KEY `office_id` (`office_id`),
   ADD KEY `month_period_id` (`month_period_id`),
-  ADD KEY `main_ibfk_5` (`cash_id`),
-  ADD KEY `agreement_id` (`agreement_id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `main_ibfk_5` (`cash_id`);
 
 --
 -- Индексы таблицы `month_period`
@@ -278,7 +236,8 @@ ALTER TABLE `service`
 -- Индексы таблицы `statistic`
 --
 ALTER TABLE `statistic`
-  ADD PRIMARY KEY (`stat_id`,`status_id`,`main_id`),
+  ADD PRIMARY KEY (`stat_id`,`stat_service_id`,`status_id`,`main_id`),
+  ADD KEY `statistic_ibfk_1` (`stat_service_id`),
   ADD KEY `statistic_ibfk_2` (`status_id`),
   ADD KEY `statistic_ibfk_3` (`main_id`);
 
@@ -289,27 +248,9 @@ ALTER TABLE `status`
   ADD PRIMARY KEY (`status_id`);
 
 --
--- Индексы таблицы `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`,`user_access`),
-  ADD KEY `users_ibfk_1` (`user_access`);
-
---
--- Индексы таблицы `user_access`
---
-ALTER TABLE `user_access`
-  ADD PRIMARY KEY (`user_access_id`);
-
---
 -- AUTO_INCREMENT для сохранённых таблиц
 --
 
---
--- AUTO_INCREMENT для таблицы `agreement`
---
-ALTER TABLE `agreement`
-  MODIFY `agreement_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT для таблицы `cash`
 --
@@ -319,7 +260,7 @@ ALTER TABLE `cash`
 -- AUTO_INCREMENT для таблицы `main`
 --
 ALTER TABLE `main`
-  MODIFY `main_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=35;
+  MODIFY `main_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT для таблицы `month_period`
 --
@@ -334,27 +275,17 @@ ALTER TABLE `office`
 -- AUTO_INCREMENT для таблицы `service`
 --
 ALTER TABLE `service`
-  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT для таблицы `statistic`
 --
 ALTER TABLE `statistic`
-  MODIFY `stat_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
+  MODIFY `stat_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT для таблицы `status`
 --
 ALTER TABLE `status`
   MODIFY `status_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT для таблицы `users`
---
-ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT для таблицы `user_access`
---
-ALTER TABLE `user_access`
-  MODIFY `user_access_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --
@@ -363,25 +294,18 @@ ALTER TABLE `user_access`
 -- Ограничения внешнего ключа таблицы `main`
 --
 ALTER TABLE `main`
-  ADD CONSTRAINT `main_ibfk_7` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `main_ibfk_1` FOREIGN KEY (`service_id`) REFERENCES `service` (`service_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `main_ibfk_2` FOREIGN KEY (`office_id`) REFERENCES `office` (`office_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `main_ibfk_3` FOREIGN KEY (`month_period_id`) REFERENCES `month_period` (`month_period_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `main_ibfk_5` FOREIGN KEY (`cash_id`) REFERENCES `cash` (`cash_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `main_ibfk_6` FOREIGN KEY (`agreement_id`) REFERENCES `agreement` (`agreement_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `main_ibfk_5` FOREIGN KEY (`cash_id`) REFERENCES `cash` (`cash_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Ограничения внешнего ключа таблицы `statistic`
 --
 ALTER TABLE `statistic`
+  ADD CONSTRAINT `statistic_ibfk_1` FOREIGN KEY (`stat_service_id`) REFERENCES `service` (`service_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `statistic_ibfk_2` FOREIGN KEY (`status_id`) REFERENCES `status` (`status_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `statistic_ibfk_3` FOREIGN KEY (`main_id`) REFERENCES `main` (`main_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Ограничения внешнего ключа таблицы `users`
---
-ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`user_access`) REFERENCES `user_access` (`user_access_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

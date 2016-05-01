@@ -7,22 +7,65 @@ class Admin_model extends CI_Model {
     public $cash = "SELECT * FROM cash";
     public $service = "SELECT * FROM service";
     public $status = "SELECT * FROM status";
+
+    public $user = "SELECT * FROM users
+                    JOIN user_access
+                    ON users.user_access = user_access.user_access_id";
+
+    public $users_status = "SELECT * FROM user_access";
+
     public $select_office = "SELECT * FROM office RIGHT JOIN month_period ON office_id = month_period_id LIMIT 0, 50 ";
 
-    public $select_join = "SELECT *
-                            FROM main
-                            JOIN month_period
-                            ON main.month_period_id = month_period.month_period_id
-                            JOIN office
-                            ON main.office_id = office.office_id
-                            JOIN service
-                            ON main.service_id = service.service_id
-                            JOIN status
-                            ON main.status_id = status.status_id
-                            JOIN cash
-                            ON main.cash_id = cash.cash_id
-                            JOIN statistic
-                            ON main.stat_id = statistic.main_id";
+    public $select_join = "SELECT  m.main_id main,
+                                    a.agreement_name,
+                                    srv.service_name,
+                                    srv.service_about,
+                                    off.office_name,
+                                    m.date_start,
+                                    m.date_recieved,
+                                    m.date_period,
+                                    mp.month_count_name,
+                                    s.stat_month,
+                                    s.stat_summ,
+                                    c.cash_country,
+                                    s.stat_payment,
+                                    st.status_name,
+                                    st.status_id,
+                                    usr.user_login,
+                                    usr.user_passwd,
+                                    usr.user_access,
+                                    usra.user_access_name
+
+                                FROM statistic s
+
+                                JOIN main m
+                                ON s.main_id = m.main_id
+
+                                JOIN month_period mp
+                                ON  m.month_period_id = mp.month_period_id
+
+                                JOIN office off
+                                ON off.office_id = m.office_id
+
+                                JOIN cash c
+                                ON c.cash_id = m.cash_id
+
+                                JOIN service srv
+                                ON srv.service_id = m.service_id
+
+                                JOIN status st
+                                ON st.status_id = s.status_id
+
+                                JOIN agreement a
+                                ON a.agreement_id = m.agreement_id
+
+                                JOIN users usr
+                                ON m.user_id = usr.user_id
+
+                                JOIN user_access usra
+                                ON usr.user_access = usra.user_access_id
+
+                                ORDER BY m.main_id ASC";
 
 
     public function __construct()
@@ -38,9 +81,20 @@ class Admin_model extends CI_Model {
     {
         return  $this->db->query($this->status)->result_array();
     }
+
     public function select_all_info()
     {
         return  $this->db->query($this->main)->result_array();
+    }
+
+    public function select_user()
+    {
+        return $this->db->query($this->user)->result_array();
+    }
+
+    public function select_all_user_status()
+    {
+        return $this->db->query($this->users_status)->result_array();
     }
 
     public function select_service()
@@ -62,6 +116,7 @@ class Admin_model extends CI_Model {
     public function add_service()
     {
         $query2 = array();
+        $redirect = true;
 
         $temp = array(
             'service_name' => $_POST['service_name'],
@@ -74,10 +129,14 @@ class Admin_model extends CI_Model {
             'cash_id' => $_POST['cash_id'],
             'service_name_add' => @$_POST['service_name_add'],
             'service_about_add' => @$_POST['service_about_add'],
-//            'check'
+            'agreement_about' => $_POST['agreement_about'],
+            'agreement_about_add' => $_POST['agreement_about_add'],
+            'stat_payment' => $_POST['stat_payment'],
+            'user_id' => $_POST['user_id']
         );
 
 
+//        Проверка на добовления месяца
         $dt1 = str_replace("-", "", $_POST['date_start']);
         $dt2 = str_replace("-", "", $_POST['date_period']);
 
@@ -87,15 +146,14 @@ class Admin_model extends CI_Model {
             echo $dt2."<br /><br />";
 
             $date = new DateTime($dt1);
-            $date->modify('+1 month');
+            $date->modify("+".$temp['month_period']." month");
             $temp['date_recieved'] = $date->format('Y-m-d'); // 2013-06-17
         } else if ($dt1 == $dt2) {
             $temp['date_recieved'] = $_POST['date_period']; // 2013-06-17
         }
-//            echo "<pre>";
-//            var_dump($temp);
-//            echo "</pre>";
-
+//        Конец Проверки на добовления месяца
+//--------------------------------------------------------------------------
+//        Проверка на добовление услуги, если такая услуга уже есть
         $s_name = explode("/", $temp['service_name']);
         $s_about = explode("/", $temp['service_about']);
         echo $s_name[0]; // 1, 2, 3, 4, 5 6 7
@@ -105,13 +163,11 @@ class Admin_model extends CI_Model {
         echo $s_about[1]; // Интернет Аренда Вычислительных Мощностей  Телефон IP Телефония Хостинг Сервера IP Телефония Телефон
 
 //        Проверка ajax на совпадение сервисы выбранные пользователем с сервисами которые уже есть, сравнение жесткое.
+//        ....
 //        $testing = $this->db->query($this->service)->result_array();
-
-
 
         if ($s_name[0] != $s_about[0]) {
 
-//            if ()
             $this->db->query("INSERT INTO service VALUE(NULL, '".$s_name[1]."', '".$s_about[1]."') ");
             $query2 = $this->db->query("SELECT service_id FROM service ORDER BY service_id DESC LIMIT 1")->result_array();
 
@@ -123,21 +179,29 @@ class Admin_model extends CI_Model {
         } else {
             $query2[0]['service_id'] =  $s_name[0];
         }
-
-//        После вставки названия сервиса в таблицу service, нужно сделать запрос в эту же таблицу и найти последнюю
-//        вставку, полученные данные вставить в таблицу main
-
-        $q3 = "INSERT INTO `kandagar_it_otchet`.`main`(
-                                                        main_id,
-                                                        service_id,
-                                                        office_id,
-                                                        date_start,
-                                                        date_recieved,
-                                                        date_period,
-                                                        month_period_id,
-                                                        status_id,
-                                                        cash_id,
-                                                        sum )
+//        Конец Проверки на добовление услуги, если такая услуга уже есть
+//--------------------------------------------------------------------------
+//        Вставляем в таблицу agreement № Договора и возврощяем ID
+        if ($temp['agreement_about_add'] == "") {
+            $this->db->query("INSERT INTO `agreement` VALUES(NULL, '".$temp['agreement_about']."')");
+            $query_agreement = $this->db->insert_id();
+        } else {
+            $this->db->query("INSERT INTO `agreement` VALUES(NULL, '".$temp['agreement_about_add']."')");
+            $query_agreement = $this->db->insert_id();
+        }
+//--------------------------------------------------------------------------
+//  Вставляем данные в main таблицу
+        $q3 = "INSERT INTO `main`(
+                                  main_id,
+                                  service_id,
+                                  office_id,
+                                  date_start,
+                                  date_recieved,
+                                  date_period,
+                                  month_period_id,
+                                  cash_id,
+                                  agreement_id,
+                                  user_id )
                 VALUE (NULL,
                        ".intval($query2[0]['service_id']).",
                        ".$temp['office_id'].",
@@ -145,11 +209,33 @@ class Admin_model extends CI_Model {
                        '".$temp['date_recieved']."',
                        '".$temp['date_period']."',
                        ".$temp['month_period'].",
-                       3,
-                       ".$temp['cash_id'].")";
-//                       ".intval($temp['summ']).")";
+                       ".$temp['cash_id'].",
+                       ".$query_agreement.",
+                       ".$_POST['user_id'].")";
 
         $query3 = $this->db->query($q3);
+        $main_id = $this->db->insert_id();
+
+        $insert_into_statistic = "INSERT INTO `statistic` (
+                                                            stat_id,
+                                                            stat_month,
+                                                            stat_summ,
+                                                            stat_payment,
+                                                            status_id,
+                                                            main_id)
+                                  VALUES (NULL,
+                                          '".$temp['date_recieved']."',
+                                          '".$temp['summ']."',
+                                          '".$temp['stat_payment']."',
+                                          3,
+                                          '".$main_id."'
+                                  )";
+        $this->db->query($insert_into_statistic);
+
+        if ($redirect == true) {
+            $redirect = false;
+            header("Location: http://kandagarotchet/page_add_service");
+        }
     }
 
 }

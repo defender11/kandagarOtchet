@@ -15,6 +15,7 @@
 .admin_list_service {
     display: block;
     position: relative;
+
 }
 
 
@@ -49,4 +50,16 @@
     width: 150px;
     border: 1px solid #333;
     padding: 5px;
+}
+
+.service_block_add_new_field_btn,
+.service_block_drop_new_field_btn {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.user_login,
+.user_access {
+ font-weight: bold;
 }

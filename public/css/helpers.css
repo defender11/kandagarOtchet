@@ -14,7 +14,7 @@
 /* BGCOLOR STATUS*/
 
 .good {
-    background: #EAB375;
+    background: #75EA7B;
 }
 .recieved {
     background: #F9E238;
@@ -23,10 +23,10 @@
     background: #FFA641;
 }
 .archive {
-    background: rgba(214, 163, 233,1);
+    background: #8F8F8F;
 }
 .bad {
-    background: #F06868;
+    background: #F31515;
 }
 
 /* BGCOLOR STATUS*/

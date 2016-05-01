@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+include 'function.php';
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 <?php include 'admin_menu.php'; ?>
 <div class="container">
-
+    <h1>Главная страница.</h1>
 </div>
 
 </body>

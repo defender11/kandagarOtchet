@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
+include 'function.php';
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -41,13 +43,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </script>
 </head>
 <body>
-<?php include 'admin_menu.php'; ?>
+<?php
+include 'admin_menu.php';
+?>
+
 <div class="conteiner">
     <form action="http://kandagarotchet/index.php/admin_controller/add_service" method="post">
         <fieldset>
             <legend>Услуги</legend>
 
             <div class="service_block_add_field">
+                <input type="text" name="user_id" value="<?php echo $userId; ?>" hidden>
+                <input type="text" name="user_login" value="<?php echo $userLogin; ?>" hidden>
+                <input type="text" name="user_access" value="<?php echo $userAccess; ?>" hidden>
+
                 <label for="service_name">Имя услуги</label>
                 <select name="service_name" id="service_name">
                     <?php foreach ($serviceInfo as $value_service) : ?>
@@ -62,9 +71,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             value="<?php echo $value_service['service_id'] . "/" . $value_service['service_about']; ?>"><?php echo $value_service['service_about']; ?></option>
                     <?php endforeach; ?>
                 </select>
+                <label for="agreement">№ договора</label>
+                <input type="text" id="agreement" placeholder="№ договора" name="agreement_about" required>
             </div>
             <!--            ------------------------------------------------------------------>
-            <p class="service_block_add_new_field_btn " style="color: blue; text-decoration: underline; cursor: pointer;">+ Добавить новую услугу.</p>
+            <p class="service_block_add_new_field_btn ">+ Добавить новую услугу.</p>
 
             <!--            Этот код добавить в JS, если нету данной услуги в перечне то можно ее добавить с помощью кнопки-->
             <div class="service_block_add_new_field dspNone">
@@ -72,7 +83,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <input id="service_name_add" type="text" name="service_name_add">
                 <label for="service_about_add">Подробнее об услуге.</label>
                 <input id="service_about_add" type="text" name="service_about_add">
-                <span class="service_block_drop_new_field_btn " style="color: blue; text-decoration: underline; cursor: pointer;">Отмена</span>
+                <label for="agreement_add">№ договора</label>
+                <input type="text" id="agreement_add" name="agreement_about_add" placeholder="№ договора">
+                <span class="service_block_drop_new_field_btn ">Отмена</span>
             </div>
             <!--            ------------------------------------------------------------------>
         </fieldset>
@@ -109,9 +122,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </fieldset>
         <fieldset>
             <legend>Цена</legend>
+            <label for="payment_namber">Номер счета</label>
+            <br />
+            <input type="text" id="payment_namber" name="stat_payment" required>
+            <br />
             <label for="summ">Сумма за месяц</label>
             <br />
-            <input type="text" id="summ" name="summ">
+            <input type="text" id="summ" name="summ" required>
 
             <select name="cash_id" id="cash_id">
                 <?php foreach($selectCash as $value_cash) : ?>
@@ -127,47 +144,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <table border="2" class="admin_list_service">
         <caption> Список сервисов. </caption>
         <tr>
+            <th>№ договора</th>
+            <th>№ счета</th>
             <th>Сервис</th>
             <th>Описание сервиса</th>
             <th>Офис</th>
             <th>Дата начала услуги</th>
             <th>Дата получения</th>
             <th>Дата Окончания</th>
-            <th>Статус</th>
+            <th>Периуд услуги</th>
             <th>Сумма</th>
             <th>Валюта</th>
-<!--            <th></th>-->
+            <th>Статус</th>
         </tr>
         <?php foreach($selectJoinInfo as $valueJoinInfo) :?>
-        <tr class="
-        <?php
-            switch ($valueJoinInfo['status_id']) {
-                case 1:
-                    echo "good";
-                    break;
-                case 2:
-                    echo "recieved";
-                    break;
-                case 3:
-                    echo "progress";
-                    break;
-                case 4:
-                    echo "archive";
-                    break;
-                case 5:
-                    echo "bad";
-                    break;
-            }
-        ?>">
+        <tr class="<?php setClassForShowStatusTable($valueJoinInfo['status_id']); ?>">
+            <td class="border: 1px solid;"><?php echo $valueJoinInfo['agreement_name'];?></td>
+            <td class="border: 1px solid;"><?php echo $valueJoinInfo['stat_payment'];?></td>
             <td class="border: 1px solid;"><?php echo $valueJoinInfo['service_name'];?></td>
-            <td class="border: 1px solid;"><?php echo $valueJoinInfo['service_about']?></td>
-            <td class="border: 1px solid;"><?php echo $valueJoinInfo['office_name']?></td>
+            <td class="border: 1px solid;"><?php echo $valueJoinInfo['service_about'];?></td>
+            <td class="border: 1px solid;"><?php echo $valueJoinInfo['office_name'];?></td>
             <td class="border: 1px solid;"><?php echo $valueJoinInfo['date_start']?></td>
             <td class="border: 1px solid;"><?php echo $valueJoinInfo['date_recieved']?></td>
             <td class="border: 1px solid;"><?php echo $valueJoinInfo['date_period']?></td>
+            <td class="border: 1px solid;"><?php echo $valueJoinInfo['month_count_name'];?></td>
+            <td class="border: 1px solid;"><?php echo $valueJoinInfo['stat_summ'];?></td>
+            <td class="border: 1px solid;"><?php echo $valueJoinInfo['cash_country']?></td>
             <td class="border: 1px solid;">
                 <select name="status_service" id="status_service">
-<!--                    FIX !!!!-->
                     <option value="<?php echo $valueJoinInfo['status_id']?>"><?php echo $valueJoinInfo['status_name']?></option>
                     <option>-------------</option>
                     <?php foreach ($selectStatus as $key => $valusStat) : ?>
@@ -175,14 +179,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <?php endforeach; ?>
                 </select>
             </td>
-<!--            <td class="border: 1px solid;">--><?php //echo $valueJoinInfo['sum']?><!--</td>-->
-            <td class="border: 1px solid;"><?php echo $valueJoinInfo['cash_country']?></td>
         </tr>
         <?php endforeach; ?>
     </table>
 </div>
-
-
+<?php //echo "<pre>"; var_dump($selectJoinInfo); echo "</pre>";  ?>
 
 </body>
 </html>
