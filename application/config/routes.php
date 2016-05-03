@@ -56,6 +56,9 @@ $route['page_admin_add_service'] = 'admin_controller/page_add_service';
 $route['login'] = 'login_controller/index';
 $route['logout'] = 'login_controller/logout';
 
+$route['delete_service'] = 'admin_controller/delete_service';
+$route['show_statistic'] = 'admin_controller/show_statistic';
+
 $route['login_check'] = 'login_controller/check_login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

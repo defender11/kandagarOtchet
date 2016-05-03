@@ -17,6 +17,7 @@ class Admin_model extends CI_Model {
     public $select_office = "SELECT * FROM office RIGHT JOIN month_period ON office_id = month_period_id LIMIT 0, 50 ";
 
     public $select_join = "SELECT  m.main_id main,
+                                    a.agreement_id,
                                     a.agreement_name,
                                     srv.service_name,
                                     srv.service_about,
@@ -73,6 +74,11 @@ class Admin_model extends CI_Model {
         parent::__construct();
     }
 
+    public function strip_trim ($value)
+    {
+        return trim(strip_tags($value));
+    }
+
     public function select_all_cash()
     {
         return  $this->db->query($this->cash)->result_array();
@@ -116,51 +122,46 @@ class Admin_model extends CI_Model {
     public function add_service()
     {
         $query2 = array();
-        $redirect = true;
 
         $temp = array(
-            'service_name' => $_POST['service_name'],
-            'service_about' => $_POST['service_about'],
-            'office_id' => $_POST['office_id'],
-            'date_start' => $_POST['date_start'],
-            'date_period' => $_POST['date_period'],
-            'month_period' => $_POST['month_period'],
-            'summ' => $_POST['summ'],
-            'cash_id' => $_POST['cash_id'],
-            'service_name_add' => @$_POST['service_name_add'],
-            'service_about_add' => @$_POST['service_about_add'],
-            'agreement_about' => $_POST['agreement_about'],
-            'agreement_about_add' => $_POST['agreement_about_add'],
-            'stat_payment' => $_POST['stat_payment'],
-            'user_id' => $_POST['user_id']
+            'service_name' => $this->strip_trim($_POST['service_name']),
+            'service_about' => $this->strip_trim($_POST['service_about']),
+            'office_id' => $this->strip_trim($_POST['office_id']),
+            'date_start' => $this->strip_trim($_POST['date_start']),
+            'date_period' => $this->strip_trim($_POST['date_period']),
+            'month_period' => $this->strip_trim($_POST['month_period']),
+            'summ' => $this->strip_trim($_POST['summ']),
+            'cash_id' => $this->strip_trim($_POST['cash_id']),
+            'service_name_add' => @$this->strip_trim($_POST['service_name_add']),
+            'service_about_add' => @$this->strip_trim($_POST['service_about_add']),
+            'agreement_about' => $this->strip_trim($_POST['agreement_about']),
+            'agreement_about_add' => $this->strip_trim($_POST['agreement_about_add']),
+            'stat_payment' => $this->strip_trim($_POST['stat_payment']),
+            'user_id' => $this->strip_trim($_POST['user_id'])
         );
 
 
 //        Проверка на добовления месяца
-        $dt1 = str_replace("-", "", $_POST['date_start']);
-        $dt2 = str_replace("-", "", $_POST['date_period']);
+        $dt1 = str_replace("-", "", $this->strip_trim($_POST['date_start']));
+        $dt2 = str_replace("-", "", $this->strip_trim($_POST['date_period']));
 
         if ($dt1 < $dt2) {
-            echo "1<br />";
-            echo $dt1."<br />";
-            echo $dt2."<br /><br />";
-
             $date = new DateTime($dt1);
             $date->modify("+".$temp['month_period']." month");
             $temp['date_recieved'] = $date->format('Y-m-d'); // 2013-06-17
         } else if ($dt1 == $dt2) {
-            $temp['date_recieved'] = $_POST['date_period']; // 2013-06-17
+            $temp['date_recieved'] = $this->strip_trim($_POST['date_period']); // 2013-06-17
         }
 //        Конец Проверки на добовления месяца
 //--------------------------------------------------------------------------
 //        Проверка на добовление услуги, если такая услуга уже есть
         $s_name = explode("/", $temp['service_name']);
         $s_about = explode("/", $temp['service_about']);
-        echo $s_name[0]; // 1, 2, 3, 4, 5 6 7
-        echo $s_name[1]; // Интернет Аренда Вычислительных Мощностей  Телефон IP Телефония Хостинг Сервера IP Телефония Телефон
+//        echo $s_name[0]; // 1, 2, 3, 4, 5 6 7
+//        echo $s_name[1]; // Интернет Аренда Вычислительных Мощностей  Телефон IP Телефония Хостинг Сервера IP Телефония Телефон
 
-        echo $s_about[0]; // 1, 2, 3, 4, 5 6 7
-        echo $s_about[1]; // Интернет Аренда Вычислительных Мощностей  Телефон IP Телефония Хостинг Сервера IP Телефония Телефон
+//        echo $s_about[0]; // 1, 2, 3, 4, 5 6 7
+//        echo $s_about[1]; // Интернет Аренда Вычислительных Мощностей  Телефон IP Телефония Хостинг Сервера IP Телефония Телефон
 
 //        Проверка ajax на совпадение сервисы выбранные пользователем с сервисами которые уже есть, сравнение жесткое.
 //        ....
@@ -231,11 +232,27 @@ class Admin_model extends CI_Model {
                                           '".$main_id."'
                                   )";
         $this->db->query($insert_into_statistic);
-
-        if ($redirect == true) {
-            $redirect = false;
-            header("Location: http://kandagarotchet/page_add_service");
-        }
+        return true;
     }
 
+    public function delete_service()
+    {
+        $id_service = intval($this->strip_trim($_POST['id_service']));
+        $agreement = intval($this->strip_trim($_POST['agreement']));
+
+        $this->db->query("DELETE FROM `kandagar_it_otchet`.`statistic` WHERE `statistic`.`main_id` = ".$id_service);
+        $this->db->query("DELETE FROM `kandagar_it_otchet`.`agreement` WHERE `agreement`.`agreement_id` = ".$agreement);
+        $this->db->query("DELETE FROM `kandagar_it_otchet`.`main` WHERE `main`.`main_id` = ".$id_service);
+
+        return 'ok';
+    }
+
+    public function show_statistic()
+    {
+        $id_service = intval($this->strip_trim($_POST['id_service']));
+        $agreement = intval($this->strip_trim($_POST['agreement']));
+
+        $row = $this->db->query("SELECT * FROM `statistic` WHERE main_id =".$id_service);
+        return $row->result_array();
+    }
 }

@@ -3,6 +3,15 @@
     margin: 0;
 }
 
+.status_service {
+    display: none;
+    position: absolute;
+    left: -93px;
+    top: 7px;
+    border: 1px solid;
+    background: #fff;
+}
+
 .dspBlock {
     display: block;
 }

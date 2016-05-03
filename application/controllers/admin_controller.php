@@ -3,18 +3,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin_controller extends CI_Controller {
 
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     public function logout()
     {
         $this->session->set_userdata('auth', 'no');
         redirect('login');
         echo "You don`t have permission";
         exit();
-    }
-
-    public function __construct()
-    {
-        parent::__construct();
-
     }
 
     public function index()
@@ -51,9 +50,29 @@ class Admin_controller extends CI_Controller {
     {
         if ($this->session->userdata('auth') == 'yes') {
             $this->load->model('admin_model');
-            $this->admin_model->add_service();
+            if ($this->admin_model->add_service() == true) {
+                redirect("page_admin_add_service");
+            }
         } else {
             $this->logout();
         }
+    }
+
+    public function delete_service()
+    {
+        header("Content-Type:text/plain");
+        $this->load->model('admin_model');
+        if ($this->admin_model->delete_service() == 'ok'){
+            return 'ok';
+        }
+    }
+
+    public function show_statistic() {
+        header('Content-Type: application/json');
+
+        $this->load->model('admin_model');
+        $data = $this->admin_model->show_statistic();
+
+        echo json_encode($data, JSON_FORCE_OBJECT);
     }
 }
