@@ -21,7 +21,6 @@ SELECT  m.main_id main,
 -- FROM statistic s
 FROM main m
 
-
 JOIN month_period mp
 ON  m.month_period_id = mp.month_period_id
 
