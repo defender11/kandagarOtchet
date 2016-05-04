@@ -39,7 +39,7 @@
 }
 
 .admin_list_service tr:hover:not(:nth-child(1)) {
-    background: #fffa90;
+    background: #fff;
     /*cursor: pointer;*/
 }
 

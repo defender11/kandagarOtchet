@@ -58,6 +58,56 @@ $(function () {
         return false;
     });
 //--------------------------------
+    $(document).on('click', '.status_service_btn', function () {
+        var $this = $(this);
+        var status_service = $this.data('status_service');
+        var agreement = $this.closest('.table_tr').data('agreement');
+        var main_id = $this.closest('.table_tr').data('main_id');
+        var month_period = $this.closest('.table_tr').data('month_period');
+        var stat_id = $this.closest('.table_tr').data('stat_id');
+        var current_month = $this.closest('.table_tr').find('.date_recieved').text();
+
+        switch (parseInt(status_service)) {
+            case 1:
+                //Статус оплачено
+                console.log(status_service);
+                $.ajax({
+                    data: "stat_id="+ stat_id + "&main_id=" + main_id + "&stat_month=" + current_month + "&month_period=" + month_period,
+                    url: $path + "set_success_stat",
+                    dataType: "text",
+                    type: "POST",
+                    success: function(data) {
+                        console.log(data);
+                        $this.closest('.table_tr').removeClass().addClass('table_tr good');
+                    }
+                });
+                break;
+            case 2:
+                //Статус получено
+                console.log(status_service);
+                $this.closest('.table_tr').removeClass().addClass('table_tr recieved');
+                break;
+            case 3:
+                //Статус В процессе
+                console.log(status_service);
+                $this.closest('.table_tr').removeClass().addClass('table_tr progress');
+                break;
+            case 4:
+                //Статус В архиве
+                console.log(status_service);
+                $this.closest('.table_tr').removeClass().addClass('table_tr archive');
+                break;
+            case 5:
+                //Статус просроченно
+                console.log(status_service);
+                $this.closest('.table_tr').removeClass().addClass('table_tr bad');
+                break;
+            default:
+        }
+
+
+    })
+// --------------------------------
     $(document).on('click', '.show_static', function () {
         var $this = $(this);
         var id_service = $this.closest('.row_setting').data('id_service');
@@ -96,7 +146,6 @@ $(function () {
                             $(".statistic_list").append("<li class='bad'>'" + $dataStat);
                             break;
                         default:
-
                     }
                 });
             }

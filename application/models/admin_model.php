@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin_model extends CI_Model {
 
+//    public $currentMonth = ;
     public $main = "SELECT * FROM main";
     public $cash = "SELECT * FROM cash";
     public $service = "SELECT * FROM service";
@@ -16,57 +17,57 @@ class Admin_model extends CI_Model {
 
     public $select_office = "SELECT * FROM office RIGHT JOIN month_period ON office_id = month_period_id LIMIT 0, 50 ";
 
-    public $select_join = "SELECT  m.main_id main,
-                                    a.agreement_id,
-                                    a.agreement_name,
-                                    srv.service_name,
-                                    srv.service_about,
-                                    off.office_name,
-                                    m.date_start,
-                                    m.date_recieved,
-                                    m.date_period,
-                                    mp.month_count_name,
-                                    s.stat_month,
-                                    s.stat_summ,
-                                    c.cash_country,
-                                    s.stat_payment,
-                                    st.status_name,
-                                    st.status_id,
-                                    usr.user_login,
-                                    usr.user_passwd,
-                                    usr.user_access,
-                                    usra.user_access_name
-
-                                FROM statistic s
-
-                                JOIN main m
-                                ON s.main_id = m.main_id
-
-                                JOIN month_period mp
-                                ON  m.month_period_id = mp.month_period_id
-
-                                JOIN office off
-                                ON off.office_id = m.office_id
-
-                                JOIN cash c
-                                ON c.cash_id = m.cash_id
-
-                                JOIN service srv
-                                ON srv.service_id = m.service_id
-
-                                JOIN status st
-                                ON st.status_id = s.status_id
-
-                                JOIN agreement a
-                                ON a.agreement_id = m.agreement_id
-
-                                JOIN users usr
-                                ON m.user_id = usr.user_id
-
-                                JOIN user_access usra
-                                ON usr.user_access = usra.user_access_id
-
-                                ORDER BY m.main_id ASC";
+//    public $select_join = "SELECT  m.main_id main,
+//                                    a.agreement_id,
+//                                    a.agreement_name,
+//                                    srv.service_name,
+//                                    srv.service_about,
+//                                    off.office_name,
+//                                    m.date_start,
+//                                    m.date_recieved,
+//                                    mp.month_count_name,
+//                                    s.stat_month,
+//                                    s.stat_summ,
+//                                    c.cash_country,
+//                                    s.stat_payment,
+//                                    st.status_name,
+//                                    st.status_id,
+//                                    usr.user_login,
+//                                    usr.user_passwd,
+//                                    usr.user_access,
+//                                    usra.user_access_name
+//
+//                                FROM statistic s
+//
+//                                JOIN main m
+//                                ON s.main_id = m.main_id
+//
+//                                JOIN month_period mp
+//                                ON  m.month_period_id = mp.month_period_id
+//
+//                                JOIN office off
+//                                ON off.office_id = m.office_id
+//
+//                                JOIN cash c
+//                                ON c.cash_id = m.cash_id
+//
+//                                JOIN service srv
+//                                ON srv.service_id = m.service_id
+//
+//                                JOIN status st
+//                                ON st.status_id = s.status_id
+//
+//                                JOIN agreement a
+//                                ON a.agreement_id = m.agreement_id
+//
+//                                JOIN users usr
+//                                ON m.user_id = usr.user_id
+//
+//                                JOIN user_access usra
+//                                ON usr.user_access = usra.user_access_id
+//
+//                                WHERE date_recieved LIKE '%-{parseInt(date(''))}-%'
+//                                ORDER BY m.main_id ASC";
 
 
     public function __construct()
@@ -110,7 +111,59 @@ class Admin_model extends CI_Model {
 
     public function select_all_service_join()
     {
-        return  $this->db->query($this->select_join)->result_array();
+        return  $this->db->query("SELECT  m.main_id main,
+                                    a.agreement_id,
+                                    a.agreement_name,
+                                    srv.service_name,
+                                    srv.service_about,
+                                    off.office_name,
+                                    m.date_start,
+                                    m.date_recieved,
+                                    m.month_period_id,
+                                    mp.month_count_name,
+                                    s.stat_month,
+                                    s.stat_summ,
+                                    c.cash_country,
+                                    s.stat_payment,
+                                    st.status_name,
+                                    st.status_id,
+                                    s.stat_id,
+                                    usr.user_login,
+                                    usr.user_passwd,
+                                    usr.user_access,
+                                    usra.user_access_name
+
+                                FROM statistic s
+
+                                JOIN main m
+                                ON s.main_id = m.main_id
+
+                                JOIN month_period mp
+                                ON  m.month_period_id = mp.month_period_id
+
+                                JOIN office off
+                                ON off.office_id = m.office_id
+
+                                JOIN cash c
+                                ON c.cash_id = m.cash_id
+
+                                JOIN service srv
+                                ON srv.service_id = m.service_id
+
+                                JOIN status st
+                                ON st.status_id = s.status_id
+
+                                JOIN agreement a
+                                ON a.agreement_id = m.agreement_id
+
+                                JOIN users usr
+                                ON m.user_id = usr.user_id
+
+                                JOIN user_access usra
+                                ON usr.user_access = usra.user_access_id
+
+                                WHERE s.stat_month LIKE '%-".date('m')."-%'
+                                ORDER BY m.main_id ASC")->result_array();
     }
 
 //        Выберим Все оффисы и период оплаты
@@ -128,7 +181,6 @@ class Admin_model extends CI_Model {
             'service_about' => $this->strip_trim($_POST['service_about']),
             'office_id' => $this->strip_trim($_POST['office_id']),
             'date_start' => $this->strip_trim($_POST['date_start']),
-            'date_period' => $this->strip_trim($_POST['date_period']),
             'month_period' => $this->strip_trim($_POST['month_period']),
             'summ' => $this->strip_trim($_POST['summ']),
             'cash_id' => $this->strip_trim($_POST['cash_id']),
@@ -142,16 +194,16 @@ class Admin_model extends CI_Model {
 
 
 //        Проверка на добовления месяца
-        $dt1 = str_replace("-", "", $this->strip_trim($_POST['date_start']));
-        $dt2 = str_replace("-", "", $this->strip_trim($_POST['date_period']));
-
-        if ($dt1 < $dt2) {
-            $date = new DateTime($dt1);
+//        $dt1 = str_replace("-", "", $this->strip_trim($_POST['date_start']));
+//        $dt2 = str_replace("-", "", $this->strip_trim($_POST['date_period']));
+//
+//        if ($dt1 < $dt2) {
+            $date = new DateTime($temp['date_start']);
             $date->modify("+".$temp['month_period']." month");
             $temp['date_recieved'] = $date->format('Y-m-d'); // 2013-06-17
-        } else if ($dt1 == $dt2) {
-            $temp['date_recieved'] = $this->strip_trim($_POST['date_period']); // 2013-06-17
-        }
+//        } else if ($dt1 == $dt2) {
+//            $temp['date_recieved'] = $this->strip_trim($_POST['date_period']); // 2013-06-17
+//        }
 //        Конец Проверки на добовления месяца
 //--------------------------------------------------------------------------
 //        Проверка на добовление услуги, если такая услуга уже есть
@@ -198,7 +250,6 @@ class Admin_model extends CI_Model {
                                   office_id,
                                   date_start,
                                   date_recieved,
-                                  date_period,
                                   month_period_id,
                                   cash_id,
                                   agreement_id,
@@ -208,7 +259,6 @@ class Admin_model extends CI_Model {
                        ".$temp['office_id'].",
                        '".$temp['date_start']."',
                        '".$temp['date_recieved']."',
-                       '".$temp['date_period']."',
                        ".$temp['month_period'].",
                        ".$temp['cash_id'].",
                        ".$query_agreement.",
@@ -254,5 +304,20 @@ class Admin_model extends CI_Model {
 
         $row = $this->db->query("SELECT * FROM `statistic` WHERE main_id =".$id_service);
         return $row->result_array();
+    }
+
+    public function set_success_stat()
+    {
+        $stat_id = intval($this->strip_trim($_POST['stat_id']));
+        $main_id = intval($this->strip_trim($_POST['main_id']));
+        $month_period = intval($this->strip_trim($_POST['month_period']));
+        $current_month = $this->strip_trim($_POST['stat_month']);
+
+        $date = new DateTime($current_month);
+        $date->modify("+".$month_period." month");
+        $current_month = $date->format('Y-m-d'); // 2013-06-17
+
+        $this->db->query("UPDATE statistic SET status_id = 1 WHERE stat_id = ".$stat_id);
+        $this->db->query("INSERT INTO statistic(stat_id, stat_month, status_id, main_id) VALUES(null, '".$current_month."', 3, ".$main_id.")");
     }
 }

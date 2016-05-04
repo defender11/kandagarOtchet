@@ -75,4 +75,12 @@ class Admin_controller extends CI_Controller {
 
         echo json_encode($data, JSON_FORCE_OBJECT);
     }
+
+    public function set_success_stat()
+    {
+        header("Content-Type:text/plain");
+
+        $this->load->model('admin_model');
+        $this->admin_model->set_success_stat();
+    }
 }

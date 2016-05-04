@@ -57,15 +57,11 @@ include 'admin_menu.php';
                 <?php endforeach; ?>
             </select>
 <!--            <br />-->
-            <label for="datepicker_start">Начало услуги.</label>
+            <label for="datepicker_start">Начало действия договора.</label>
 <!--            <br />-->
             <input type="text" id="datepicker_start" value="<?php echo date("Y-m-d") ?>" name="date_start">
 <!--            <br />-->
-            <label for="datepicker_period">Конец услуги.</label>
-<!--            <br />-->
-            <input type="text" id="datepicker_period" value="<?php echo date("Y-m-d") ?>" name="date_period">
-<!--            <br />-->
-            <label for="month_period">Периуд оплаты</label>
+            <label for="month_period">Период оплаты</label>
 <!--            <br />-->
             <select name="month_period" id="month_period">
                 <?php foreach($officeInfo as $value_office) : ?>
@@ -80,11 +76,11 @@ include 'admin_menu.php';
             <legend>Цена</legend>
             <label for="payment_namber">Номер счета</label>
 <!--            <br />-->
-            <input type="text" id="payment_namber" name="stat_payment" required>
+            <input type="text" id="payment_namber" name="stat_payment" >
 <!--            <br />-->
             <label for="summ">Сумма за месяц</label>
 <!--            <br />-->
-            <input type="text" id="summ" name="summ" required>
+            <input type="text" id="summ" name="summ" >
 
             <select name="cash_id" id="cash_id">
                 <?php foreach($selectCash as $value_cash) : ?>
@@ -100,30 +96,31 @@ include 'admin_menu.php';
     <table border="0" class="admin_list_service" cellpadding="0" cellspacing="0">
         <caption> Список сервисов. </caption>
         <tr>
-            <th>№ договора</th>
             <th>№ счета</th>
             <th>Сервис</th>
             <th>Описание сервиса</th>
             <th>Офис</th>
             <th>Дата начала услуги</th>
             <th>Дата получения</th>
-            <th>Дата Окончания</th>
-            <th>Периуд услуги</th>
+            <th>Период услуги</th>
             <th>Сумма</th>
             <th>Валюта</th>
             <th>Статус</th>
             <th></th>
         </tr>
         <?php foreach($selectJoinInfo as $valueJoinInfo) :?>
-        <tr class="<?php setClassForShowStatusTable($valueJoinInfo['status_id']); ?>">
-            <td class="table_list"><?php echo $valueJoinInfo['agreement_name'];?></td>
+        <tr class="table_tr <?php setClassForShowStatusTable($valueJoinInfo['status_id']); ?>"
+            data-agreement="<?php echo $valueJoinInfo['agreement_id'];?>"
+            data-main_id="<?php echo $valueJoinInfo['main'];?>"
+            data-month_period="<?php echo $valueJoinInfo['month_period_id'];?>"
+            data-stat_id="<?php echo $valueJoinInfo['stat_id'];?>"
+        >
             <td class="table_list"><?php echo $valueJoinInfo['stat_payment'];?></td>
             <td class="table_list"><?php echo $valueJoinInfo['service_name'];?></td>
             <td class="table_list"><?php echo $valueJoinInfo['service_about'];?></td>
             <td class="table_list"><?php echo $valueJoinInfo['office_name'];?></td>
             <td class="table_list"><?php echo $valueJoinInfo['date_start']?></td>
-            <td class="table_list"><?php echo $valueJoinInfo['date_recieved']?></td>
-            <td class="table_list"><?php echo $valueJoinInfo['date_period']?></td>
+            <td class="table_list date_recieved"><?php echo $valueJoinInfo['date_recieved']?></td>
             <td class="table_list"><?php echo $valueJoinInfo['month_count_name'];?></td>
             <td class="table_list"><?php echo $valueJoinInfo['stat_summ'];?></td>
             <td class="table_list"><?php echo $valueJoinInfo['cash_country']?></td>
@@ -137,7 +134,7 @@ include 'admin_menu.php';
                         <p data-status_service="<?php echo $valueJoinInfo['status_id'] ?>"><i class="fa fa-check"></i><?php echo $valueJoinInfo['status_name'] ?></p>
                         <p>-------------</p>
                         <?php foreach ($selectStatus as $key => $valusStat) : ?>
-                            <p data-status_service="<?php echo $valusStat['status_id'] ?>"><?php echo $valusStat['status_name'] ?></p>
+                            <p class="status_service_btn" data-status_service="<?php echo $valusStat['status_id'] ?>"><?php echo $valusStat['status_name'] ?></p>
                         <?php endforeach; ?>
                     </div>
                     <p class="show_static">Статистика</p>
@@ -158,7 +155,15 @@ include 'admin_menu.php';
             <li>Статистика оплаты</li>
         </ul>
     </div>
+    <div class='recieve_form dspNone'>
+        <form action=''>
+            <label for="payment_recieve">№ Счета</label>
+            <input type="text" id="payment_recieve" required>
+            <label for="summ_recieve">Сумма</label>
+            <input type="text" id="summ_recieve" required>
+            <input type="submit" value="Внести">
+        </form>
+    </div>
 </div>
-
 </body>
 </html>

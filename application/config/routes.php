@@ -58,6 +58,7 @@ $route['logout'] = 'login_controller/logout';
 
 $route['delete_service'] = 'admin_controller/delete_service';
 $route['show_statistic'] = 'admin_controller/show_statistic';
+$route['set_success_stat'] = 'admin_controller/set_success_stat';
 
 $route['login_check'] = 'login_controller/check_login';
 $route['404_override'] = '';
