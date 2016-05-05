@@ -8,14 +8,6 @@ class Admin_controller extends CI_Controller {
         parent::__construct();
     }
 
-    public function logout()
-    {
-        $this->session->set_userdata('auth', 'no');
-        redirect('login');
-        echo "You don`t have permission";
-        exit();
-    }
-
     public function index()
     {
         if ($this->session->userdata('auth') == 'yes') {
@@ -44,6 +36,21 @@ class Admin_controller extends CI_Controller {
         } else {
             $this->logout();
         }
+    }
+
+    public function page_admin_agreement ()
+    {
+        $this->load->model('admin_model');
+        $this->load->view('');
+    }
+
+//    -------------------------------------------------------------------------
+    public function logout()
+    {
+        $this->session->set_userdata('auth', 'no');
+        redirect('login');
+        echo "You don`t have permission";
+        exit();
     }
 
     public function add_service ()
