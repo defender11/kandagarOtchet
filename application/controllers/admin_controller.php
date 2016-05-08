@@ -32,11 +32,18 @@ class Admin_controller extends CI_Controller {
             $allInfo['selectStatus'] = $this->admin_model->select_all_status();
             $allInfo['selectUser'] = $this->admin_model->select_user();
             $allInfo['select_all_user_status'] = $this->admin_model->select_all_user_status();
-            echo "<pre>";
-            var_dump(strval(date('Y-m-d')));
-            echo "</pre>";
-
             $this->load->view('admin_view', $allInfo);
+        } else {
+            $this->logout();
+        }
+    }
+
+    public function page_admin_future ()
+    {
+        if ($this->session->userdata('auth') == 'yes') {
+            $this->load->model('admin_model');
+            $allInfo['futureData'] = $this->admin_model->select_all_payment_future();
+            $this->load->view('admin_future', $allInfo);
         } else {
             $this->logout();
         }
@@ -60,12 +67,25 @@ class Admin_controller extends CI_Controller {
     }
 
 //    -------------------------------------------------------------------------
+
     public function logout()
     {
         $this->session->set_userdata('auth', 'no');
         redirect('login');
         echo "You don`t have permission";
         exit();
+    }
+
+    public function future_payment ()
+    {
+        if ($this->session->userdata('auth') == 'yes') {
+            header('Content-Type: application/json');
+            $this->load->model('admin_model');
+            $data = $this->admin_model->select_all_payment_future();
+            echo json_encode($data, JSON_FORCE_OBJECT);
+        } else {
+            $this->logout();
+        }
     }
 
     public function add_service ()

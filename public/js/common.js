@@ -3,6 +3,7 @@
  */
 $(function () {
     var $path = 'http://kandagarotchet/';
+    var $path_no_routes = 'http://kandagarotchet/index.php/';
 
     $('.service_block_add_new_field_btn').on('click', function() {
         $('.service_block_add_new_field').removeClass('dspNone').addClass('dspBlock');
@@ -118,6 +119,63 @@ $(function () {
 
 
     })
+// --------------------------------
+//    SYSTEM FUTURE
+//    $(document).on('click', '.btn_future_payament', function () {
+//       var $this = $(this);
+//        var year = $('#year_future option:selected').val();
+//        var month = $('#month_future option:selected').val();
+//
+//        console.log(year + "-" + month);
+//
+//        $.ajax({
+//            data: "year_future=" + year + "&month_future=" + month,
+//            type: "POST",
+//            url: $path_no_routes + "admin_controller/future_payment",
+//            dataType: "JSON",
+//            success: function (data) {
+//                console.log(data);
+//
+//
+//
+//
+//
+//
+//
+//                //{"0":
+//                //    {"main_id":"40",
+//                //        "agreement_id":"43",
+//                //        "agreement_name":"999\/6.2",
+//                //        "service_name":"Караван телеком",
+//                //        "service_about":"Интернет",
+//                //        "office_name":"ТК Кандагар-Крым",
+//                //        "date_start":"2016-04-18",
+//                //        "date_recieved":"2016-05-18",
+//                //        "month_period_id":"1",
+//                //        "month_count_name":"Месяц",
+//                //        "stat_month":"2016-05-18",
+//                //        "stat_summ":"0",
+//                //        "cash_country":"руб.",
+//                //        "stat_payment":"",
+//                //        "status_name":"В процессе",
+//                //        "status_id":"3",
+//                //        "stat_id":"66",
+//                //        "user_login":"test",
+//                //        "user_passwd":"098f6bcd4621d373cade4e832627b4f6A@35ko!",
+//                //        "user_access":"2",
+//                //        "user_access_name":"Proffi"
+//                //    }
+//                //}
+//
+//            }
+//        })
+//
+//        return false;
+    });
+
+
+//    END SYSTEM FUTURE
+// --------------------------------
 // --------------------------------
     $(document).on('click', '.show_static', function () {
         var $this = $(this);

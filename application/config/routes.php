@@ -54,6 +54,7 @@ $route['default_controller'] = 'admin_controller/index';
 $route['page_admin'] = 'admin_controller/index';
 $route['page_admin_agreement'] = 'admin_controller/page_admin_agreement';
 $route['page_admin_add_service'] = 'admin_controller/page_add_service';
+$route['page_admin_future'] = 'admin_controller/page_admin_future';
 
 $route['login'] = 'login_controller/index';
 $route['logout'] = 'login_controller/logout';

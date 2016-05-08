@@ -15,7 +15,7 @@ include 'function.php';
 
     <script src="http://code.jquery.com/jquery-1.9.0.js"></script>
     <script src="../../public/js/jquery-ui.min.js"></script>
-    <script src="../../public/js/common.js?v=1.0"></script>
+    <script src="../../public/js/common.js?v=1.1"></script>
     <script>
         $(function() {
             $( "#datepicker_start" ).datepicker({

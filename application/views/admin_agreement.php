@@ -121,7 +121,8 @@ include 'admin_menu.php';
             <th>Статус</th>
             <th></th>
         </tr>
-        <?php foreach($selectJoinInfo as $valueJoinInfo) :?>
+        <?php if (is_array($selectJoinInfo) && !empty($selectJoinInfo)) :?>
+            <?php foreach ($selectJoinInfo as $valueJoinInfo) :?>
             <tr class="table_tr <?php setClassForShowStatusTable($valueJoinInfo['status_id']); ?>"
                 data-agreement="<?php echo $valueJoinInfo['agreement_id'];?>"
                 data-main_id="<?php echo $valueJoinInfo['main_id'];?>"
@@ -158,7 +159,11 @@ include 'admin_menu.php';
                     </div>
                 </td>
             </tr>
-        <?php endforeach; ?>
+            <?php endforeach; else:?>
+            <tr class="table_tr">
+                <td class="table_list" colspan="10">Нет договоров.</td>
+            </tr>
+        <?php endif; ?>
     </table>
     <div class="statistic_box">
         <div class="close_setting"></div>

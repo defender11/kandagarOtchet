@@ -67,7 +67,6 @@
     margin: 0 auto;
     display: block;
     position: relative;
-    width: 500px;
 }
 
     .menu_box_ li {
@@ -93,6 +92,10 @@
     color: blue;
     text-decoration: underline;
     cursor: pointer;
+}
+
+.user_info {
+    text-align: left;
 }
 
 .user_login,
