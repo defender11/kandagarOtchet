@@ -41,8 +41,62 @@ class Admin_controller extends CI_Controller {
     public function page_admin_future ()
     {
         if ($this->session->userdata('auth') == 'yes') {
+            $threeYear = 36;
+            @$crntYear = $this->strip_trim($_POST['year_future']);
+            @$crntMonth = $this->strip_trim($_POST['month_future']);
+            @$joinCrntMY = $crntYear . "-" . $crntMonth;
+
+//          Добавить расчитанные на странице 3 месяца в массив
+//          ----------------
+            for ($i = 0; $i < 3; $i++) {
+                @$year["year".$i] = $this->strip_trim($_POST["year_f".$i.""]);
+            }
+//          ----------------
             $this->load->model('admin_model');
             $allInfo['futureData'] = $this->admin_model->select_all_payment_future();
+//            ---------------------
+//            Расчет прогнозирование
+//            ---------------------
+            if ($year["year0"] == $crntYear) {
+                $crntMonth = 0 + $crntMonth;
+            } elseif ($year["year1"] == $crntYear) {
+                $crntMonth = 12 + $crntMonth;
+            } else {
+                $crntMonth = 24 + $crntMonth;
+            }
+            foreach ($allInfo['futureData'] as $k => $val) {
+                if (!empty($val["month_period_id"])) {
+                    @$yearItem = substr($val['stat_month'], 0, 4);
+                    @$monthItem = substr($val['stat_month'], 5, 2);
+
+                    @$monthItem1 = substr($val['stat_month'], 0, 7);
+
+                    if (!empty($crntMonth)) {
+                        for ($i = $crntMonth; $i < $threeYear; $i += intval($val["month_period_id"])) {
+
+                            $date = new DateTime($monthItem1);
+                            $date->modify("+" . intval($val["month_period_id"]) . " month");
+                            $monthItem1 = $date->format('Y-m'); // 2013-06-17
+
+                            $m1 = str_replace("-", "", $monthItem1);
+                            $m2 = str_replace("-", "", $joinCrntMY);
+
+                            if ($m1 == $m2) {
+                                $allInfo['futureData'][$k]['new_months'][] = $monthItem1 . "-01";
+                                break;
+                            } else {
+                                continue;
+                            }
+                        }
+                        continue;
+                    } else {
+                        echo "";
+                    }
+                } else {
+                    echo "";
+                }
+            }
+//            ---------------------
             $this->load->view('admin_future', $allInfo);
         } else {
             $this->logout();
@@ -124,5 +178,10 @@ class Admin_controller extends CI_Controller {
 
         $this->load->model('admin_model');
         $this->admin_model->set_success_stat();
+    }
+
+    public function strip_trim ($value)
+    {
+        return trim(strip_tags($value));
     }
 }

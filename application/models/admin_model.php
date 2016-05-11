@@ -142,7 +142,7 @@ class Admin_model extends CI_Model {
         @$ym = $this->strip_trim($_POST['year_future'])."-".$this->strip_trim($_POST['month_future']);
         $row = $this->db->query($this->join_table_all. "
                                 WHERE  s.stat_month < '".$ym."' OR s.stat_month = '".$ym."'")->result_array();
-        $row['selectData'] = $ym;
+        $row[0]['selectData'] = $ym;
         return $row;
     }
 
