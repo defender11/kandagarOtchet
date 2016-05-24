@@ -198,19 +198,30 @@ class Admin_model extends CI_Model {
 //        ....
 //        $testing = $this->db->query($this->service)->result_array();
 
-        if ($s_name[0] != $s_about[0]) {
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-            $this->db->query("INSERT INTO service VALUE(NULL, '".$s_name[1]."', '".$s_about[1]."') ");
-            $query2 = $this->db->query("SELECT service_id FROM service ORDER BY service_id DESC LIMIT 1")->result_array();
-
-        } else if (!empty($_POST['service_name_add']) || !empty($_POST['service_about_add'])) {
-
+        $checkServRes = 0;
+        if (!empty($_POST['service_name_add']) || !empty($_POST['service_about_add'])) {
             $this->db->query("INSERT INTO service VALUE(NULL, '".$temp['service_name_add']."', '".$temp['service_about_add']."') ");
-            $query2 = $this->db->query("SELECT service_id FROM service ORDER BY service_id DESC LIMIT 1")->result_array();
-
+            $query2[0]['service_id'] = $this->db->insert_id();
         } else {
-            $query2[0]['service_id'] =  $s_name[0];
+            $checkServ = $this->db->query("SELECT * FROM service")->result_array();
+
+            foreach ($checkServ as $checkS) {
+                if ($checkS['service_name'] == $s_name[1] && $checkS['service_about'] == $s_about[1]) {
+                    $query2[0]['service_id'] = $checkS['service_id'];
+                    $checkServRes = 1;
+                } else {
+                    continue;
+                }
+            }
+
+            if ($checkServRes == 0) {
+                $this->db->query("INSERT INTO service VALUE(NULL, '" . $s_name[1] . "', '" . $s_about[1] . "') ");
+                $query2[0]['service_id'] = $this->db->insert_id();
+            }
         }
+
 //        Конец Проверки на добовление услуги, если такая услуга уже есть
 //--------------------------------------------------------------------------
 //        Вставляем в таблицу agreement № Договора и возврощяем ID
@@ -274,6 +285,17 @@ class Admin_model extends CI_Model {
         $this->db->query("DELETE FROM `kandagar_it_otchet`.`main` WHERE `main`.`main_id` = ".$id_service);
 
         return 'ok';
+    }
+
+    public function update_agreement()
+    {
+        $id = $_POST['service_id'];
+
+        $data = array(
+            'service_name' => $this->strip_trim($_POST['service_name']),
+            'service_about' => $this->strip_trim($_POST['service_about'])
+        );
+        $this->db->query("UPDATE service SET service_name = '". $data['service_name'] ."', service_about = '". $data['service_about']."' WHERE service_id =". $id);
     }
 
     public function show_statistic()

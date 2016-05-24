@@ -55,6 +55,7 @@ $route['page_admin'] = 'admin_controller/index';
 $route['page_admin_agreement'] = 'admin_controller/page_admin_agreement';
 $route['page_admin_add_service'] = 'admin_controller/page_add_service';
 $route['page_admin_future'] = 'admin_controller/page_admin_future';
+$route['page_admin_list_service'] = 'admin_controller/page_admin_list_service';
 
 $route['login'] = 'login_controller/index';
 $route['logout'] = 'login_controller/logout';
@@ -62,6 +63,7 @@ $route['login_check'] = 'login_controller/check_login';
 
 $route['show_statistic'] = 'admin_controller/show_statistic';
 $route['delete_service'] = 'admin_controller/delete_service';
+$route['update_agreement'] = 'admin_controller/update_agreement';
 
 $route['set_success_stat'] = 'admin_controller/set_success_stat';
 

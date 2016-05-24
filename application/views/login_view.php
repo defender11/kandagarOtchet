@@ -13,5 +13,4 @@ include 'header.php';
 </div>
 <?php //echo "<pre>"; var_dump($selectJoinInfo); echo "</pre>";  ?>
 
-</body>
-</html>
+<?php include 'footer.php'; ?>

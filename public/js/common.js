@@ -1,6 +1,32 @@
 /**
  * Created by Administrator on 4/21/2016.
  */
+
+function checkTimeZero (data) {
+    if  (data > 0 && data < 10) {
+        return "0" + data;
+    } else if (data == 0) {
+        return "00";
+    } else {
+        return data;
+    }
+}
+
+var time = function () {
+    var date = new Date();
+    var elTime = document.getElementById('crntTime');
+    elTime.innerHTML = checkTimeZero(date.getHours()) + ":" + checkTimeZero(date.getMinutes()) + ":" + checkTimeZero(date.getSeconds());
+};
+// час в текущей временной зоне
+setInterval(time, 1000);
+
+function preloadRequest($btnNameHide ) {
+    $btnNameHide.innerHTML = "Обновление";
+}
+function afterRequest($btnNameShow) {
+    $btnNameShow.innerHTML = "Изменить";
+}
+
 $(function () {
     var $path = 'http://kandagarotchet/';
     var $path_no_routes = 'http://kandagarotchet/index.php/';
@@ -26,14 +52,17 @@ $(function () {
 //--------------------------------
     $(document).on('click', '.show_status', function () {
        var $this = $(this);
-        $this.next().toggleClass('dspBlock');
+        $('.status_service').toggleClass('dspBlock');
     });
 //--------------------------------
     $(document).on('click', '.close_setting', function() {
        $(this).next().fadeOut('fast');
         $('.status_service').removeClass('dspBlock');
         $('.statistic_box').fadeOut('fast');
+        $('.form_change_service').removeClass('dspBlock');
+        $('.form_change_service').fadeOut('fast');
         $('.statistic_list li:not(:nth-child(1))').remove();
+
         $(this).fadeOut('fast');
     });
 //--------------------------------
@@ -171,7 +200,7 @@ $(function () {
 //        })
 //
 //        return false;
-    });
+//    });
 
 
 //    END SYSTEM FUTURE
@@ -220,4 +249,68 @@ $(function () {
             }
         });
     });
+
+//    Страница правки поставщиков
+
+    $(document).on('click', '.btn_edit', function() {
+        var $this = $(this);
+
+        $('.form_change_service').removeClass('dspNone');
+        $('.form_change_service').addClass('dspBlock');
+        $('.close_setting').fadeIn('fast');
+
+        var sId = $this.closest('.schange').data('sid');
+        var sName = $this.closest('.schange').find('.sName').text();
+        var sAbout = $this.closest('.schange').find('.sAbout').text();
+
+        $('.form_change_service').attr('data-service-id', sId);
+        $('#service_name').attr('value', sName).val(sName);
+        $('#service_about').attr('value', sAbout).val(sAbout);
+
+    });
+
+    $(document).on('click', '.btn_change_service', function() {
+       var $this = $(this);
+
+        var sId = $this.closest('.form_change_service').data('service-id');
+        var sName = $this.closest('.form_change_service').find('#service_name').val();
+        var sAbout = $this.closest('.form_change_service').find('#service_about').val();
+
+        $.ajax({
+            data: "service_id=" + sId + "&service_name=" + sName + "&service_about=" + sAbout,
+            type: "POST",
+            url: $path + "update_agreement",
+            dataType: "text",
+            beforeSend: function() {
+                $(".btn_change_service:after").html("<i class='fa fa-spinner fa-pulse fa-fw margin-bottom'></i>");
+            },
+            success: function (data) {
+                console.log(data);
+                $this.text('Изменить');
+                    $("." + sId + " .sName").text(sName);
+                    $("." + sId + " .sAbout").text(sAbout);
+                $("." + sId).css({"background" : "#F9E400"}).animate({
+                    backgroundColor: "#fff"
+                }, 1500);
+                $('.form_change_service').removeClass('dspBlock');
+                $('.form_change_service').addClass('dspNone');
+                $('.close_setting').fadeOut('fast');
+            },
+            error: function (data) {
+                console.log(data);
+                $this.text('Ошибка, Повторите');
+                $("." + sId).css({"background" : "#F83F3F"}).animate({
+                    backgroundColor: "#fff"
+                }, 1500);
+            }
+
+        })
+    });
+
+
+    $(document).on('click', '.btn_close', function() {
+       $(this).closest('.form-close').addClass('dspNone');
+        $('.close_setting').fadeOut('fast');
+    });
+
 });

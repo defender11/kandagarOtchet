@@ -140,8 +140,9 @@ include 'admin_menu.php';
                 <td class="table_list tbl_list_setting">
                     <i class="fa fa-cog"></i>
                     <div class="close_setting"></div>
-                    <div class="row_setting" data-id_service='<?php echo $valueJoinInfo['main']; ?>' data-agreement='<?php echo $valueJoinInfo['agreement_id']; ?>' >
+                    <div class="row_setting" data-id_service='<?php echo $valueJoinInfo['main_id']; ?>' data-agreement='<?php echo $valueJoinInfo['agreement_id']; ?>' >
                         <p class="show_status"><i class="fa fa-chevron-left"></i> Статус</p>
+                        <p><i class="fa fa-pencil-square-o btn_edit" aria-hidden="true"></i> Изменить</p>
                         <div class="status_service">
                             <p data-status_service="<?php echo $valueJoinInfo['status_id'] ?>"><i class="fa fa-check"></i><?php echo $valueJoinInfo['status_name'] ?></p>
                             <p>-------------</p>
@@ -149,11 +150,11 @@ include 'admin_menu.php';
                                 <p class="status_service_btn" data-status_service="<?php echo $valusStat['status_id'] ?>"><?php echo $valusStat['status_name'] ?></p>
                             <?php endforeach; ?>
                         </div>
-                        <p class="show_static">Статистика</p>
+<!--                        <p class="show_static">Статистика</p>-->
                         <?php
                         if ($userAccess == 2) {
                             echo '<p>-------------</p>';
-                            echo "<p data-id_service='".$valueJoinInfo['main']."' data-agreement='".$valueJoinInfo['agreement_id']."' class='btn_delete_service'>Удалить</p>";
+                            echo "<p data-id_service='".$valueJoinInfo['main_id']."' data-agreement='".$valueJoinInfo['agreement_id']."' class='btn_delete_service'><i class='fa fa-trash-o' aria-hidden='true'></i> Удалить</p>";
                         }
                         ?>
                     </div>
@@ -181,5 +182,4 @@ include 'admin_menu.php';
         </form>
     </div>
 </div>
-</body>
-</html>
+<?php include 'footer.php'; ?>

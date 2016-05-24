@@ -13,11 +13,11 @@
 }
 
 .dspBlock {
-    display: block;
+    display: block!important;
 }
 
 .dspNone {
-    display: none;
+    display: none!important;
 }
 
 .clear {

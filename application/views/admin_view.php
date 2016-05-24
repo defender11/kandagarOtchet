@@ -4,60 +4,6 @@ include 'admin_menu.php';
 ?>
 
 <div class="conteiner">
-    <form action="http://kandagarotchet/index.php/admin_controller/page_admin_future" method="post">
-        <fieldset>
-            <label for="">Месяц: </label>
-            <select name="month_future" id="month_future">
-                <?php
-                $array_month = array(
-                    '',
-                    'Январь',
-                    'Февраль',
-                    'Март',
-                    'Апрель',
-                    'Май',
-                    'Июнь',
-                    'Июль',
-                    'Август',
-                    'Сентябрь',
-                    'Октябрь',
-                    'Ноябрь',
-                    'Декабрь'
-                );
-
-                foreach ($array_month as $key_month => $value_month) {
-                    if ($key_month == '') {
-                        continue;
-                    } else {
-                        if (date('m') < $key_month) {
-                            if ($key_month < 10) {
-                                echo "<option value='0{$key_month}'>{$value_month}</option>";
-                            } else {
-                                echo "<option value='{$key_month}'>{$value_month}</option>";
-                            }
-                        } else {
-                            continue;
-                        }
-                    }
-                }
-                ?>
-            </select>
-            <label for="">Год: </label>
-            <select name="year_future" id="year_future">
-                <?php
-                $countYear = 3;
-                $currYear = intval(date('Y'));
-
-                for ($i = 0; $i < $countYear; $i++) {
-                    echo "<option value='".$currYear."'>".$currYear."</option>";
-                    $currYear++;
-                }
-                ?>
-            </select>
-            <input type="text" value="" hidden>
-            <input type="submit" name="btn_future_payament" class="btn_future_payament" value="Предсказать будущее">
-        </fieldset>
-    </form>
 
     <table border="0" class="admin_list_service" cellpadding="0" cellspacing="0">
         <caption> Список счетов на: <?php echo date('Y-m-01'); ?></caption>
@@ -143,5 +89,4 @@ include 'admin_menu.php';
         </form>
     </div>
 </div>
-</body>
-</html>
+<?php include 'footer.php'; ?>

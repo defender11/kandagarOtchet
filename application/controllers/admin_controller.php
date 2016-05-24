@@ -38,10 +38,23 @@ class Admin_controller extends CI_Controller {
         }
     }
 
+    public function page_admin_list_service ()
+    {
+        if ($this->session->userdata('auth') == 'yes') {
+            $this->load->model('admin_model');
+            $allInfo['serviceInfo'] = $this->admin_model->select_service();
+            $allInfo['selectUser'] = $this->admin_model->select_user();
+            $allInfo['select_all_user_status'] = $this->admin_model->select_all_user_status();
+            $this->load->view('admin_list_service_view', $allInfo);
+        } else {
+            $this->logout();
+        }
+    }
+
     public function page_admin_future ()
     {
         if ($this->session->userdata('auth') == 'yes') {
-            $threeYear = 36;
+            $threeYear = 100;
             @$crntYear = $this->strip_trim($_POST['year_future']);
             @$crntMonth = $this->strip_trim($_POST['month_future']);
             @$joinCrntMY = $crntYear . "-" . $crntMonth;
@@ -57,19 +70,14 @@ class Admin_controller extends CI_Controller {
 //            ---------------------
 //            Расчет прогнозирование
 //            ---------------------
-            if ($year["year0"] == $crntYear) {
-                $crntMonth = 0 + $crntMonth;
-            } elseif ($year["year1"] == $crntYear) {
-                $crntMonth = 12 + $crntMonth;
-            } else {
-                $crntMonth = 24 + $crntMonth;
-            }
+
             foreach ($allInfo['futureData'] as $k => $val) {
                 if (!empty($val["month_period_id"])) {
                     @$yearItem = substr($val['stat_month'], 0, 4);
                     @$monthItem = substr($val['stat_month'], 5, 2);
 
                     @$monthItem1 = substr($val['stat_month'], 0, 7);
+//                    echo $k."<br />";
 
                     if (!empty($crntMonth)) {
                         for ($i = $crntMonth; $i < $threeYear; $i += intval($val["month_period_id"])) {
@@ -82,11 +90,14 @@ class Admin_controller extends CI_Controller {
                             $m2 = str_replace("-", "", $joinCrntMY);
 
                             if ($m1 == $m2) {
+//                                echo $m1 . " == " . $m2 . "<br />";
                                 $allInfo['futureData'][$k]['new_months'][] = $monthItem1 . "-01";
                                 break;
                             } else {
+//                                echo $m1 ." != ". $m2."<br />";
                                 continue;
                             }
+//                            echo "-----------<br />";
                         }
                         continue;
                     } else {
@@ -97,6 +108,7 @@ class Admin_controller extends CI_Controller {
                 }
             }
 //            ---------------------
+//            $this->output->enable_profiler(TRUE);
             $this->load->view('admin_future', $allInfo);
         } else {
             $this->logout();
@@ -183,5 +195,12 @@ class Admin_controller extends CI_Controller {
     public function strip_trim ($value)
     {
         return trim(strip_tags($value));
+    }
+
+    public function update_agreement () {
+        header("Content-Type:text/plain");
+
+        $this->load->model('admin_model');
+        $this->admin_model->update_agreement();
     }
 }
