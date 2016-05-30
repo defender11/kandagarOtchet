@@ -25,6 +25,8 @@ $(document).ready(function () {
     var $path = 'http://kandagarotchet/';
     var $path_no_routes = 'http://kandagarotchet/index.php/';
 
+    $('.menu, .login_start').css('height', +innerHeight + 'px');
+
     $('.service_block_add_new_field_btn').on('click', function() {
         $('.service_block_add_new_field').removeClass('dspNone').addClass('dspBlock');
         $('.service_block_add_field').addClass('dspNone');
@@ -394,6 +396,82 @@ $(document).ready(function () {
             },
             error: function () {
                 $('.wait_load').remove();
+            }
+
+        });
+        return false;
+    });
+
+    // ------------------BUILD
+
+    $(document).on('click', '.btn_box_build_run', function () {
+        var $this = $(this);
+
+        var bId = $this.closest('.build_box_row').data('bid');
+        var bTrigger = $this.data('build_trigger');
+
+        $this.closest('.build_box_row').append("<span class='btn btn_box_build_back' data-build_trigger='4'>Отменить</span>");
+        $this.closest('.build_box_row').addClass('good').removeClass('recieved');
+        $this.remove();
+
+        $.ajax({
+            data: "build_id=" + bId + "&build_trigger=" + bTrigger,
+            type: "POST",
+            url: $path + "admin_controller/build_log_change",
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+            },
+            error: function () {
+            }
+
+        });
+        return false;
+    });
+
+    $(document).on('click', '.btn_box_build_del', function () {
+        var $this = $(this);
+
+        var bId = $this.closest('.build_box_row').data('bid');
+        var bTrigger = $this.data('build_trigger');
+
+        $this.closest('.build_box_row').fadeOut('fast').remove();
+
+        $.ajax({
+            data: "build_id=" + bId + "&build_trigger=" + bTrigger,
+            type: "POST",
+            url: $path + "admin_controller/build_log_change",
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+
+            },
+            error: function () {
+            }
+
+        });
+        return false;
+    });
+
+    $(document).on('click', '.btn_box_build_back', function () {
+        var $this = $(this);
+
+        var bId = $this.closest('.build_box_row').data('bid');
+        var bTrigger = $this.data('build_trigger');
+
+        $this.closest('.build_box_row').addClass('recieved').removeClass('good');
+        $this.closest('.build_box_row').append("<span class='btn btn_box_build_run' data-build_trigger='2'>Выполнил</span>");
+        $this.remove();
+
+        $.ajax({
+            data: "build_id=" + bId + "&build_trigger=" + bTrigger,
+            type: "POST",
+            url: $path + "admin_controller/build_log_change",
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+            },
+            error: function () {
             }
 
         });

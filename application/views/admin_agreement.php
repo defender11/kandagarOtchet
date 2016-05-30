@@ -154,7 +154,7 @@ include 'admin_menu.php';
                         </div>
 <!--                        <p class="show_static">Статистика</p>-->
                         <?php
-                        if ($userAccess == 2) {
+                        if ($userAccess == 2 || $userAccess == 3) {
                             echo '<p>-------------</p>';
                             echo "<p data-id_service='".$valueJoinInfo['main_id']."' data-agreement='".$valueJoinInfo['agreement_id']."' class='btn_delete_service'><i class='fa fa-trash-o' aria-hidden='true'></i> Удалить</p>";
                         }

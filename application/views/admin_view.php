@@ -59,7 +59,7 @@ include 'admin_menu.php';
                             <p class="show_static">Статистика</p>
 <!--                            <p class="show_agreement">Договор</p>-->
                             <?php
-                            if ($userAccess == 2) {
+                            if ($userAccess == 2 || $userAccess == 3) {
                                 echo '<p>-------------</p>';
                                 echo "<p data-id_service='" . $valueJoinInfo['main_id'] . "' data-agreement='" . $valueJoinInfo['agreement_id'] . "' class='btn_delete_service'>Удалить</p>";
                             }

@@ -24,6 +24,8 @@
     clear: both;
 }
 
+
+
 /* BGCOLOR STATUS*/
 
 .good {
@@ -40,6 +42,29 @@
 }
 .bad {
     background: #F31515;
+}
+
+.legends {
+    border: 1px solid;
+    padding:5px;
+    width: 125px;
+    margin: 10px;
+}
+
+.legends > p {
+    font: normal 12px/12px Tahoma, sans-serif;
+    margin: 5px;
+}
+
+.legends_box {
+    position: relative;
+    display: block;
+    width: 10px;
+    height: 10px;
+    border: 1px solid;
+    margin-right: 10px;
+    float: left;
+
 }
 
 /* BGCOLOR STATUS*/

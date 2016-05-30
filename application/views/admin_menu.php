@@ -17,7 +17,7 @@
         <ul class="menu_box_">
             <li><a href="<?php echo base_url(); ?>page_admin">Главная</a></li>
             <li><a href="<?php echo base_url(); ?>page_admin_agreement">Договора</a></li>
-            <li><a href="<?php echo base_url(); ?>page_admin_add_service">Счета</a></li>
+            <li><a href="<?php echo base_url(); ?>page_admin_service">Счета</a></li>
             <li><a href="<?php echo base_url(); ?>page_admin_list_service">Список поставщиков</a></li>
             <li><a href="<?php echo base_url(); ?>page_admin_future">Будущие счета</a></li>
             <li><a href="<?php echo base_url(); ?>logout">Выход</a></li>
@@ -25,6 +25,25 @@
     </div>
 
     <div class="clear"></div>
+    <div class="legends">
+        <h4>Легенда</h4>
+        <p><span class="legends_box good"></span> - Оплаченно</p>
+        <p><span class="legends_box recieved"></span> - Доставленно</p>
+        <p><span class="legends_box progress"></span> - В процессе</p>
+        <p><span class="legends_box archive"></span> - В архиве</p>
+        <p><span class="legends_box bad"></span> - Просрочено</p>
+    </div>
+
+    <div class="menu_footer_copyright">
+        <p>copyright@<?php
+            if (date('Y') > date('2016')) {
+                echo  date('2016') . " - " . date('Y');
+            } else {
+                echo  date('2016');
+            }
+        ?>
+        </p>
+    </div>
 <!--    --><?//=$this->benchmark->memory_usage();?>
 <!--    --><?//=$this->benchmark->elapsed_time();?>
 

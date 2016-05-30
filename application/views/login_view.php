@@ -1,8 +1,8 @@
 <?php
 include 'header.php';
 ?>
-<div class="conteiner">
-    <form action="http://kandagarotchet/login_check" method="post">
+<div class="conteiner login_start">
+    <form action="<?php echo base_url();?>login_check" method="post">
         <fieldset>
             <legend>Авторизация</legend>
             <input type="text" placeholder="Логин" name="login">

@@ -14,6 +14,7 @@ class Admin_controller extends CI_Controller {
             $this->load->model('admin_model');
             $allInfo['selectUser'] = $this->admin_model->select_user();
             $allInfo['select_all_user_status'] = $this->admin_model->select_all_user_status();
+            $allInfo['build_log'] = $this->admin_model->select_build();
             $this->load->view('admin_main_view', $allInfo);
         } else {
             $this->logout();
@@ -134,6 +135,7 @@ class Admin_controller extends CI_Controller {
         }
     }
 
+
 //    -------------------------------------------------------------------------
 
     public function logout()
@@ -174,6 +176,32 @@ class Admin_controller extends CI_Controller {
         $this->load->model('admin_model');
         if ($this->admin_model->delete_service() == 'ok'){
             return 'ok';
+        }
+    }
+
+    public function build_log_change()
+    {
+        header("Content-Type:text/plain");
+        $this->load->model('admin_model');
+        $btrigger = @$_POST['build_trigger'];
+
+        if (isset($_POST['btn_add_log'])) {
+            if ($this->admin_model->build_log_change(1) == 1){
+                redirect("page_admin");
+            }
+        }
+        if ($btrigger == 2) {
+            if ($this->admin_model->build_log_change(2) == 'ok'){
+                return 'ok';
+            }
+        } else if ($btrigger == 3)  {
+            if ($this->admin_model->build_log_change(3) == 'ok'){
+                return 'ok';
+            }
+        } else if ($btrigger == 4)  {
+            if ($this->admin_model->build_log_change(4) == 'ok'){
+                return 'ok';
+            }
         }
     }
 

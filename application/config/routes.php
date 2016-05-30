@@ -53,7 +53,7 @@ $route['default_controller'] = 'admin_controller/index';
 
 $route['page_admin'] = 'admin_controller/index';
 $route['page_admin_agreement'] = 'admin_controller/page_admin_agreement';
-$route['page_admin_add_service'] = 'admin_controller/page_add_service';
+$route['page_admin_service'] = 'admin_controller/page_add_service';
 $route['page_admin_future'] = 'admin_controller/page_admin_future';
 $route['page_admin_list_service'] = 'admin_controller/page_admin_list_service';
 
@@ -66,6 +66,7 @@ $route['delete_service'] = 'admin_controller/delete_service';
 $route['update_agreement'] = 'admin_controller/update_agreement';
 
 $route['set_stat'] = 'admin_controller/set_stat';
+$route['build_log_change'] = 'admin_controller/build_log_change';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

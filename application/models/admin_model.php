@@ -184,7 +184,7 @@ class Admin_model extends CI_Model {
                                 ORDER BY m.main_id ASC")->result_array();
     }
 
-                            public function select_all_agreement_main()
+    public function select_all_agreement_main()
     {
         return  $this->db->query($this->join_table_agreem_main. "
                                 WHERE a.status_id <> 4
@@ -194,9 +194,25 @@ class Admin_model extends CI_Model {
 
     public function select_all_payment_join()
     {
+        $date = new DateTime();
+        $date->modify("+1 month");
+        $newDPlus = $date->format('Y-m'); // 2013-06-17
+
+        $date2 = new DateTime();
+        $date2->modify("-1 month");
+        $newDMinus = $date2->format('Y-m'); // 2013-06-17
+
+        $statExclude = "st.status_id != 4 AND st.status_id != 1 AND a.status_id != 4";
+
         return $this->db->query($this->join_table_all. "
-                                WHERE (s.stat_month LIKE '%-".date('m')."-%' OR s.stat_month < '".date('Y-m')."')  AND (st.status_id <> 4 AND st.status_id <> 1 AND a.status_id <> 4 )
-                                ")->result_array();
+                                WHERE (
+                                s.stat_month <= '".date('Y-m')."-".date('t', strtotime(date('Y-m')))."'
+                                AND ".$statExclude."
+                                OR
+                                s.stat_month BETWEEN '".date('Y-m')."-".date('t', strtotime(date('Y-m')))."' AND '".$newDPlus."-".date('t', strtotime($newDPlus))."'
+                                AND ".$statExclude."
+                                )
+                                ORDER BY s.stat_month ASC ")->result_array();
     }
 
     public function select_all_payment_future()
@@ -412,6 +428,34 @@ class Admin_model extends CI_Model {
                 break;
             default:
                 echo $status_service;
+        }
+    }
+
+    public function select_build()
+    {
+        return $this->db->query("SELECT * FROM build_version ORDER BY build_id DESC")->result_array();
+    }
+
+    public function build_log_change ($status)
+    {
+        $b_id = $this->strip_trim(@$_POST['build_id']);
+        $b_user = $this->strip_trim(@$_POST['build_user']);
+        $b_ver = $this->strip_trim(@$_POST['build_ver']);
+        $b_about = $this->strip_trim(@$_POST['build_about']);
+        $b_date = date('Y-m-d H:i:s');
+
+        if ($status == 1) {
+            $this->db->query("INSERT INTO build_version VALUES(NULL, '".$b_user."', '".$b_about."','".$b_date."','".$b_ver."', 0 )");
+            return true;
+        } else if ($status == 2) {
+            $this->db->query("UPDATE build_version SET build_stat = 1 WHERE build_id = ".$b_id);
+            echo "ok";
+        } else if ($status == 3) {
+            $this->db->query("DELETE FROM build_version WHERE build_id = ".$b_id);
+            echo "ok";
+        } else if ($status == 4) {
+            $this->db->query("UPDATE build_version SET build_stat = 0 WHERE build_id = ".$b_id);
+            echo "ok";
         }
     }
 }

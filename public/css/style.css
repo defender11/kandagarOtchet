@@ -1,11 +1,20 @@
 /*@import "reset.css";*/
 @import "helpers.css";
 
+body {
+    background: rgb(238,238,238); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(238,238,238,1) 0%, rgba(204,204,204,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+}
+
 .menu {
     width: 200px;
     float: left;
     padding-left: 25px;
     border-right: 2px dashed;
+    box-shadow: 0px 0px 30px -5px rgba(0,0,0,.2);
 }
 
 .conteiner {
@@ -252,4 +261,50 @@
 
 ..recieve_form > form {
     z-index: 20;
+}
+
+.menu_footer_copyright {
+    bottom: 0px;
+    display: block;
+    position: absolute;
+    margin: 0 auto;
+    width: 200px;
+    text-align: center;
+    font: normal 10px/20px Tahoma, sans-serif;
+}
+
+
+/* BUILD LOG */
+
+.build_box {
+    display: block;
+    position: relative;
+    width: 920px;
+    height: 400px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.build_box + form {
+    display: block;
+    position: relative;
+    width: 280px;
+}
+.build_box + form fieldset {
+    padding: 5px;
+}
+
+.build_box_user_info {
+    color: rgb(150, 150, 150);
+}
+
+.build_box_about {
+    color: rgb(87, 87, 87);
+    border-bottom: 1px dashed;
+}
+
+.build_box_row {
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #596a72;
+    box-shadow: 0px 0px 7px -4px #5f3f3f;
 }

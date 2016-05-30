@@ -21,9 +21,15 @@ include 'admin_menu.php';
                 <tr class="table_tr schange <?php echo $sInfo['service_id']; ?>" data-sid="<?php echo $sInfo['service_id']; ?>">
                     <td class="table_list sName"><?php echo $sInfo['service_name']; ?></td>
                     <td class="table_list sAbout"><?php echo $sInfo['service_about']; ?></td>
+
                     <td class="table_list tbl_list_setting ">
-                        <p><i class="fa fa-pencil-square-o btn_edit" aria-hidden="true"></i> <i class="fa fa-trash-o btn_del" aria-hidden="true"></i></p>
+                        <p><i class="fa fa-pencil-square-o btn_edit" aria-hidden="true"></i>
+                            <?php if ($userAccess == 2 || $userAccess == 3) : ?>
+                                <i class="fa fa-trash-o btn_del" aria-hidden="true"></i>
+                            <?php endif; ?>
+                        </p>
                     </td>
+
                 </tr>
             <?php endforeach; else:?>
             <tr class="table_tr">
