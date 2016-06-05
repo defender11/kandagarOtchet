@@ -20,6 +20,10 @@
     display: none;
 }
 
+.clear {
+    clear: both;
+}
+
 /* BGCOLOR STATUS*/
 
 .good {

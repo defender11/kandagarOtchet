@@ -187,7 +187,6 @@ class Admin_model extends CI_Model {
             'service_name_add' => @$this->strip_trim($_POST['service_name_add']),
             'service_about_add' => @$this->strip_trim($_POST['service_about_add']),
             'agreement_about' => $this->strip_trim($_POST['agreement_about']),
-            'agreement_about_add' => $this->strip_trim($_POST['agreement_about_add']),
             'stat_payment' => $this->strip_trim($_POST['stat_payment']),
             'user_id' => $this->strip_trim($_POST['user_id'])
         );
@@ -235,13 +234,13 @@ class Admin_model extends CI_Model {
 //        Конец Проверки на добовление услуги, если такая услуга уже есть
 //--------------------------------------------------------------------------
 //        Вставляем в таблицу agreement № Договора и возврощяем ID
-        if ($temp['agreement_about_add'] == "") {
+//        if ($temp['agreement_about_add'] == "") {
             $this->db->query("INSERT INTO `agreement` VALUES(NULL, '".$temp['agreement_about']."')");
             $query_agreement = $this->db->insert_id();
-        } else {
-            $this->db->query("INSERT INTO `agreement` VALUES(NULL, '".$temp['agreement_about_add']."')");
-            $query_agreement = $this->db->insert_id();
-        }
+//        } else {
+//            $this->db->query("INSERT INTO `agreement` VALUES(NULL, '".$temp['agreement_about_add']."')");
+//            $query_agreement = $this->db->insert_id();
+//        }
 //--------------------------------------------------------------------------
 //  Вставляем данные в main таблицу
         $q3 = "INSERT INTO `main`(
@@ -315,9 +314,9 @@ class Admin_model extends CI_Model {
 
         $date = new DateTime($current_month);
         $date->modify("+".$month_period." month");
-        $current_month = $date->format('Y-m-d'); // 2013-06-17
+        $new_current_month = $date->format('Y-m-d'); // 2013-06-17
 
         $this->db->query("UPDATE statistic SET status_id = 1 WHERE stat_id = ".$stat_id);
-        $this->db->query("INSERT INTO statistic(stat_id, stat_month, status_id, main_id) VALUES(null, '".$current_month."', 3, ".$main_id.")");
+        $this->db->query("INSERT INTO statistic(stat_id, stat_month, status_id, main_id) VALUES(null, '".$new_current_month."', 3, ".$main_id.")");
     }
 }

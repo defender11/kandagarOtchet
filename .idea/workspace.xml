@@ -4,9 +4,14 @@
     <list default="true" id="eac1b46c-79c6-4b22-ba5d-427f2a7f2255" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/admin_agreement.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/routes.php" afterPath="$PROJECT_DIR$/application/config/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin_controller.php" afterPath="$PROJECT_DIR$/application/controllers/admin_controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/admin_model.php" afterPath="$PROJECT_DIR$/application/models/admin_model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin_main_view.php" afterPath="$PROJECT_DIR$/application/views/admin_main_view.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin_menu.php" afterPath="$PROJECT_DIR$/application/views/admin_menu.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin_view.php" afterPath="$PROJECT_DIR$/application/views/admin_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/helpers.css" afterPath="$PROJECT_DIR$/public/css/helpers.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/style.css" afterPath="$PROJECT_DIR$/public/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/common.js" afterPath="$PROJECT_DIR$/public/js/common.js" />
     </list>
     <ignored path="kandagar_otchet.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,213 +43,189 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - kandagar_it_otchet@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="agreement" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="kandagar_otchet" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.5458221">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="admin_view.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/application/views/admin_view.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-1.3076923">
-                  <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
-                  <folding>
-                    <marker date="1462399131169" expanded="true" signature="7464:7539" placeholder="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="admin_menu.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/application/views/admin_menu.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-6.0384617">
-                  <caret line="10" column="70" selection-start-line="10" selection-start-column="70" selection-end-line="10" selection-end-column="70" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/application/views/header.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/css/style.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="admin_model.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/application/models/admin_model.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="317" column="40" selection-start-line="317" selection-start-column="40" selection-end-line="317" selection-end-column="40" />
-                  <folding>
-                    <marker date="1462399869064" expanded="true" signature="160:178" placeholder="SELECT * FRO... main" />
-                    <marker date="1462399869064" expanded="true" signature="201:219" placeholder="SELECT * FRO... main" />
-                    <marker date="1462399869064" expanded="true" signature="245:266" placeholder="SELECT * FRO... service" />
-                    <marker date="1462399869064" expanded="true" signature="291:311" placeholder="SELECT * FRO... status" />
-                    <marker date="1462399869064" expanded="true" signature="335:349" placeholder="SELECT * FRO... status" />
-                    <marker date="1462399869064" expanded="true" signature="335:391" placeholder="SELECT * FRO... users" />
-                    <marker date="1462399869064" expanded="true" signature="335:461" placeholder="SELECT * FRO... users" />
-                    <marker date="1462399869064" expanded="true" signature="493:518" placeholder="SELECT * FRO... user_access" />
-                    <marker date="1462399869064" expanded="true" signature="551:638" placeholder="SELECT * FRO... office" />
-                    <marker date="1462399869064" expanded="true" signature="672:679" placeholder="SELECT * FRO... main" />
-                    <marker date="1462399869064" expanded="true" signature="672:2872" placeholder="SELECT m.mai... statistic" />
-                    <marker date="1462399869064" expanded="true" signature="672:2876" placeholder="SELECT m.mai... statistic" />
-                    <marker date="1462399869064" expanded="true" signature="672:2891" placeholder="SELECT m.mai... statistic" />
-                    <marker date="1462399869064" expanded="true" signature="672:2895" placeholder="SELECT m.mai... statistic" />
-                    <marker date="1462399869064" expanded="true" signature="672:2898" placeholder="SELECT m.mai... statistic" />
-                    <marker date="1462399869064" expanded="true" signature="672:2956" placeholder="SELECT * FRO... main" />
-                    <marker date="1462399869064" expanded="true" signature="3917:6124" placeholder="SELECT m.mai... statistic" />
-                    <marker date="1462399869064" expanded="true" signature="3917:6195" placeholder="SELECT m.mai... statistic" />
-                    <marker date="1462399869064" expanded="true" signature="8946:9014" placeholder="INSERT INTO service... " />
-                    <marker date="1462399869064" expanded="true" signature="9059:9122" placeholder="SELECT servi... service" />
-                    <marker date="1462399869064" expanded="true" signature="9270:9368" placeholder="INSERT INTO service... " />
-                    <marker date="1462399869064" expanded="true" signature="9413:9476" placeholder="SELECT servi... service" />
-                    <marker date="1462399869064" expanded="true" signature="9874:9941" placeholder="INSERT INTO `agreement`... " />
-                    <marker date="1462399869064" expanded="true" signature="9874:9942" placeholder="INSERT INTO `kandagar_it_otchet`.`agreement`... " />
-                    <marker date="1462399869064" expanded="true" signature="9874:9944" placeholder="INSERT INTO `agreement`... " />
-                    <marker date="1462399869064" expanded="true" signature="10048:10119" placeholder="INSERT INTO `agreement`... " />
-                    <marker date="1462399869064" expanded="true" signature="10048:10120" placeholder="INSERT INTO `agreement`... " />
-                    <marker date="1462399869064" expanded="true" signature="10317:10804" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-                    <marker date="1462399869064" expanded="true" signature="10317:10963" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-                    <marker date="1462399869064" expanded="true" signature="10317:11015" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-                    <marker date="1462399869064" expanded="true" signature="10317:11042" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-                    <marker date="1462399869064" expanded="true" signature="10317:11131" placeholder="INSERT INTO `main`... " />
-                    <marker date="1462399869064" expanded="true" signature="10317:11155" placeholder="INSERT INTO `main`... " />
-                    <marker date="1462399869064" expanded="true" signature="10317:11177" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-                    <marker date="1462399869064" expanded="true" signature="10317:11180" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-                    <marker date="1462399869064" expanded="true" signature="11300:11978" placeholder="INSERT INTO `statistic`... " />
-                    <marker date="1462399869064" expanded="true" signature="11300:11980" placeholder="INSERT INTO `statistic`... " />
-                    <marker date="1462399869064" expanded="true" signature="11300:11986" placeholder="INSERT INTO `statistic`... " />
-                    <marker date="1462399869064" expanded="true" signature="11300:12143" placeholder="INSERT INTO `statistic`... " />
-                    <marker date="1462399869064" expanded="true" signature="12434:12509" placeholder="DELETE FROM " />
-                    <marker date="1462399869064" expanded="true" signature="12551:12631" placeholder="DELETE FROM " />
-                    <marker date="1462399869064" expanded="true" signature="12672:12737" placeholder="DELETE FROM " />
-                    <marker date="1462399869064" expanded="true" signature="12999:13040" placeholder="SELECT * FRO... statistic" />
-                    <marker date="1462399869064" expanded="true" signature="13604:13655" placeholder="UPDATE stati... " />
-                    <marker date="1462399869064" expanded="true" signature="13694:13715" placeholder="INSERT INTO statistic... " />
-                    <marker date="1462399869064" expanded="true" signature="13694:13771" placeholder="INSERT INTO statistic... " />
-                    <marker date="1462399869064" expanded="true" signature="13694:13788" placeholder="INSERT INTO statistic... " />
-                    <marker date="1462399869064" expanded="true" signature="13694:13794" placeholder="INSERT INTO statistic... " />
-                    <marker date="1462399869064" expanded="true" signature="13694:13808" placeholder="INSERT INTO statistic... " />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="admin_controller.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/application/controllers/admin_controller.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-12.230769">
-                  <caret line="43" column="30" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/application/config/routes.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-2.7692308">
-                  <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="admin_agreement.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/application/views/admin_agreement.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/js/common.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="74" column="84" selection-start-line="74" selection-start-column="74" selection-end-line="74" selection-end-column="84" />
-                  <folding>
-                    <element signature="e#0#49#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="console_9.sql" pinned="false" current-in-tab="false">
-            <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9fce55e4-9451-4e4e-acf7-90e23d51bd42/console_9.sql">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-3.4">
-                  <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="admin_view.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/application/views/admin_view.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-0.65384614">
-                  <caret line="115" column="24" selection-start-line="115" selection-start-column="17" selection-end-line="115" selection-end-column="24" />
-                  <folding>
-                    <marker date="1462399131169" expanded="true" signature="7464:7539" placeholder="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="function.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/application/views/function.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-2.7307692">
-                  <caret line="9" column="26" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="26" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="kandagar_it_otchet.statistic" pinned="false" current-in-tab="true">
-            <entry file="dbDummy://dbtable:/ddd47ef3/9fce55e4-9451-4e4e-acf7-90e23d51bd42/kandagar_it_otchet.statistic">
-              <provider editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-              <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-                <state>
-                  <filtering enabled="true" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="admin_view.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/admin_view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.115385">
+              <caret line="74" column="57" selection-start-line="74" selection-start-column="57" selection-end-line="74" selection-end-column="57" />
+              <folding>
+                <marker date="1465162002052" expanded="true" signature="1164:1524" placeholder="..." />
+                <marker date="1465162002052" expanded="true" signature="3279:3354" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin_menu.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/admin_menu.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.1923075">
+              <caret line="11" column="79" selection-start-line="11" selection-start-column="79" selection-end-line="11" selection-end-column="79" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin_agreement.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/admin_agreement.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.47768596">
+              <caret line="155" column="61" selection-start-line="155" selection-start-column="61" selection-end-line="155" selection-end-column="61" />
+              <folding>
+                <marker date="1465162019856" expanded="true" signature="1237:1298" placeholder="..." />
+                <marker date="1465162019856" expanded="true" signature="1760:1821" placeholder="..." />
+                <marker date="1465162019856" expanded="true" signature="7321:7483" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.807693">
+              <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="helpers.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/css/helpers.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.038462">
+              <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/common.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#49#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin_model.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/admin_model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-61.846153">
+              <caret line="243" column="11" selection-start-line="243" selection-start-column="11" selection-end-line="243" selection-end-column="11" />
+              <folding>
+                <marker date="1462479806445" expanded="true" signature="160:178" placeholder="SELECT * FRO... main" />
+                <marker date="1462479806445" expanded="true" signature="201:219" placeholder="SELECT * FRO... main" />
+                <marker date="1462479806445" expanded="true" signature="245:266" placeholder="SELECT * FRO... service" />
+                <marker date="1462479806445" expanded="true" signature="291:311" placeholder="SELECT * FRO... status" />
+                <marker date="1462479806445" expanded="true" signature="335:349" placeholder="SELECT * FRO... status" />
+                <marker date="1462479806445" expanded="true" signature="335:391" placeholder="SELECT * FRO... users" />
+                <marker date="1462479806445" expanded="true" signature="335:461" placeholder="SELECT * FRO... users" />
+                <marker date="1462479806445" expanded="true" signature="493:518" placeholder="SELECT * FRO... user_access" />
+                <marker date="1462479806445" expanded="true" signature="551:638" placeholder="SELECT * FRO... office" />
+                <marker date="1462479806445" expanded="true" signature="672:679" placeholder="SELECT * FRO... main" />
+                <marker date="1462479806445" expanded="true" signature="672:2872" placeholder="SELECT m.mai... statistic" />
+                <marker date="1462479806445" expanded="true" signature="672:2876" placeholder="SELECT m.mai... statistic" />
+                <marker date="1462479806445" expanded="true" signature="672:2891" placeholder="SELECT m.mai... statistic" />
+                <marker date="1462479806445" expanded="true" signature="672:2895" placeholder="SELECT m.mai... statistic" />
+                <marker date="1462479806445" expanded="true" signature="672:2898" placeholder="SELECT m.mai... statistic" />
+                <marker date="1462479806445" expanded="true" signature="672:2956" placeholder="SELECT * FRO... main" />
+                <marker date="1462479806445" expanded="true" signature="3917:6124" placeholder="SELECT m.mai... statistic" />
+                <marker date="1462479806445" expanded="true" signature="3917:6195" placeholder="SELECT m.mai... statistic" />
+                <marker date="1462479806445" expanded="true" signature="8859:8927" placeholder="INSERT INTO service... " />
+                <marker date="1462479806445" expanded="true" signature="8972:9035" placeholder="SELECT servi... service" />
+                <marker date="1462479806445" expanded="true" signature="9183:9281" placeholder="INSERT INTO service... " />
+                <marker date="1462479806445" expanded="true" signature="9326:9389" placeholder="SELECT servi... service" />
+                <marker date="1462479806445" expanded="true" signature="9789:9856" placeholder="INSERT INTO `agreement`... " />
+                <marker date="1462479806445" expanded="true" signature="9789:9857" placeholder="INSERT INTO `kandagar_it_otchet`.`agreement`... " />
+                <marker date="1462479806445" expanded="true" signature="9789:9859" placeholder="INSERT INTO `agreement`... " />
+                <marker date="1462479806445" expanded="true" signature="9967:10038" placeholder="INSERT INTO `agreement`... " />
+                <marker date="1462479806445" expanded="true" signature="9967:10039" placeholder="INSERT INTO `agreement`... " />
+                <marker date="1462479806445" expanded="true" signature="10240:10727" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
+                <marker date="1462479806445" expanded="true" signature="10240:10886" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
+                <marker date="1462479806445" expanded="true" signature="10240:10938" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
+                <marker date="1462479806445" expanded="true" signature="10240:10965" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
+                <marker date="1462479806445" expanded="true" signature="10240:11054" placeholder="INSERT INTO `main`... " />
+                <marker date="1462479806445" expanded="true" signature="10240:11078" placeholder="INSERT INTO `main`... " />
+                <marker date="1462479806445" expanded="true" signature="10240:11100" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
+                <marker date="1462479806445" expanded="true" signature="10240:11103" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
+                <marker date="1462479806445" expanded="true" signature="11223:11901" placeholder="INSERT INTO `statistic`... " />
+                <marker date="1462479806445" expanded="true" signature="11223:11903" placeholder="INSERT INTO `statistic`... " />
+                <marker date="1462479806445" expanded="true" signature="11223:11909" placeholder="INSERT INTO `statistic`... " />
+                <marker date="1462479806445" expanded="true" signature="11223:12066" placeholder="INSERT INTO `statistic`... " />
+                <marker date="1462479806445" expanded="true" signature="12357:12432" placeholder="DELETE FROM " />
+                <marker date="1462479806445" expanded="true" signature="12474:12554" placeholder="DELETE FROM " />
+                <marker date="1462479806445" expanded="true" signature="12595:12660" placeholder="DELETE FROM " />
+                <marker date="1462479806445" expanded="true" signature="12922:12963" placeholder="SELECT * FRO... statistic" />
+                <marker date="1462479806445" expanded="true" signature="13531:13582" placeholder="UPDATE stati... " />
+                <marker date="1462479806445" expanded="true" signature="13621:13642" placeholder="INSERT INTO statistic... " />
+                <marker date="1462479806445" expanded="true" signature="13621:13698" placeholder="INSERT INTO statistic... " />
+                <marker date="1462479806445" expanded="true" signature="13621:13719" placeholder="INSERT INTO statistic... " />
+                <marker date="1462479806445" expanded="true" signature="13621:13725" placeholder="INSERT INTO statistic... " />
+                <marker date="1462479806445" expanded="true" signature="13621:13739" placeholder="INSERT INTO statistic... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin_controller.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/admin_controller.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.769231">
+              <caret line="72" column="46" selection-start-line="72" selection-start-column="46" selection-end-line="72" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin_main_view.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/admin_main_view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.2692308">
+              <caret line="5" column="58" selection-start-line="5" selection-start-column="58" selection-end-line="5" selection-end-column="58" />
+              <folding>
+                <element signature="n#style#0;n#h1#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="console_9.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9fce55e4-9451-4e4e-acf7-90e23d51bd42/console_9.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.4">
+              <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -291,22 +272,23 @@
         <option value="$PROJECT_DIR$/application/views/function.php" />
         <option value="$PROJECT_DIR$/application/controllers/login_controller.php" />
         <option value="$PROJECT_DIR$/application/views/header.php" />
-        <option value="$PROJECT_DIR$/application/views/admin_main_view.php" />
         <option value="$PROJECT_DIR$/application/views/login_view.php" />
-        <option value="$PROJECT_DIR$/public/css/helpers.css" />
         <option value="$PROJECT_DIR$/public/sql_query/join_for_statistic.sql" />
         <option value="$PROJECT_DIR$/public/sql_query/join_main_for_all_exclude_statistic.sql" />
-        <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/public/sql_query/join_main_for_all.sql" />
         <option value="dbtable:/ddd47ef3/9fce55e4-9451-4e4e-acf7-90e23d51bd42/kandagar_it_otchet.statistic" />
-        <option value="$PROJECT_DIR$/application/views/admin_view.php" />
-        <option value="$PROJECT_DIR$/public/js/common.js" />
-        <option value="$PROJECT_DIR$/application/models/admin_model.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/9fce55e4-9451-4e4e-acf7-90e23d51bd42/console.sql" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/9fce55e4-9451-4e4e-acf7-90e23d51bd42/console_9.sql" />
-        <option value="$PROJECT_DIR$/application/views/admin_menu.php" />
-        <option value="$PROJECT_DIR$/application/controllers/admin_controller.php" />
         <option value="$PROJECT_DIR$/application/config/routes.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/9fce55e4-9451-4e4e-acf7-90e23d51bd42/console_9.sql" />
+        <option value="$PROJECT_DIR$/public/css/helpers.css" />
+        <option value="$PROJECT_DIR$/application/views/admin_menu.php" />
+        <option value="$PROJECT_DIR$/application/models/admin_model.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin_controller.php" />
+        <option value="$PROJECT_DIR$/application/views/admin_main_view.php" />
+        <option value="$PROJECT_DIR$/public/css/style.css" />
+        <option value="$PROJECT_DIR$/public/js/common.js" />
+        <option value="$PROJECT_DIR$/application/views/admin_view.php" />
+        <option value="$PROJECT_DIR$/application/views/admin_agreement.php" />
       </list>
     </option>
   </component>
@@ -322,8 +304,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-4" />
     <option name="y" value="-4" />
-    <option name="width" value="1928" />
-    <option name="height" value="1088" />
+    <option name="width" value="1372" />
+    <option name="height" value="776" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -566,15 +548,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1928" height="1088" extended-state="6" />
-    <editor active="false" />
+    <frame x="-4" y="-4" width="1372" height="776" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23426212" sideWeight="0.49394855" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15335463" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3455099" sideWeight="0.49394855" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15279879" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40393344" sideWeight="0.5060514" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15761448" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="775" y="9" width="370" height="1023" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15733737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="775" y="9" width="370" height="1023" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.49394855" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -590,6 +572,28 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32862905" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40393344" sideWeight="0.5060514" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.49394855" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3455099" sideWeight="0.49394855" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15279879" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15733737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="775" y="9" width="370" height="1023" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32862905" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -607,70 +611,13 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/models/admin_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding>
-            <marker date="1462399869064" expanded="true" signature="160:178" placeholder="SELECT * FRO... main" />
-            <marker date="1462399869064" expanded="true" signature="201:219" placeholder="SELECT * FRO... main" />
-            <marker date="1462399869064" expanded="true" signature="245:266" placeholder="SELECT * FRO... service" />
-            <marker date="1462399869064" expanded="true" signature="291:311" placeholder="SELECT * FRO... status" />
-            <marker date="1462399869064" expanded="true" signature="335:349" placeholder="SELECT * FRO... status" />
-            <marker date="1462399869064" expanded="true" signature="335:391" placeholder="SELECT * FRO... users" />
-            <marker date="1462399869064" expanded="true" signature="335:461" placeholder="SELECT * FRO... users" />
-            <marker date="1462399869064" expanded="true" signature="493:518" placeholder="SELECT * FRO... user_access" />
-            <marker date="1462399869064" expanded="true" signature="551:638" placeholder="SELECT * FRO... office" />
-            <marker date="1462399869064" expanded="true" signature="672:679" placeholder="SELECT * FRO... main" />
-            <marker date="1462399869064" expanded="true" signature="672:2872" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="672:2876" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="672:2891" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="672:2895" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="672:2898" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="672:2956" placeholder="SELECT * FRO... main" />
-            <marker date="1462399869064" expanded="true" signature="3917:6124" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="3917:6195" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="8946:9014" placeholder="INSERT INTO service... " />
-            <marker date="1462399869064" expanded="true" signature="9059:9122" placeholder="SELECT servi... service" />
-            <marker date="1462399869064" expanded="true" signature="9270:9368" placeholder="INSERT INTO service... " />
-            <marker date="1462399869064" expanded="true" signature="9413:9476" placeholder="SELECT servi... service" />
-            <marker date="1462399869064" expanded="true" signature="9874:9941" placeholder="INSERT INTO `agreement`... " />
-            <marker date="1462399869064" expanded="true" signature="9874:9942" placeholder="INSERT INTO `kandagar_it_otchet`.`agreement`... " />
-            <marker date="1462399869064" expanded="true" signature="9874:9944" placeholder="INSERT INTO `agreement`... " />
-            <marker date="1462399869064" expanded="true" signature="10048:10119" placeholder="INSERT INTO `agreement`... " />
-            <marker date="1462399869064" expanded="true" signature="10048:10120" placeholder="INSERT INTO `agreement`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:10804" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:10963" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:11015" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:11042" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:11131" placeholder="INSERT INTO `main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:11155" placeholder="INSERT INTO `main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:11177" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:11180" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-            <marker date="1462399869064" expanded="true" signature="11300:11978" placeholder="INSERT INTO `statistic`... " />
-            <marker date="1462399869064" expanded="true" signature="11300:11980" placeholder="INSERT INTO `statistic`... " />
-            <marker date="1462399869064" expanded="true" signature="11300:11986" placeholder="INSERT INTO `statistic`... " />
-            <marker date="1462399869064" expanded="true" signature="11300:12143" placeholder="INSERT INTO `statistic`... " />
-            <marker date="1462399869064" expanded="true" signature="12434:12509" placeholder="DELETE FROM " />
-            <marker date="1462399869064" expanded="true" signature="12551:12631" placeholder="DELETE FROM " />
-            <marker date="1462399869064" expanded="true" signature="12672:12737" placeholder="DELETE FROM " />
-            <marker date="1462399869064" expanded="true" signature="12999:13040" placeholder="SELECT * FRO... statistic" />
-            <marker date="1462399869064" expanded="true" signature="13604:13655" placeholder="UPDATE stati... " />
-            <marker date="1462399869064" expanded="true" signature="13694:13715" placeholder="INSERT INTO statistic... " />
-            <marker date="1462399869064" expanded="true" signature="13694:13771" placeholder="INSERT INTO statistic... " />
-            <marker date="1462399869064" expanded="true" signature="13694:13788" placeholder="INSERT INTO statistic... " />
-            <marker date="1462399869064" expanded="true" signature="13694:13794" placeholder="INSERT INTO statistic... " />
-            <marker date="1462399869064" expanded="true" signature="13694:13808" placeholder="INSERT INTO statistic... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin_view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1462399131169" expanded="true" signature="7464:7539" placeholder="..." />
+            <marker date="1465162002052" expanded="true" signature="1164:1524" placeholder="..." />
+            <marker date="1465162002052" expanded="true" signature="3279:3354" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -696,55 +643,55 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
           <folding>
-            <marker date="1462399869064" expanded="true" signature="160:178" placeholder="SELECT * FRO... main" />
-            <marker date="1462399869064" expanded="true" signature="201:219" placeholder="SELECT * FRO... main" />
-            <marker date="1462399869064" expanded="true" signature="245:266" placeholder="SELECT * FRO... service" />
-            <marker date="1462399869064" expanded="true" signature="291:311" placeholder="SELECT * FRO... status" />
-            <marker date="1462399869064" expanded="true" signature="335:349" placeholder="SELECT * FRO... status" />
-            <marker date="1462399869064" expanded="true" signature="335:391" placeholder="SELECT * FRO... users" />
-            <marker date="1462399869064" expanded="true" signature="335:461" placeholder="SELECT * FRO... users" />
-            <marker date="1462399869064" expanded="true" signature="493:518" placeholder="SELECT * FRO... user_access" />
-            <marker date="1462399869064" expanded="true" signature="551:638" placeholder="SELECT * FRO... office" />
-            <marker date="1462399869064" expanded="true" signature="672:679" placeholder="SELECT * FRO... main" />
-            <marker date="1462399869064" expanded="true" signature="672:2872" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="672:2876" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="672:2891" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="672:2895" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="672:2898" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="672:2956" placeholder="SELECT * FRO... main" />
-            <marker date="1462399869064" expanded="true" signature="3917:6124" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="3917:6195" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="8946:9014" placeholder="INSERT INTO service... " />
-            <marker date="1462399869064" expanded="true" signature="9059:9122" placeholder="SELECT servi... service" />
-            <marker date="1462399869064" expanded="true" signature="9270:9368" placeholder="INSERT INTO service... " />
-            <marker date="1462399869064" expanded="true" signature="9413:9476" placeholder="SELECT servi... service" />
-            <marker date="1462399869064" expanded="true" signature="9874:9941" placeholder="INSERT INTO `agreement`... " />
-            <marker date="1462399869064" expanded="true" signature="9874:9942" placeholder="INSERT INTO `kandagar_it_otchet`.`agreement`... " />
-            <marker date="1462399869064" expanded="true" signature="9874:9944" placeholder="INSERT INTO `agreement`... " />
-            <marker date="1462399869064" expanded="true" signature="10048:10119" placeholder="INSERT INTO `agreement`... " />
-            <marker date="1462399869064" expanded="true" signature="10048:10120" placeholder="INSERT INTO `agreement`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:10804" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:10963" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:11015" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:11042" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:11131" placeholder="INSERT INTO `main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:11155" placeholder="INSERT INTO `main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:11177" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:11180" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-            <marker date="1462399869064" expanded="true" signature="11300:11978" placeholder="INSERT INTO `statistic`... " />
-            <marker date="1462399869064" expanded="true" signature="11300:11980" placeholder="INSERT INTO `statistic`... " />
-            <marker date="1462399869064" expanded="true" signature="11300:11986" placeholder="INSERT INTO `statistic`... " />
-            <marker date="1462399869064" expanded="true" signature="11300:12143" placeholder="INSERT INTO `statistic`... " />
-            <marker date="1462399869064" expanded="true" signature="12434:12509" placeholder="DELETE FROM " />
-            <marker date="1462399869064" expanded="true" signature="12551:12631" placeholder="DELETE FROM " />
-            <marker date="1462399869064" expanded="true" signature="12672:12737" placeholder="DELETE FROM " />
-            <marker date="1462399869064" expanded="true" signature="12999:13040" placeholder="SELECT * FRO... statistic" />
-            <marker date="1462399869064" expanded="true" signature="13604:13655" placeholder="UPDATE stati... " />
-            <marker date="1462399869064" expanded="true" signature="13694:13715" placeholder="INSERT INTO statistic... " />
-            <marker date="1462399869064" expanded="true" signature="13694:13771" placeholder="INSERT INTO statistic... " />
-            <marker date="1462399869064" expanded="true" signature="13694:13788" placeholder="INSERT INTO statistic... " />
-            <marker date="1462399869064" expanded="true" signature="13694:13794" placeholder="INSERT INTO statistic... " />
-            <marker date="1462399869064" expanded="true" signature="13694:13808" placeholder="INSERT INTO statistic... " />
+            <marker date="1462479806445" expanded="true" signature="160:178" placeholder="SELECT * FRO... main" />
+            <marker date="1462479806445" expanded="true" signature="201:219" placeholder="SELECT * FRO... main" />
+            <marker date="1462479806445" expanded="true" signature="245:266" placeholder="SELECT * FRO... service" />
+            <marker date="1462479806445" expanded="true" signature="291:311" placeholder="SELECT * FRO... status" />
+            <marker date="1462479806445" expanded="true" signature="335:349" placeholder="SELECT * FRO... status" />
+            <marker date="1462479806445" expanded="true" signature="335:391" placeholder="SELECT * FRO... users" />
+            <marker date="1462479806445" expanded="true" signature="335:461" placeholder="SELECT * FRO... users" />
+            <marker date="1462479806445" expanded="true" signature="493:518" placeholder="SELECT * FRO... user_access" />
+            <marker date="1462479806445" expanded="true" signature="551:638" placeholder="SELECT * FRO... office" />
+            <marker date="1462479806445" expanded="true" signature="672:679" placeholder="SELECT * FRO... main" />
+            <marker date="1462479806445" expanded="true" signature="672:2872" placeholder="SELECT m.mai... statistic" />
+            <marker date="1462479806445" expanded="true" signature="672:2876" placeholder="SELECT m.mai... statistic" />
+            <marker date="1462479806445" expanded="true" signature="672:2891" placeholder="SELECT m.mai... statistic" />
+            <marker date="1462479806445" expanded="true" signature="672:2895" placeholder="SELECT m.mai... statistic" />
+            <marker date="1462479806445" expanded="true" signature="672:2898" placeholder="SELECT m.mai... statistic" />
+            <marker date="1462479806445" expanded="true" signature="672:2956" placeholder="SELECT * FRO... main" />
+            <marker date="1462479806445" expanded="true" signature="3917:6124" placeholder="SELECT m.mai... statistic" />
+            <marker date="1462479806445" expanded="true" signature="3917:6195" placeholder="SELECT m.mai... statistic" />
+            <marker date="1462479806445" expanded="true" signature="8859:8927" placeholder="INSERT INTO service... " />
+            <marker date="1462479806445" expanded="true" signature="8972:9035" placeholder="SELECT servi... service" />
+            <marker date="1462479806445" expanded="true" signature="9183:9281" placeholder="INSERT INTO service... " />
+            <marker date="1462479806445" expanded="true" signature="9326:9389" placeholder="SELECT servi... service" />
+            <marker date="1462479806445" expanded="true" signature="9789:9856" placeholder="INSERT INTO `agreement`... " />
+            <marker date="1462479806445" expanded="true" signature="9789:9857" placeholder="INSERT INTO `kandagar_it_otchet`.`agreement`... " />
+            <marker date="1462479806445" expanded="true" signature="9789:9859" placeholder="INSERT INTO `agreement`... " />
+            <marker date="1462479806445" expanded="true" signature="9967:10038" placeholder="INSERT INTO `agreement`... " />
+            <marker date="1462479806445" expanded="true" signature="9967:10039" placeholder="INSERT INTO `agreement`... " />
+            <marker date="1462479806445" expanded="true" signature="10240:10727" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
+            <marker date="1462479806445" expanded="true" signature="10240:10886" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
+            <marker date="1462479806445" expanded="true" signature="10240:10938" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
+            <marker date="1462479806445" expanded="true" signature="10240:10965" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
+            <marker date="1462479806445" expanded="true" signature="10240:11054" placeholder="INSERT INTO `main`... " />
+            <marker date="1462479806445" expanded="true" signature="10240:11078" placeholder="INSERT INTO `main`... " />
+            <marker date="1462479806445" expanded="true" signature="10240:11100" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
+            <marker date="1462479806445" expanded="true" signature="10240:11103" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
+            <marker date="1462479806445" expanded="true" signature="11223:11901" placeholder="INSERT INTO `statistic`... " />
+            <marker date="1462479806445" expanded="true" signature="11223:11903" placeholder="INSERT INTO `statistic`... " />
+            <marker date="1462479806445" expanded="true" signature="11223:11909" placeholder="INSERT INTO `statistic`... " />
+            <marker date="1462479806445" expanded="true" signature="11223:12066" placeholder="INSERT INTO `statistic`... " />
+            <marker date="1462479806445" expanded="true" signature="12357:12432" placeholder="DELETE FROM " />
+            <marker date="1462479806445" expanded="true" signature="12474:12554" placeholder="DELETE FROM " />
+            <marker date="1462479806445" expanded="true" signature="12595:12660" placeholder="DELETE FROM " />
+            <marker date="1462479806445" expanded="true" signature="12922:12963" placeholder="SELECT * FRO... statistic" />
+            <marker date="1462479806445" expanded="true" signature="13531:13582" placeholder="UPDATE stati... " />
+            <marker date="1462479806445" expanded="true" signature="13621:13642" placeholder="INSERT INTO statistic... " />
+            <marker date="1462479806445" expanded="true" signature="13621:13698" placeholder="INSERT INTO statistic... " />
+            <marker date="1462479806445" expanded="true" signature="13621:13719" placeholder="INSERT INTO statistic... " />
+            <marker date="1462479806445" expanded="true" signature="13621:13725" placeholder="INSERT INTO statistic... " />
+            <marker date="1462479806445" expanded="true" signature="13621:13739" placeholder="INSERT INTO statistic... " />
           </folding>
         </state>
       </provider>
@@ -754,7 +701,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1462399131169" expanded="true" signature="7464:7539" placeholder="..." />
+            <marker date="1465162002052" expanded="true" signature="1164:1524" placeholder="..." />
+            <marker date="1465162002052" expanded="true" signature="3279:3354" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -780,55 +728,55 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
           <folding>
-            <marker date="1462399869064" expanded="true" signature="160:178" placeholder="SELECT * FRO... main" />
-            <marker date="1462399869064" expanded="true" signature="201:219" placeholder="SELECT * FRO... main" />
-            <marker date="1462399869064" expanded="true" signature="245:266" placeholder="SELECT * FRO... service" />
-            <marker date="1462399869064" expanded="true" signature="291:311" placeholder="SELECT * FRO... status" />
-            <marker date="1462399869064" expanded="true" signature="335:349" placeholder="SELECT * FRO... status" />
-            <marker date="1462399869064" expanded="true" signature="335:391" placeholder="SELECT * FRO... users" />
-            <marker date="1462399869064" expanded="true" signature="335:461" placeholder="SELECT * FRO... users" />
-            <marker date="1462399869064" expanded="true" signature="493:518" placeholder="SELECT * FRO... user_access" />
-            <marker date="1462399869064" expanded="true" signature="551:638" placeholder="SELECT * FRO... office" />
-            <marker date="1462399869064" expanded="true" signature="672:679" placeholder="SELECT * FRO... main" />
-            <marker date="1462399869064" expanded="true" signature="672:2872" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="672:2876" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="672:2891" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="672:2895" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="672:2898" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="672:2956" placeholder="SELECT * FRO... main" />
-            <marker date="1462399869064" expanded="true" signature="3917:6124" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="3917:6195" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="8946:9014" placeholder="INSERT INTO service... " />
-            <marker date="1462399869064" expanded="true" signature="9059:9122" placeholder="SELECT servi... service" />
-            <marker date="1462399869064" expanded="true" signature="9270:9368" placeholder="INSERT INTO service... " />
-            <marker date="1462399869064" expanded="true" signature="9413:9476" placeholder="SELECT servi... service" />
-            <marker date="1462399869064" expanded="true" signature="9874:9941" placeholder="INSERT INTO `agreement`... " />
-            <marker date="1462399869064" expanded="true" signature="9874:9942" placeholder="INSERT INTO `kandagar_it_otchet`.`agreement`... " />
-            <marker date="1462399869064" expanded="true" signature="9874:9944" placeholder="INSERT INTO `agreement`... " />
-            <marker date="1462399869064" expanded="true" signature="10048:10119" placeholder="INSERT INTO `agreement`... " />
-            <marker date="1462399869064" expanded="true" signature="10048:10120" placeholder="INSERT INTO `agreement`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:10804" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:10963" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:11015" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:11042" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:11131" placeholder="INSERT INTO `main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:11155" placeholder="INSERT INTO `main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:11177" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:11180" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-            <marker date="1462399869064" expanded="true" signature="11300:11978" placeholder="INSERT INTO `statistic`... " />
-            <marker date="1462399869064" expanded="true" signature="11300:11980" placeholder="INSERT INTO `statistic`... " />
-            <marker date="1462399869064" expanded="true" signature="11300:11986" placeholder="INSERT INTO `statistic`... " />
-            <marker date="1462399869064" expanded="true" signature="11300:12143" placeholder="INSERT INTO `statistic`... " />
-            <marker date="1462399869064" expanded="true" signature="12434:12509" placeholder="DELETE FROM " />
-            <marker date="1462399869064" expanded="true" signature="12551:12631" placeholder="DELETE FROM " />
-            <marker date="1462399869064" expanded="true" signature="12672:12737" placeholder="DELETE FROM " />
-            <marker date="1462399869064" expanded="true" signature="12999:13040" placeholder="SELECT * FRO... statistic" />
-            <marker date="1462399869064" expanded="true" signature="13604:13655" placeholder="UPDATE stati... " />
-            <marker date="1462399869064" expanded="true" signature="13694:13715" placeholder="INSERT INTO statistic... " />
-            <marker date="1462399869064" expanded="true" signature="13694:13771" placeholder="INSERT INTO statistic... " />
-            <marker date="1462399869064" expanded="true" signature="13694:13788" placeholder="INSERT INTO statistic... " />
-            <marker date="1462399869064" expanded="true" signature="13694:13794" placeholder="INSERT INTO statistic... " />
-            <marker date="1462399869064" expanded="true" signature="13694:13808" placeholder="INSERT INTO statistic... " />
+            <marker date="1462479806445" expanded="true" signature="160:178" placeholder="SELECT * FRO... main" />
+            <marker date="1462479806445" expanded="true" signature="201:219" placeholder="SELECT * FRO... main" />
+            <marker date="1462479806445" expanded="true" signature="245:266" placeholder="SELECT * FRO... service" />
+            <marker date="1462479806445" expanded="true" signature="291:311" placeholder="SELECT * FRO... status" />
+            <marker date="1462479806445" expanded="true" signature="335:349" placeholder="SELECT * FRO... status" />
+            <marker date="1462479806445" expanded="true" signature="335:391" placeholder="SELECT * FRO... users" />
+            <marker date="1462479806445" expanded="true" signature="335:461" placeholder="SELECT * FRO... users" />
+            <marker date="1462479806445" expanded="true" signature="493:518" placeholder="SELECT * FRO... user_access" />
+            <marker date="1462479806445" expanded="true" signature="551:638" placeholder="SELECT * FRO... office" />
+            <marker date="1462479806445" expanded="true" signature="672:679" placeholder="SELECT * FRO... main" />
+            <marker date="1462479806445" expanded="true" signature="672:2872" placeholder="SELECT m.mai... statistic" />
+            <marker date="1462479806445" expanded="true" signature="672:2876" placeholder="SELECT m.mai... statistic" />
+            <marker date="1462479806445" expanded="true" signature="672:2891" placeholder="SELECT m.mai... statistic" />
+            <marker date="1462479806445" expanded="true" signature="672:2895" placeholder="SELECT m.mai... statistic" />
+            <marker date="1462479806445" expanded="true" signature="672:2898" placeholder="SELECT m.mai... statistic" />
+            <marker date="1462479806445" expanded="true" signature="672:2956" placeholder="SELECT * FRO... main" />
+            <marker date="1462479806445" expanded="true" signature="3917:6124" placeholder="SELECT m.mai... statistic" />
+            <marker date="1462479806445" expanded="true" signature="3917:6195" placeholder="SELECT m.mai... statistic" />
+            <marker date="1462479806445" expanded="true" signature="8859:8927" placeholder="INSERT INTO service... " />
+            <marker date="1462479806445" expanded="true" signature="8972:9035" placeholder="SELECT servi... service" />
+            <marker date="1462479806445" expanded="true" signature="9183:9281" placeholder="INSERT INTO service... " />
+            <marker date="1462479806445" expanded="true" signature="9326:9389" placeholder="SELECT servi... service" />
+            <marker date="1462479806445" expanded="true" signature="9789:9856" placeholder="INSERT INTO `agreement`... " />
+            <marker date="1462479806445" expanded="true" signature="9789:9857" placeholder="INSERT INTO `kandagar_it_otchet`.`agreement`... " />
+            <marker date="1462479806445" expanded="true" signature="9789:9859" placeholder="INSERT INTO `agreement`... " />
+            <marker date="1462479806445" expanded="true" signature="9967:10038" placeholder="INSERT INTO `agreement`... " />
+            <marker date="1462479806445" expanded="true" signature="9967:10039" placeholder="INSERT INTO `agreement`... " />
+            <marker date="1462479806445" expanded="true" signature="10240:10727" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
+            <marker date="1462479806445" expanded="true" signature="10240:10886" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
+            <marker date="1462479806445" expanded="true" signature="10240:10938" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
+            <marker date="1462479806445" expanded="true" signature="10240:10965" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
+            <marker date="1462479806445" expanded="true" signature="10240:11054" placeholder="INSERT INTO `main`... " />
+            <marker date="1462479806445" expanded="true" signature="10240:11078" placeholder="INSERT INTO `main`... " />
+            <marker date="1462479806445" expanded="true" signature="10240:11100" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
+            <marker date="1462479806445" expanded="true" signature="10240:11103" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
+            <marker date="1462479806445" expanded="true" signature="11223:11901" placeholder="INSERT INTO `statistic`... " />
+            <marker date="1462479806445" expanded="true" signature="11223:11903" placeholder="INSERT INTO `statistic`... " />
+            <marker date="1462479806445" expanded="true" signature="11223:11909" placeholder="INSERT INTO `statistic`... " />
+            <marker date="1462479806445" expanded="true" signature="11223:12066" placeholder="INSERT INTO `statistic`... " />
+            <marker date="1462479806445" expanded="true" signature="12357:12432" placeholder="DELETE FROM " />
+            <marker date="1462479806445" expanded="true" signature="12474:12554" placeholder="DELETE FROM " />
+            <marker date="1462479806445" expanded="true" signature="12595:12660" placeholder="DELETE FROM " />
+            <marker date="1462479806445" expanded="true" signature="12922:12963" placeholder="SELECT * FRO... statistic" />
+            <marker date="1462479806445" expanded="true" signature="13531:13582" placeholder="UPDATE stati... " />
+            <marker date="1462479806445" expanded="true" signature="13621:13642" placeholder="INSERT INTO statistic... " />
+            <marker date="1462479806445" expanded="true" signature="13621:13698" placeholder="INSERT INTO statistic... " />
+            <marker date="1462479806445" expanded="true" signature="13621:13719" placeholder="INSERT INTO statistic... " />
+            <marker date="1462479806445" expanded="true" signature="13621:13725" placeholder="INSERT INTO statistic... " />
+            <marker date="1462479806445" expanded="true" signature="13621:13739" placeholder="INSERT INTO statistic... " />
           </folding>
         </state>
       </provider>
@@ -981,6 +929,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -988,20 +937,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.9615384">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin_main_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9615384">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/helpers.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.807693">
-          <caret line="30" column="9" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1049,14 +984,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/sql_query/join_main_for_all_exclude_statistic.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44884488">
@@ -1075,74 +1002,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7282322">
           <caret line="49" column="56" selection-start-line="0" selection-start-column="0" selection-end-line="50" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/admin_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="317" column="40" selection-start-line="317" selection-start-column="40" selection-end-line="317" selection-end-column="40" />
-          <folding>
-            <marker date="1462399869064" expanded="true" signature="160:178" placeholder="SELECT * FRO... main" />
-            <marker date="1462399869064" expanded="true" signature="201:219" placeholder="SELECT * FRO... main" />
-            <marker date="1462399869064" expanded="true" signature="245:266" placeholder="SELECT * FRO... service" />
-            <marker date="1462399869064" expanded="true" signature="291:311" placeholder="SELECT * FRO... status" />
-            <marker date="1462399869064" expanded="true" signature="335:349" placeholder="SELECT * FRO... status" />
-            <marker date="1462399869064" expanded="true" signature="335:391" placeholder="SELECT * FRO... users" />
-            <marker date="1462399869064" expanded="true" signature="335:461" placeholder="SELECT * FRO... users" />
-            <marker date="1462399869064" expanded="true" signature="493:518" placeholder="SELECT * FRO... user_access" />
-            <marker date="1462399869064" expanded="true" signature="551:638" placeholder="SELECT * FRO... office" />
-            <marker date="1462399869064" expanded="true" signature="672:679" placeholder="SELECT * FRO... main" />
-            <marker date="1462399869064" expanded="true" signature="672:2872" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="672:2876" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="672:2891" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="672:2895" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="672:2898" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="672:2956" placeholder="SELECT * FRO... main" />
-            <marker date="1462399869064" expanded="true" signature="3917:6124" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="3917:6195" placeholder="SELECT m.mai... statistic" />
-            <marker date="1462399869064" expanded="true" signature="8946:9014" placeholder="INSERT INTO service... " />
-            <marker date="1462399869064" expanded="true" signature="9059:9122" placeholder="SELECT servi... service" />
-            <marker date="1462399869064" expanded="true" signature="9270:9368" placeholder="INSERT INTO service... " />
-            <marker date="1462399869064" expanded="true" signature="9413:9476" placeholder="SELECT servi... service" />
-            <marker date="1462399869064" expanded="true" signature="9874:9941" placeholder="INSERT INTO `agreement`... " />
-            <marker date="1462399869064" expanded="true" signature="9874:9942" placeholder="INSERT INTO `kandagar_it_otchet`.`agreement`... " />
-            <marker date="1462399869064" expanded="true" signature="9874:9944" placeholder="INSERT INTO `agreement`... " />
-            <marker date="1462399869064" expanded="true" signature="10048:10119" placeholder="INSERT INTO `agreement`... " />
-            <marker date="1462399869064" expanded="true" signature="10048:10120" placeholder="INSERT INTO `agreement`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:10804" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:10963" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:11015" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:11042" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:11131" placeholder="INSERT INTO `main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:11155" placeholder="INSERT INTO `main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:11177" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-            <marker date="1462399869064" expanded="true" signature="10317:11180" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
-            <marker date="1462399869064" expanded="true" signature="11300:11978" placeholder="INSERT INTO `statistic`... " />
-            <marker date="1462399869064" expanded="true" signature="11300:11980" placeholder="INSERT INTO `statistic`... " />
-            <marker date="1462399869064" expanded="true" signature="11300:11986" placeholder="INSERT INTO `statistic`... " />
-            <marker date="1462399869064" expanded="true" signature="11300:12143" placeholder="INSERT INTO `statistic`... " />
-            <marker date="1462399869064" expanded="true" signature="12434:12509" placeholder="DELETE FROM " />
-            <marker date="1462399869064" expanded="true" signature="12551:12631" placeholder="DELETE FROM " />
-            <marker date="1462399869064" expanded="true" signature="12672:12737" placeholder="DELETE FROM " />
-            <marker date="1462399869064" expanded="true" signature="12999:13040" placeholder="SELECT * FRO... statistic" />
-            <marker date="1462399869064" expanded="true" signature="13604:13655" placeholder="UPDATE stati... " />
-            <marker date="1462399869064" expanded="true" signature="13694:13715" placeholder="INSERT INTO statistic... " />
-            <marker date="1462399869064" expanded="true" signature="13694:13771" placeholder="INSERT INTO statistic... " />
-            <marker date="1462399869064" expanded="true" signature="13694:13788" placeholder="INSERT INTO statistic... " />
-            <marker date="1462399869064" expanded="true" signature="13694:13794" placeholder="INSERT INTO statistic... " />
-            <marker date="1462399869064" expanded="true" signature="13694:13808" placeholder="INSERT INTO statistic... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="74" column="84" selection-start-line="74" selection-start-column="74" selection-end-line="74" selection-end-column="84" />
-          <folding>
-            <element signature="e#0#49#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1167,10 +1026,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/function.php">
+    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.7307692">
-          <caret line="9" column="26" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="26" />
+        <state vertical-scroll-proportion="-2.7692308">
+          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9fce55e4-9451-4e4e-acf7-90e23d51bd42/console_9.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4">
+          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1188,53 +1055,152 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9fce55e4-9451-4e4e-acf7-90e23d51bd42/console_9.sql">
+    <entry file="file://$PROJECT_DIR$/application/views/function.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.4">
-          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.24912281">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin_view.php">
+    <entry file="file://$PROJECT_DIR$/public/css/helpers.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3076923">
-          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
-          <folding>
-            <marker date="1462399131169" expanded="true" signature="7464:7539" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="-15.038462">
+          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin_menu.php">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/web-forms.rnc">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.0384617">
-          <caret line="10" column="70" selection-start-line="10" selection-start-column="70" selection-end-line="10" selection-end-column="70" />
+        <state vertical-scroll-proportion="0.33280507">
+          <caret line="530" column="16" selection-start-line="530" selection-start-column="16" selection-end-line="530" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/admin_controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.230769">
-          <caret line="43" column="30" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
+        <state vertical-scroll-proportion="-14.769231">
+          <caret line="72" column="46" selection-start-line="72" selection-start-column="46" selection-end-line="72" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
+    <entry file="file://$PROJECT_DIR$/application/views/admin_main_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.7692308">
-          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+        <state vertical-scroll-proportion="-3.2692308">
+          <caret line="5" column="58" selection-start-line="5" selection-start-column="58" selection-end-line="5" selection-end-column="58" />
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.807693">
+          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/admin_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-61.846153">
+          <caret line="243" column="11" selection-start-line="243" selection-start-column="11" selection-end-line="243" selection-end-column="11" />
+          <folding>
+            <marker date="1462479806445" expanded="true" signature="160:178" placeholder="SELECT * FRO... main" />
+            <marker date="1462479806445" expanded="true" signature="201:219" placeholder="SELECT * FRO... main" />
+            <marker date="1462479806445" expanded="true" signature="245:266" placeholder="SELECT * FRO... service" />
+            <marker date="1462479806445" expanded="true" signature="291:311" placeholder="SELECT * FRO... status" />
+            <marker date="1462479806445" expanded="true" signature="335:349" placeholder="SELECT * FRO... status" />
+            <marker date="1462479806445" expanded="true" signature="335:391" placeholder="SELECT * FRO... users" />
+            <marker date="1462479806445" expanded="true" signature="335:461" placeholder="SELECT * FRO... users" />
+            <marker date="1462479806445" expanded="true" signature="493:518" placeholder="SELECT * FRO... user_access" />
+            <marker date="1462479806445" expanded="true" signature="551:638" placeholder="SELECT * FRO... office" />
+            <marker date="1462479806445" expanded="true" signature="672:679" placeholder="SELECT * FRO... main" />
+            <marker date="1462479806445" expanded="true" signature="672:2872" placeholder="SELECT m.mai... statistic" />
+            <marker date="1462479806445" expanded="true" signature="672:2876" placeholder="SELECT m.mai... statistic" />
+            <marker date="1462479806445" expanded="true" signature="672:2891" placeholder="SELECT m.mai... statistic" />
+            <marker date="1462479806445" expanded="true" signature="672:2895" placeholder="SELECT m.mai... statistic" />
+            <marker date="1462479806445" expanded="true" signature="672:2898" placeholder="SELECT m.mai... statistic" />
+            <marker date="1462479806445" expanded="true" signature="672:2956" placeholder="SELECT * FRO... main" />
+            <marker date="1462479806445" expanded="true" signature="3917:6124" placeholder="SELECT m.mai... statistic" />
+            <marker date="1462479806445" expanded="true" signature="3917:6195" placeholder="SELECT m.mai... statistic" />
+            <marker date="1462479806445" expanded="true" signature="8859:8927" placeholder="INSERT INTO service... " />
+            <marker date="1462479806445" expanded="true" signature="8972:9035" placeholder="SELECT servi... service" />
+            <marker date="1462479806445" expanded="true" signature="9183:9281" placeholder="INSERT INTO service... " />
+            <marker date="1462479806445" expanded="true" signature="9326:9389" placeholder="SELECT servi... service" />
+            <marker date="1462479806445" expanded="true" signature="9789:9856" placeholder="INSERT INTO `agreement`... " />
+            <marker date="1462479806445" expanded="true" signature="9789:9857" placeholder="INSERT INTO `kandagar_it_otchet`.`agreement`... " />
+            <marker date="1462479806445" expanded="true" signature="9789:9859" placeholder="INSERT INTO `agreement`... " />
+            <marker date="1462479806445" expanded="true" signature="9967:10038" placeholder="INSERT INTO `agreement`... " />
+            <marker date="1462479806445" expanded="true" signature="9967:10039" placeholder="INSERT INTO `agreement`... " />
+            <marker date="1462479806445" expanded="true" signature="10240:10727" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
+            <marker date="1462479806445" expanded="true" signature="10240:10886" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
+            <marker date="1462479806445" expanded="true" signature="10240:10938" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
+            <marker date="1462479806445" expanded="true" signature="10240:10965" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
+            <marker date="1462479806445" expanded="true" signature="10240:11054" placeholder="INSERT INTO `main`... " />
+            <marker date="1462479806445" expanded="true" signature="10240:11078" placeholder="INSERT INTO `main`... " />
+            <marker date="1462479806445" expanded="true" signature="10240:11100" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
+            <marker date="1462479806445" expanded="true" signature="10240:11103" placeholder="INSERT INTO `kandagar_it_otchet`.`main`... " />
+            <marker date="1462479806445" expanded="true" signature="11223:11901" placeholder="INSERT INTO `statistic`... " />
+            <marker date="1462479806445" expanded="true" signature="11223:11903" placeholder="INSERT INTO `statistic`... " />
+            <marker date="1462479806445" expanded="true" signature="11223:11909" placeholder="INSERT INTO `statistic`... " />
+            <marker date="1462479806445" expanded="true" signature="11223:12066" placeholder="INSERT INTO `statistic`... " />
+            <marker date="1462479806445" expanded="true" signature="12357:12432" placeholder="DELETE FROM " />
+            <marker date="1462479806445" expanded="true" signature="12474:12554" placeholder="DELETE FROM " />
+            <marker date="1462479806445" expanded="true" signature="12595:12660" placeholder="DELETE FROM " />
+            <marker date="1462479806445" expanded="true" signature="12922:12963" placeholder="SELECT * FRO... statistic" />
+            <marker date="1462479806445" expanded="true" signature="13531:13582" placeholder="UPDATE stati... " />
+            <marker date="1462479806445" expanded="true" signature="13621:13642" placeholder="INSERT INTO statistic... " />
+            <marker date="1462479806445" expanded="true" signature="13621:13698" placeholder="INSERT INTO statistic... " />
+            <marker date="1462479806445" expanded="true" signature="13621:13719" placeholder="INSERT INTO statistic... " />
+            <marker date="1462479806445" expanded="true" signature="13621:13725" placeholder="INSERT INTO statistic... " />
+            <marker date="1462479806445" expanded="true" signature="13621:13739" placeholder="INSERT INTO statistic... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#49#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin_menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.1923075">
+          <caret line="11" column="79" selection-start-line="11" selection-start-column="79" selection-end-line="11" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.115385">
+          <caret line="74" column="57" selection-start-line="74" selection-start-column="57" selection-end-line="74" selection-end-column="57" />
+          <folding>
+            <marker date="1465162002052" expanded="true" signature="1164:1524" placeholder="..." />
+            <marker date="1465162002052" expanded="true" signature="3279:3354" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin_agreement.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.47768596">
+          <caret line="155" column="61" selection-start-line="155" selection-start-column="61" selection-end-line="155" selection-end-column="61" />
+          <folding>
+            <marker date="1465162019856" expanded="true" signature="1237:1298" placeholder="..." />
+            <marker date="1465162019856" expanded="true" signature="1760:1821" placeholder="..." />
+            <marker date="1465162019856" expanded="true" signature="7321:7483" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

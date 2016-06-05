@@ -4,105 +4,39 @@ include 'admin_menu.php';
 ?>
 
 <div class="conteiner">
-    <form action="http://kandagarotchet/index.php/admin_controller/add_service" method="post">
+    <form action="">
         <fieldset>
-            <legend>Услуги</legend>
-
-            <div class="service_block_add_field">
-                <input type="text" name="user_id" value="<?php echo $userId; ?>" hidden>
-                <input type="text" name="user_login" value="<?php echo $userLogin; ?>" hidden>
-                <input type="text" name="user_access" value="<?php echo $userAccess; ?>" hidden>
-
-                <label for="service_name">Имя услуги</label>
-                <select name="service_name" id="service_name">
-                    <?php foreach ($serviceInfo as $value_service) : ?>
-                        <option
-                            value="<?php echo $value_service['service_id'] . "/" . $value_service['service_name']; ?>"><?php echo $value_service['service_name']; ?></option>
-                    <?php endforeach; ?>
-                </select>
-                <label for="service_about">Сфера деятельности</label>
-                <select name="service_about" id="service_about">
-                    <?php foreach ($serviceInfo as $value_service) : ?>
-                        <option
-                            value="<?php echo $value_service['service_id'] . "/" . $value_service['service_about']; ?>"><?php echo $value_service['service_about']; ?></option>
-                    <?php endforeach; ?>
-                </select>
-                <label for="agreement">№ договора</label>
-                <input type="text" id="agreement" placeholder="№ договора" name="agreement_about" required>
-            </div>
-            <!--            ------------------------------------------------------------------>
-            <p class="service_block_add_new_field_btn ">+ Добавить новую услугу.</p>
-
-            <!--            Этот код добавить в JS, если нету данной услуги в перечне то можно ее добавить с помощью кнопки-->
-            <div class="service_block_add_new_field dspNone">
-                <label for="service_name_add">Имя услуги</label>
-                <input id="service_name_add" type="text" name="service_name_add">
-                <label for="service_about_add">Подробнее об услуге.</label>
-                <input id="service_about_add" type="text" name="service_about_add">
-                <label for="agreement_add">№ договора</label>
-                <input type="text" id="agreement_add" name="agreement_about_add" placeholder="№ договора">
-                <span class="service_block_drop_new_field_btn ">Отмена</span>
-            </div>
-            <!--            ------------------------------------------------------------------>
-        </fieldset>
-        <fieldset>
-            <legend>Офисс</legend>
-            <label for="office_name">Название офиса</label>
-<!--            <br />-->
-            <select name="office_id" id="office_name">
-                <?php foreach($officeInfo as $value_office) : ?>
-                    <?php if (!(is_null($value_office['office_id']) || is_null($value_office['office_name']))) { ?>
-                        <option value="<?php echo $value_office['office_id']; ?>"><?php echo $value_office['office_name']; ?></option>
-                    <?php } else { continue; } ?>
-                <?php endforeach; ?>
+            <select name="" id="">
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
             </select>
-<!--            <br />-->
-            <label for="datepicker_start">Начало действия договора.</label>
-<!--            <br />-->
-            <input type="text" id="datepicker_start" value="<?php echo date("Y-m-d") ?>" name="date_start">
-<!--            <br />-->
-            <label for="month_period">Период оплаты</label>
-<!--            <br />-->
-            <select name="month_period" id="month_period">
-                <?php foreach($officeInfo as $value_office) : ?>
-                    <?php if (!(is_null($value_office['month_period_id']) || is_null($value_office['month_count_name']))) { ?>
-                        <option value="<?php echo $value_office['month_period_id']; ?>"><?php echo $value_office['month_count_name']; ?></option>
-                    <?php } else { continue; } ?>
-                <?php endforeach; ?>
+            <select name="" id="">
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
             </select>
-<!--            <br />-->
+            <input type="submit" value="Предсказать будущее">
         </fieldset>
-        <fieldset>
-            <legend>Цена</legend>
-            <label for="payment_namber">Номер счета</label>
-<!--            <br />-->
-            <input type="text" id="payment_namber" name="stat_payment" >
-<!--            <br />-->
-            <label for="summ">Сумма за месяц</label>
-<!--            <br />-->
-            <input type="text" id="summ" name="summ" >
-
-            <select name="cash_id" id="cash_id">
-                <?php foreach($selectCash as $value_cash) : ?>
-                    <?php if (!(is_null($value_cash['cash_country']))) { ?>
-                        <option value="<?php echo $value_cash['cash_id']; ?>"><?php echo $value_cash['cash_country']; ?></option>
-                    <?php } else { continue; } ?>
-                <?php endforeach; ?>
-            </select>
-        </fieldset>
-        <input type="submit" value="Добавить улсугу." class="admin_form_add_service_btn" placeholder="">
     </form>
-
     <table border="0" class="admin_list_service" cellpadding="0" cellspacing="0">
-        <caption> Список сервисов. </caption>
+        <caption> Список сервисов на: <?php echo date('Y-m'); ?></caption>
         <tr>
             <th>№ счета</th>
-            <th>Сервис</th>
-            <th>Описание сервиса</th>
+            <th>Поставщик</th>
+            <th>Описание услуги</th>
             <th>Офис</th>
             <th>Дата начала услуги</th>
             <th>Дата получения</th>
-            <th>Период услуги</th>
+            <th>Периодичность оплаты</th>
             <th>Сумма</th>
             <th>Валюта</th>
             <th>Статус</th>
@@ -138,6 +72,7 @@ include 'admin_menu.php';
                         <?php endforeach; ?>
                     </div>
                     <p class="show_static">Статистика</p>
+                    <p class="show_agreement">Договор</p>
                     <?php
                     if ($userAccess == 2) {
                         echo '<p>-------------</p>';
@@ -149,12 +84,17 @@ include 'admin_menu.php';
         </tr>
         <?php endforeach; ?>
     </table>
+    <!--  -----------------------------------------------------------------------------------  -->
+    <!--  -----------------------------------------------------------------------------------  -->
+    <!--  -----------------------------------------------------------------------------------  -->
     <div class="statistic_box">
         <div class="close_setting"></div>
         <ul class="statistic_list">
             <li>Статистика оплаты</li>
         </ul>
     </div>
+    <!--  -----------------------------------------------------------------------------------  -->
+    <!--  -----------------------------------------------------------------------------------  -->
     <div class='recieve_form dspNone'>
         <form action=''>
             <label for="payment_recieve">№ Счета</label>

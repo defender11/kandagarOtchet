@@ -58,6 +58,12 @@ $(function () {
         return false;
     });
 //--------------------------------
+    function close_setting_on_status() {
+        $('.row_setting').fadeOut('fast');
+        $('.status_service').removeClass('dspBlock');
+        $('.close_setting').fadeOut('fast');
+    }
+
     $(document).on('click', '.status_service_btn', function () {
         var $this = $(this);
         var status_service = $this.data('status_service');
@@ -78,6 +84,7 @@ $(function () {
                     type: "POST",
                     success: function(data) {
                         console.log(data);
+                        close_setting_on_status();
                         $this.closest('.table_tr').removeClass().addClass('table_tr good');
                     }
                 });
@@ -85,21 +92,25 @@ $(function () {
             case 2:
                 //Статус получено
                 console.log(status_service);
+                close_setting_on_status();
                 $this.closest('.table_tr').removeClass().addClass('table_tr recieved');
                 break;
             case 3:
                 //Статус В процессе
                 console.log(status_service);
+                close_setting_on_status();
                 $this.closest('.table_tr').removeClass().addClass('table_tr progress');
                 break;
             case 4:
                 //Статус В архиве
                 console.log(status_service);
+                close_setting_on_status();
                 $this.closest('.table_tr').removeClass().addClass('table_tr archive');
                 break;
             case 5:
                 //Статус просроченно
                 console.log(status_service);
+                close_setting_on_status();
                 $this.closest('.table_tr').removeClass().addClass('table_tr bad');
                 break;
             default:

@@ -40,8 +40,20 @@ class Admin_controller extends CI_Controller {
 
     public function page_admin_agreement ()
     {
-        $this->load->model('admin_model');
-        $this->load->view('');
+        if ($this->session->userdata('auth') == 'yes') {
+            $this->load->model('admin_model');
+            $allInfo['mainInfo'] = $this->admin_model->select_all_info();
+            $allInfo['officeInfo'] = $this->admin_model->select_office();
+            $allInfo['serviceInfo'] = $this->admin_model->select_service();
+            $allInfo['selectJoinInfo'] = $this->admin_model->select_all_service_join();
+            $allInfo['selectCash'] = $this->admin_model->select_all_cash();
+            $allInfo['selectStatus'] = $this->admin_model->select_all_status();
+            $allInfo['selectUser'] = $this->admin_model->select_user();
+            $allInfo['select_all_user_status'] = $this->admin_model->select_all_user_status();
+            $this->load->view('admin_agreement', $allInfo);
+        } else {
+            $this->logout();
+        }
     }
 
 //    -------------------------------------------------------------------------
@@ -58,7 +70,7 @@ class Admin_controller extends CI_Controller {
         if ($this->session->userdata('auth') == 'yes') {
             $this->load->model('admin_model');
             if ($this->admin_model->add_service() == true) {
-                redirect("page_admin_add_service");
+                redirect("page_admin_agreement");
             }
         } else {
             $this->logout();
