@@ -6,7 +6,11 @@ include 'admin_menu.php';
 <div class="conteiner">
 
     <table border="0" class="admin_list_service" cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="table_list" colspan="10" style="background: rgb(251, 236, 236) none repeat scroll 0% 0%;">* Удаляя поставщиков, удалаються так же договора и все счета которые привязаны к договору.</td>
+        </tr>
         <caption> Список поставщиков.</caption>
+
         <tr>
             <th>Поставщик</th>
             <th>Описание услуги</th>
@@ -17,8 +21,8 @@ include 'admin_menu.php';
                 <tr class="table_tr schange <?php echo $sInfo['service_id']; ?>" data-sid="<?php echo $sInfo['service_id']; ?>">
                     <td class="table_list sName"><?php echo $sInfo['service_name']; ?></td>
                     <td class="table_list sAbout"><?php echo $sInfo['service_about']; ?></td>
-                    <td class="table_list tbl_list_setting btn_edit">
-                        <p><i class="fa fa-pencil-square-o " aria-hidden="true"></i></p>
+                    <td class="table_list tbl_list_setting ">
+                        <p><i class="fa fa-pencil-square-o btn_edit" aria-hidden="true"></i> <i class="fa fa-trash-o btn_del" aria-hidden="true"></i></p>
                     </td>
                 </tr>
             <?php endforeach; else:?>

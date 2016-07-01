@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 4/21/2016.
  */
-
+//---------------------------------
 function checkTimeZero (data) {
     if  (data > 0 && data < 10) {
         return "0" + data;
@@ -19,15 +19,9 @@ var time = function () {
 };
 // час в текущей временной зоне
 setInterval(time, 1000);
+//---------------------------------
 
-function preloadRequest($btnNameHide ) {
-    $btnNameHide.innerHTML = "Обновление";
-}
-function afterRequest($btnNameShow) {
-    $btnNameShow.innerHTML = "Изменить";
-}
-
-$(function () {
+$(document).ready(function () {
     var $path = 'http://kandagarotchet/';
     var $path_no_routes = 'http://kandagarotchet/index.php/';
 
@@ -48,6 +42,7 @@ $(function () {
 
         $this.find('.close_setting').css({'display' : 'block'});
         $this.find('.row_setting').css({'display' : 'block'});
+        $('.row_setting').removeClass('dspNone');
     });
 //--------------------------------
     $(document).on('click', '.show_status', function () {
@@ -61,6 +56,8 @@ $(function () {
         $('.statistic_box').fadeOut('fast');
         $('.form_change_service').removeClass('dspBlock');
         $('.form_change_service').fadeOut('fast');
+        $('.row_setting').addClass('dspNone');
+        $('.recieve_form').addClass('dspNone');
         $('.statistic_list li:not(:nth-child(1))').remove();
 
         $(this).fadeOut('fast');
@@ -87,15 +84,26 @@ $(function () {
         }
         return false;
     });
-//--------------------------------
+    //--------------------------------
     function close_setting_on_status() {
         $('.row_setting').fadeOut('fast');
         $('.status_service').removeClass('dspBlock');
+        //$('.recieve_form').fadeOut('fast');
         $('.close_setting').fadeOut('fast');
+
+    }
+    //--------------------------------
+    function close_setting_on_status_change() {
+        $('.row_setting').fadeOut('fast');
+        $('.status_service').removeClass('dspBlock');
     }
 
     $(document).on('click', '.status_service_btn', function () {
         var $this = $(this);
+
+        var stat_payment = $this.closest('.table_tr').find('.stat_payment').text();
+        var stat_summ = $this.closest('.table_tr').find('.stat_summ').text();
+
         var status_service = $this.data('status_service');
         var agreement = $this.closest('.table_tr').data('agreement');
         var main_id = $this.closest('.table_tr').data('main_id');
@@ -103,13 +111,15 @@ $(function () {
         var stat_id = $this.closest('.table_tr').data('stat_id');
         var current_month = $this.closest('.table_tr').find('.date_recieved').text();
 
+        console.log(stat_summ);
+
         switch (parseInt(status_service)) {
             case 1:
                 //Статус оплачено
                 console.log(status_service);
                 $.ajax({
-                    data: "stat_id="+ stat_id + "&main_id=" + main_id + "&stat_month=" + current_month + "&month_period=" + month_period,
-                    url: $path + "set_success_stat",
+                    data: "stat_id="+ stat_id + "&main_id=" + main_id + "&stat_month=" + current_month + "&month_period=" + month_period + "&status_service=" + status_service,
+                    url: $path + "set_stat",
                     dataType: "text",
                     type: "POST",
                     success: function(data) {
@@ -123,7 +133,13 @@ $(function () {
                 //Статус получено
                 console.log(status_service);
                 close_setting_on_status();
-                $this.closest('.table_tr').removeClass().addClass('table_tr recieved');
+                $('.recieve_form').removeClass('dspNone').css({'display' : 'block'});
+                $('.recieve_form').prev().removeClass('dspNone').css({'display' : 'block'});
+                $('.recieve_form > form ').removeClass('dspNone').css({'display' : 'block'});
+                $('.recieve_form > form ').attr({"data-item_id": main_id, "data-status_service": status_service, "data-stat_id": stat_id});
+                $('#payment_recieve').val( stat_payment );
+                $('#summ_recieve').val( stat_summ );
+
                 break;
             case 3:
                 //Статус В процессе
@@ -140,14 +156,55 @@ $(function () {
             case 5:
                 //Статус просроченно
                 console.log(status_service);
-                close_setting_on_status();
-                $this.closest('.table_tr').removeClass().addClass('table_tr bad');
+                $.ajax({
+                    data: "stat_id="+ stat_id + "&main_id=" + main_id + "&stat_month=" + current_month + "&month_period=" + month_period + "&status_service=" + status_service,
+                    url: $path + "set_stat",
+                    dataType: "text",
+                    type: "POST",
+                    success: function(data) {
+                        console.log(data);
+                        close_setting_on_status();
+                        $this.closest('.table_tr').removeClass().addClass('table_tr bad');
+                    }
+                });
                 break;
             default:
         }
+    });
 
+    $(document).on('click', '.recieve_form > .close_setting', function () {
+       $(this).css({'display' : 'none'});
+    });
 
-    })
+    $(document).on('click', '.btn_requsit', function (){
+        var $this = $(this);
+        var $thisClst = $(this).closest('.recieve_form');
+
+        var main_id = $thisClst.find('form').data('item_id');
+        var stat_id = $thisClst.find('form').data('stat_id');
+        var status_service = $thisClst.find('form').data('status_service');
+        var stat_summ = $thisClst.find('#summ_recieve').val();
+        var stat_payment = $thisClst.find('#payment_recieve').val();
+
+        console.log("main_id: " + main_id);
+        console.log("status_service: " + status_service);
+        console.log("stat_summ: " + stat_summ);
+        console.log("stat_payment: " + stat_payment);
+
+        //Номер счета и сумма
+        $.ajax({
+            data: "main_id=" + main_id + "&stat_id=" + stat_id + "&status_service=" + status_service + "&stat_summ=" + stat_summ + "&stat_payment=" + stat_payment,
+            url: $path + "set_stat",
+            dataType: "text",
+            type: "POST",
+            success: function(data) {
+                console.log(data);
+                //$this.closest('.table_tr').removeClass().addClass('table_tr recieved');
+            }
+        });
+
+        return false;
+    });
 // --------------------------------
 //    SYSTEM FUTURE
 //    $(document).on('click', '.btn_future_payament', function () {
@@ -307,10 +364,40 @@ $(function () {
         })
     });
 
-
     $(document).on('click', '.btn_close', function() {
        $(this).closest('.form-close').addClass('dspNone');
         $('.close_setting').fadeOut('fast');
+    });
+
+    $(document).on('click', '.btn_del', function (e) {
+        var $this = $(this);
+
+        var sId = $this.closest('.schange').data('sid');
+        var sName = $this.closest('.schange').find('.sName').text();
+        var sAbout = $this.closest('.schange').find('.sAbout').text();
+
+        $.ajax({
+            data: "service_id=" + sId + "&service_name=" + encodeURIComponent(sName) + "&service_about=" +  encodeURIComponent(sAbout),
+            type: "POST",
+            url: $path_no_routes + "admin_controller/select_all_agreement_join_by_name",
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                $('.wait_load').remove();
+                $this.removeClass("dspNone");
+
+                if (data.jsResult == "true") {
+                    console.log('data load.');
+                } else {
+                    console.log('data not load.');
+                }
+            },
+            error: function () {
+                $('.wait_load').remove();
+            }
+
+        });
+        return false;
     });
 
 });

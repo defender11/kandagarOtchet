@@ -65,7 +65,7 @@ $route['show_statistic'] = 'admin_controller/show_statistic';
 $route['delete_service'] = 'admin_controller/delete_service';
 $route['update_agreement'] = 'admin_controller/update_agreement';
 
-$route['set_success_stat'] = 'admin_controller/set_success_stat';
+$route['set_stat'] = 'admin_controller/set_stat';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

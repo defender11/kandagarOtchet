@@ -6,7 +6,7 @@ include 'header.php';
         <fieldset>
             <legend>Авторизация</legend>
             <input type="text" placeholder="Логин" name="login">
-            <input type="text" placeholder="Пароль" name="passwd">
+            <input type="password" placeholder="Пароль" name="passwd">
             <input type="submit" value="Вход" name="check_login_btn">
         </fieldset>
     </form>

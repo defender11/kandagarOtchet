@@ -8,8 +8,7 @@ include 'admin_menu.php';
         <fieldset>
             <legend>Договор</legend>
 
-            <label for="datepicker_start">Начало действия договора.</label>
-            <br />
+            <label for="datepicker_start">Начало действия договора. <br /><h6>Дата будущих платежей</h6></label>
             <input type="text" id="datepicker_start" value="<?php echo date("Y-m-d") ?>" name="date_start">
             <br />
             <label for="agreement">№ договора</label>
@@ -129,6 +128,7 @@ include 'admin_menu.php';
                 data-month_period="<?php echo $valueJoinInfo['month_period_id'];?>"
                 data-stat_id="<?php echo $valueJoinInfo['stat_id'];?>"
             >
+
                 <td class="table_list"><?php echo $valueJoinInfo['agreement_name'];?></td>
                 <td class="table_list"><?php echo $valueJoinInfo['service_name'];?></td>
                 <td class="table_list"><?php echo $valueJoinInfo['service_about'];?></td>
@@ -147,7 +147,9 @@ include 'admin_menu.php';
                             <p data-status_service="<?php echo $valueJoinInfo['status_id'] ?>"><i class="fa fa-check"></i><?php echo $valueJoinInfo['status_name'] ?></p>
                             <p>-------------</p>
                             <?php foreach ($selectStatus as $key => $valusStat) : ?>
-                                <p class="status_service_btn" data-status_service="<?php echo $valusStat['status_id'] ?>"><?php echo $valusStat['status_name'] ?></p>
+                                <?php if ($key == 2 || $key == 3) : ?>
+                                    <p class="status_service_btn" data-status_service="<?php echo $valusStat['status_id'] ?>"><?php echo $valusStat['status_name'] ?></p>
+                                <?php endif; ?>
                             <?php endforeach; ?>
                         </div>
 <!--                        <p class="show_static">Статистика</p>-->

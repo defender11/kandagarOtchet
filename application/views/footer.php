@@ -1,9 +1,7 @@
 
-        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
 <!--        <script src="http://code.jquery.com/jquery-1.9.0.js"></script>-->
-        <script src="../../public/js/jquery-ui.min.js"></script>
-        <script src="../../public/js/common.js?v=1.1"></script>
-        <script src="../../public/js/jquery.color-2.1.2.min.js"></script>
+
 
 
         <script>

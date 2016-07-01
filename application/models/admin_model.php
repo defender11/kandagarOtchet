@@ -71,6 +71,48 @@ class Admin_model extends CI_Model {
                                 JOIN user_access usra
                                 ON usr.user_access = usra.user_access_id";
 
+    public $join_table_agreem_main = "SELECT
+                                          # agreement_main
+                                          am.agrm_id,
+                                          # agreement
+                                          a.agreement_id,
+                                          a.agreement_name,
+                                          srv.service_name,
+                                          srv.service_about,
+                                          a.status_id,
+                                          # status
+                                          s.status_name,
+                                          # office
+                                          o.office_name,
+                                          am.agrm_date_start as date_start,
+                                          am.month_period_id,
+                                          mp.month_count_name,
+                                          m.main_id,
+                                          st.stat_id,
+                                          m.date_recieved
+
+                                        FROM agreement_main AS am
+                                          JOIN agreement AS a
+                                            ON am.agreement_id = a.agreement_id
+
+                                          JOIN office AS o
+                                            ON o.office_id = am.office_id
+
+                                          JOIN status AS s
+                                            ON s.status_id = a.status_id
+
+                                          JOIN month_period AS mp
+                                            ON mp.month_period_id = am.month_period_id
+
+                                          JOIN service AS srv
+                                            ON am.service_id = srv.service_id
+
+                                        JOIN main AS m
+                                        ON m.main_id = am.main_id
+
+                                        JOIN statistic AS st
+                                        ON m.main_id = st.main_id";
+
     public function __construct()
     {
         parent::__construct();
@@ -122,11 +164,32 @@ class Admin_model extends CI_Model {
 
 //    ----------------------------------------
 
+    public function select_all_agreement_join_by_name()
+    {
+        $data = array(
+            'service_id' => @$this->strip_trim($_POST['service_id']),
+            'service_name' => @$this->strip_trim($_POST['service_name']),
+            'service_about' => @$this->strip_trim($_POST['service_about'])
+        );
+        $row = $this->db->query($this->join_table_all. "
+                                WHERE srv.service_name = '".$data['service_name']."' AND srv.service_about = '".$data['service_about']."'
+                                ORDER BY m.main_id ASC");
+        return $row->result_array();
+    }
+
     public function select_all_agreement_join()
     {
         return  $this->db->query($this->join_table_all. "
                                 WHERE a.status_id <> 4
                                 ORDER BY m.main_id ASC")->result_array();
+    }
+
+                            public function select_all_agreement_main()
+    {
+        return  $this->db->query($this->join_table_agreem_main. "
+                                WHERE a.status_id <> 4
+                                GROUP BY am.agreement_id
+                                ORDER BY am.agrm_id ASC")->result_array();
     }
 
     public function select_all_payment_join()
@@ -139,7 +202,7 @@ class Admin_model extends CI_Model {
     public function select_all_payment_future()
     {
 
-        @$ym = $this->strip_trim($_POST['year_future'])."-".$this->strip_trim($_POST['month_future']);
+        @$ym = $this->strip_trim($_POST['year_future'])."-".$this->strip_trim($_POST['month_future']."-30");
         $row = $this->db->query($this->join_table_all. "
                                 WHERE  s.stat_month < '".$ym."' OR s.stat_month = '".$ym."'")->result_array();
         $row[0]['selectData'] = $ym;
@@ -225,13 +288,8 @@ class Admin_model extends CI_Model {
 //        Конец Проверки на добовление услуги, если такая услуга уже есть
 //--------------------------------------------------------------------------
 //        Вставляем в таблицу agreement № Договора и возврощяем ID
-//        if ($temp['agreement_about_add'] == "") {
-            $this->db->query("INSERT INTO `agreement` VALUES(NULL, '".$temp['agreement_about']."', 3)");
-            $query_agreement = $this->db->insert_id();
-//        } else {
-//            $this->db->query("INSERT INTO `agreement` VALUES(NULL, '".$temp['agreement_about_add']."')");
-//            $query_agreement = $this->db->insert_id();
-//        }
+        $this->db->query("INSERT INTO `agreement` VALUES(NULL, '".$temp['agreement_about']."', 3)");
+        $query_agreement = $this->db->insert_id();
 //--------------------------------------------------------------------------
 //  Вставляем данные в main таблицу
         $q3 = "INSERT INTO `main`(
@@ -256,7 +314,9 @@ class Admin_model extends CI_Model {
 
         $query3 = $this->db->query($q3);
         $main_id = $this->db->insert_id();
-
+// ------------------
+        $this->db->query("INSERT INTO `agreement_main` VALUES(NULL, '".$query_agreement."', '".$query2[0]['service_id']."','".$temp['office_id']."', '".$temp['date_start']."', ".$temp['month_period'].", '".$main_id."')");
+// ------------------
         $insert_into_statistic = "INSERT INTO `statistic` (
                                                             stat_id,
                                                             stat_month,
@@ -281,6 +341,7 @@ class Admin_model extends CI_Model {
         $agreement = intval($this->strip_trim($_POST['agreement']));
 
         $this->db->query("DELETE FROM `kandagar_it_otchet`.`statistic` WHERE `statistic`.`main_id` = ".$id_service);
+        $this->db->query("DELETE FROM `kandagar_it_otchet`.`agreement_main` WHERE `agreement_main`.`agreement_id` = ".$agreement);
         $this->db->query("DELETE FROM `kandagar_it_otchet`.`agreement` WHERE `agreement`.`agreement_id` = ".$agreement);
         $this->db->query("DELETE FROM `kandagar_it_otchet`.`main` WHERE `main`.`main_id` = ".$id_service);
 
@@ -307,18 +368,50 @@ class Admin_model extends CI_Model {
         return $row->result_array();
     }
 
-    public function set_success_stat()
+    public function set_stat()
     {
-        $stat_id = intval($this->strip_trim($_POST['stat_id']));
-        $main_id = intval($this->strip_trim($_POST['main_id']));
-        $month_period = intval($this->strip_trim($_POST['month_period']));
-        $current_month = $this->strip_trim($_POST['stat_month']);
+        $stat_id = intval($this->strip_trim(@$_POST['stat_id']));
+        $status_service = intval($this->strip_trim(@$_POST['status_service']));
+        $main_id = intval($this->strip_trim(@$_POST['main_id']));
+        $month_period = intval($this->strip_trim(@$_POST['month_period']));
+        $current_month = $this->strip_trim(@$_POST['stat_month']);
+        $stat_summ = $this->strip_trim(@$_POST['stat_summ']);
+        $stat_payment = @$_POST['stat_payment'];
+
 
         $date = new DateTime($current_month);
         $date->modify("+".$month_period." month");
         $new_current_month = $date->format('Y-m-d'); // 2013-06-17
 
-        $this->db->query("UPDATE statistic SET status_id = 1 WHERE stat_id = ".$stat_id);
-        $this->db->query("INSERT INTO statistic(stat_id, stat_month, status_id, main_id) VALUES(null, '".$new_current_month."', 3, ".$main_id.")");
+        switch ($status_service) {
+            case 1:
+                // Оплачено
+                $this->db->query("UPDATE statistic SET status_id = 1 WHERE stat_id = ".$stat_id);
+                $this->db->query("INSERT INTO statistic(stat_id, stat_month, status_id, main_id) VALUES(null, '".$new_current_month."', 3, ".$main_id.")");
+                echo $status_service;
+                break;
+            case 2:
+                //Получено
+//                $this->db->query("UPDATE statistic SET stat_summ = ".$stat_summ.", stat_payment = '".$stat_payment."', status_id =".$status_service ." WHERE stat_id =".$stat_id);
+                $this->db->query("UPDATE `kandagar_it_otchet`.`statistic` SET `stat_summ` = '".$stat_summ."', `stat_payment` = '".$stat_payment."', `statistic`.`stat_id` = ".$stat_id." , `statistic`.`status_id` = 2 WHERE `statistic`.`main_id` = ".$main_id);
+                echo $status_service;
+                break;
+            case 3:
+                //В процессе
+
+                break;
+            case 4:
+                //В архив
+
+                break;
+            case 5:
+                //Просроченно
+                $this->db->query("UPDATE statistic SET status_id = 5 WHERE stat_id = ".$stat_id);
+                $this->db->query("INSERT INTO statistic(stat_id, stat_month, status_id, main_id) VALUES(null, '".$new_current_month."', 3, ".$main_id.")");
+                echo $status_service;
+                break;
+            default:
+                echo $status_service;
+        }
     }
 }

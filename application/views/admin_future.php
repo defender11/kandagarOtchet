@@ -29,15 +29,11 @@ include 'admin_menu.php';
                     if ($key_month == '') {
                         continue;
                     } else {
-//                        if (date('m') < $key_month) {
                             if ($key_month < 10) {
                                 echo "<option value='0{$key_month}'>{$value_month}</option>";
                             } else {
                                 echo "<option value='{$key_month}'>{$value_month}</option>";
                             }
-//                        } else {
-//                            continue;
-//                        }
                     }
                 }
                 ?>
@@ -71,10 +67,10 @@ include 'admin_menu.php';
     <table border="0" class="admin_list_service" cellpadding="0" cellspacing="0">
         <caption>
             <?php
-                if ($futureData[0]['selectData'] == "-") {
+                if ($futureData[0]['selectData'] == "-" || $futureData[0]['selectData'] == "--30") {
                     echo "Список счетов пуст. Выберите дату!";
                 } else {
-                    echo "Список счетов на: " .$futureData[0]['selectData']. "-01";
+                    echo "Список счетов на: " .$futureData[0]['selectData'];
                 }
             ?>
         </caption>
@@ -137,5 +133,4 @@ include 'admin_menu.php';
         </form>
     </div>
 </div>
-</body>
-</html>
+<?php include 'footer.php'; ?>

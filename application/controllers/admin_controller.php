@@ -76,22 +76,23 @@ class Admin_controller extends CI_Controller {
                     @$yearItem = substr($val['stat_month'], 0, 4);
                     @$monthItem = substr($val['stat_month'], 5, 2);
 
-                    @$monthItem1 = substr($val['stat_month'], 0, 7);
+                    @$monthItem1 = substr($val['stat_month'], 0,7);
 //                    echo $k."<br />";
+//                    echo $monthItem1;
 
                     if (!empty($crntMonth)) {
                         for ($i = $crntMonth; $i < $threeYear; $i += intval($val["month_period_id"])) {
+
+                            $m1 = str_replace("-", "", $monthItem1);
+                            $m2 = str_replace("-", "", $joinCrntMY);
 
                             $date = new DateTime($monthItem1);
                             $date->modify("+" . intval($val["month_period_id"]) . " month");
                             $monthItem1 = $date->format('Y-m'); // 2013-06-17
 
-                            $m1 = str_replace("-", "", $monthItem1);
-                            $m2 = str_replace("-", "", $joinCrntMY);
-
                             if ($m1 == $m2) {
 //                                echo $m1 . " == " . $m2 . "<br />";
-                                $allInfo['futureData'][$k]['new_months'][] = $monthItem1 . "-01";
+                                $allInfo['futureData'][$k]['new_months'][] = $monthItem1;
                                 break;
                             } else {
 //                                echo $m1 ." != ". $m2."<br />";
@@ -125,7 +126,8 @@ class Admin_controller extends CI_Controller {
             $allInfo['serviceInfoAbout'] = $this->admin_model->select_service_about();
             $allInfo['selectCash'] = $this->admin_model->select_all_cash();
             $allInfo['selectStatus'] = $this->admin_model->select_all_status();
-            $allInfo['selectJoinInfo'] = $this->admin_model->select_all_agreement_join();
+            $allInfo['selectJoinInfo'] = $this->admin_model->select_all_agreement_main();
+            $allInfo['selectJoinInfo1'] = $this->admin_model->select_all_agreement_join();
             $this->load->view('admin_agreement', $allInfo);
         } else {
             $this->logout();
@@ -184,12 +186,13 @@ class Admin_controller extends CI_Controller {
         echo json_encode($data, JSON_FORCE_OBJECT);
     }
 
-    public function set_success_stat()
+    public function set_stat()
     {
-        header("Content-Type:text/plain");
+        header("Content-Type: text/plain");
 
         $this->load->model('admin_model');
-        $this->admin_model->set_success_stat();
+        $result = $this->admin_model->set_stat();
+        return $result;
     }
 
     public function strip_trim ($value)
@@ -198,9 +201,25 @@ class Admin_controller extends CI_Controller {
     }
 
     public function update_agreement () {
-        header("Content-Type:text/plain");
+        header("Content-Type: text/plain");
 
         $this->load->model('admin_model');
         $this->admin_model->update_agreement();
     }
+
+    public function select_all_agreement_join_by_name()
+    {
+        header("Content-Type: application/json");
+        $this->load->model('admin_model');
+        $data = $this->admin_model->select_all_agreement_join_by_name();
+
+        if (is_array($data) && !empty($data)) {
+            $data['jsResult'] = 'true';
+            echo json_encode($data, JSON_FORCE_OBJECT);
+        } else {
+            $data['jsResult'] = 'false';
+            echo json_encode($data, JSON_FORCE_OBJECT);
+        }
+    }
+
 }

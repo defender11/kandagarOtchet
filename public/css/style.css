@@ -4,13 +4,15 @@
 .menu {
     width: 200px;
     float: left;
+    padding-left: 25px;
     border-right: 2px dashed;
-    margin-right: 25px !important;
 }
 
 .conteiner {
     width: 960px;
     float: left;
+    padding-left: 25px;
+    border-left: 2px dashed;
 }
 
 .conteiner,
@@ -183,21 +185,34 @@
     box-shadow: 0px 0px 10px -2px rgba(0,0,0,.6);
 }
 
+.btn_del {
+    padding: 5px;
+}
+.btn_del:hover {
+    background: #fffa90;
+}
+
+.btn_edit:hover {
+    background: #fffa90;
+}
+
 .btn_edit {
     cursor: pointer;
     display: block;
     position: relative;
+    padding: 5px;
 }
 
 .form_change_service input,
 .form_change_service textarea {
     padding: 5px;
 }
-.form_change_service {
+.form_change_service,
+.recieve_form {
     display: block;
     border: 1px solid;
     width: 260px;
-    height: 300px;
+    /*height: 300px;*/
     background: #fff;
     padding: 15px;
     position: fixed;
@@ -233,4 +248,8 @@
     position: absolute;
     right: 20px;
     cursor: pointer;
+}
+
+..recieve_form > form {
+    z-index: 20;
 }
