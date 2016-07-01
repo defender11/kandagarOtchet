@@ -4,6 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Admin_model extends CI_Model {
 
 //    public $currentMonth = ;
+    public $service_main = "SELECT service_id, service_name FROM service GROUP BY service_name";
+    public $service_about = "SELECT service_id, service_about FROM service GROUP BY service_about";
+
     public $main = "SELECT * FROM main";
     public $cash = "SELECT * FROM cash";
     public $service = "SELECT * FROM service";
@@ -17,59 +20,6 @@ class Admin_model extends CI_Model {
 
     public $select_office = "SELECT * FROM office RIGHT JOIN month_period ON office_id = month_period_id LIMIT 0, 50 ";
 
-//    public $select_join = "SELECT  m.main_id main,
-//                                    a.agreement_id,
-//                                    a.agreement_name,
-//                                    srv.service_name,
-//                                    srv.service_about,
-//                                    off.office_name,
-//                                    m.date_start,
-//                                    m.date_recieved,
-//                                    mp.month_count_name,
-//                                    s.stat_month,
-//                                    s.stat_summ,
-//                                    c.cash_country,
-//                                    s.stat_payment,
-//                                    st.status_name,
-//                                    st.status_id,
-//                                    usr.user_login,
-//                                    usr.user_passwd,
-//                                    usr.user_access,
-//                                    usra.user_access_name
-//
-//                                FROM statistic s
-//
-//                                JOIN main m
-//                                ON s.main_id = m.main_id
-//
-//                                JOIN month_period mp
-//                                ON  m.month_period_id = mp.month_period_id
-//
-//                                JOIN office off
-//                                ON off.office_id = m.office_id
-//
-//                                JOIN cash c
-//                                ON c.cash_id = m.cash_id
-//
-//                                JOIN service srv
-//                                ON srv.service_id = m.service_id
-//
-//                                JOIN status st
-//                                ON st.status_id = s.status_id
-//
-//                                JOIN agreement a
-//                                ON a.agreement_id = m.agreement_id
-//
-//                                JOIN users usr
-//                                ON m.user_id = usr.user_id
-//
-//                                JOIN user_access usra
-//                                ON usr.user_access = usra.user_access_id
-//
-//                                WHERE date_recieved LIKE '%-{parseInt(date(''))}-%'
-//                                ORDER BY m.main_id ASC";
-
-
     public function __construct()
     {
         parent::__construct();
@@ -78,6 +28,16 @@ class Admin_model extends CI_Model {
     public function strip_trim ($value)
     {
         return trim(strip_tags($value));
+    }
+
+    public function select_service_main()
+    {
+        return $this->db->query($this->service_main)->result_array();
+    }
+
+    public function select_service_about()
+    {
+        return $this->db->query($this->service_about)->result_array();
     }
 
     public function select_all_cash()
@@ -109,9 +69,9 @@ class Admin_model extends CI_Model {
         return  $this->db->query($this->service)->result_array();
     }
 
-    public function select_all_service_join()
+    public function select_all_agreement_join()
     {
-        return  $this->db->query("SELECT  m.main_id main,
+        return  $this->db->query("SELECT  m.main_id,
                                     a.agreement_id,
                                     a.agreement_name,
                                     srv.service_name,
@@ -162,8 +122,65 @@ class Admin_model extends CI_Model {
                                 JOIN user_access usra
                                 ON usr.user_access = usra.user_access_id
 
-                                WHERE s.stat_month LIKE '%-".date('m')."-%'
+                                WHERE st.status_id <> 4
                                 ORDER BY m.main_id ASC")->result_array();
+    }
+
+    public function select_all_payment_join()
+    {
+        return $this->db->query("SELECT  m.main_id,
+                                    a.agreement_id,
+                                    a.agreement_name,
+                                    srv.service_name,
+                                    srv.service_about,
+                                    off.office_name,
+                                    m.date_start,
+                                    m.date_recieved,
+                                    m.month_period_id,
+                                    mp.month_count_name,
+                                    s.stat_month,
+                                    s.stat_summ,
+                                    c.cash_country,
+                                    s.stat_payment,
+                                    st.status_name,
+                                    st.status_id,
+                                    s.stat_id,
+                                    usr.user_login,
+                                    usr.user_passwd,
+                                    usr.user_access,
+                                    usra.user_access_name
+
+                                FROM statistic s
+
+                                JOIN main m
+                                ON s.main_id = m.main_id
+
+                                JOIN month_period mp
+                                ON  m.month_period_id = mp.month_period_id
+
+                                JOIN office off
+                                ON off.office_id = m.office_id
+
+                                JOIN cash c
+                                ON c.cash_id = m.cash_id
+
+                                JOIN service srv
+                                ON srv.service_id = m.service_id
+
+                                JOIN status st
+                                ON st.status_id = s.status_id
+
+                                JOIN agreement a
+                                ON a.agreement_id = m.agreement_id
+
+                                JOIN users usr
+                                ON m.user_id = usr.user_id
+
+                                JOIN user_access usra
+                                ON usr.user_access = usra.user_access_id
+
+                                WHERE s.stat_month LIKE '%-".date('m')."-%' AND st.status_id <> 4")->result_array();
+
     }
 
 //        Выберим Все оффисы и период оплаты

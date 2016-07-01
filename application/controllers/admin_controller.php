@@ -27,11 +27,15 @@ class Admin_controller extends CI_Controller {
             $allInfo['mainInfo'] = $this->admin_model->select_all_info();
             $allInfo['officeInfo'] = $this->admin_model->select_office();
             $allInfo['serviceInfo'] = $this->admin_model->select_service();
-            $allInfo['selectJoinInfo'] = $this->admin_model->select_all_service_join();
+            $allInfo['selectJoinInfo'] = $this->admin_model->select_all_payment_join();
             $allInfo['selectCash'] = $this->admin_model->select_all_cash();
             $allInfo['selectStatus'] = $this->admin_model->select_all_status();
             $allInfo['selectUser'] = $this->admin_model->select_user();
             $allInfo['select_all_user_status'] = $this->admin_model->select_all_user_status();
+            echo "<pre>";
+            var_dump(strval(date('Y-m-d')));
+            echo "</pre>";
+
             $this->load->view('admin_view', $allInfo);
         } else {
             $this->logout();
@@ -44,12 +48,11 @@ class Admin_controller extends CI_Controller {
             $this->load->model('admin_model');
             $allInfo['mainInfo'] = $this->admin_model->select_all_info();
             $allInfo['officeInfo'] = $this->admin_model->select_office();
-            $allInfo['serviceInfo'] = $this->admin_model->select_service();
-            $allInfo['selectJoinInfo'] = $this->admin_model->select_all_service_join();
+            $allInfo['serviceInfoName'] = $this->admin_model->select_service_main();
+            $allInfo['serviceInfoAbout'] = $this->admin_model->select_service_about();
             $allInfo['selectCash'] = $this->admin_model->select_all_cash();
             $allInfo['selectStatus'] = $this->admin_model->select_all_status();
-            $allInfo['selectUser'] = $this->admin_model->select_user();
-            $allInfo['select_all_user_status'] = $this->admin_model->select_all_user_status();
+            $allInfo['selectJoinInfo'] = $this->admin_model->select_all_agreement_join();
             $this->load->view('admin_agreement', $allInfo);
         } else {
             $this->logout();

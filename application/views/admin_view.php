@@ -4,29 +4,39 @@ include 'admin_menu.php';
 ?>
 
 <div class="conteiner">
-    <form action="">
+    <form action="" method="post">
         <fieldset>
+            <label for="">Месяц: </label>
             <select name="" id="">
-                <option value="2016">2016</option>
-                <option value="2017">2017</option>
+                <option value="01">Январь</option>
+                <option value="02">Февраль</option>
+                <option value="03">Март</option>
+                <option value="04">Апрель</option>
+                <option value="05">Май</option>
+                <option value="06">Июнь</option>
+                <option value="07">Июль</option>
+                <option value="08">Август</option>
+                <option value="09">Сентябрь</option>
+                <option value="10">Октябрь</option>
+                <option value="11">Ноябрь</option>
+                <option value="12">Декабрь</option>
             </select>
+            <label for="">Год: </label>
             <select name="" id="">
-                <option value="01">01</option>
-                <option value="02">02</option>
-                <option value="03">03</option>
-                <option value="04">04</option>
-                <option value="05">05</option>
-                <option value="06">06</option>
-                <option value="07">07</option>
-                <option value="08">08</option>
-                <option value="09">09</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
+                <?php
+                $countYear = 3;
+                $currYear = intval(date('Y'));
+
+                for ($i = 0; $i < $countYear; $i++) {
+                    echo "<option value='".$currYear."'>".$currYear."</option>";
+                    $currYear++;
+                }
+                ?>
             </select>
             <input type="submit" value="Предсказать будущее">
         </fieldset>
     </form>
+
     <table border="0" class="admin_list_service" cellpadding="0" cellspacing="0">
         <caption> Список сервисов на: <?php echo date('Y-m'); ?></caption>
         <tr>
@@ -34,7 +44,6 @@ include 'admin_menu.php';
             <th>Поставщик</th>
             <th>Описание услуги</th>
             <th>Офис</th>
-            <th>Дата начала услуги</th>
             <th>Дата получения</th>
             <th>Периодичность оплаты</th>
             <th>Сумма</th>
@@ -42,10 +51,11 @@ include 'admin_menu.php';
             <th>Статус</th>
             <th></th>
         </tr>
+
         <?php foreach($selectJoinInfo as $valueJoinInfo) :?>
         <tr class="table_tr <?php setClassForShowStatusTable($valueJoinInfo['status_id']); ?>"
             data-agreement="<?php echo $valueJoinInfo['agreement_id'];?>"
-            data-main_id="<?php echo $valueJoinInfo['main'];?>"
+            data-main_id="<?php echo $valueJoinInfo['main_id'];?>"
             data-month_period="<?php echo $valueJoinInfo['month_period_id'];?>"
             data-stat_id="<?php echo $valueJoinInfo['stat_id'];?>"
         >
@@ -53,7 +63,6 @@ include 'admin_menu.php';
             <td class="table_list"><?php echo $valueJoinInfo['service_name'];?></td>
             <td class="table_list"><?php echo $valueJoinInfo['service_about'];?></td>
             <td class="table_list"><?php echo $valueJoinInfo['office_name'];?></td>
-            <td class="table_list"><?php echo $valueJoinInfo['date_start']?></td>
             <td class="table_list date_recieved"><?php echo $valueJoinInfo['date_recieved']?></td>
             <td class="table_list"><?php echo $valueJoinInfo['month_count_name'];?></td>
             <td class="table_list"><?php echo $valueJoinInfo['stat_summ'];?></td>

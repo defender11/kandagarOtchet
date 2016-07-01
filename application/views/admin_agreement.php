@@ -23,7 +23,7 @@ include 'admin_menu.php';
                 <label for="service_name">Поставщик</label>
                 <br />
                 <select name="service_name" id="service_name">
-                    <?php foreach ($serviceInfo as $value_service) : ?>
+                    <?php foreach ($serviceInfoName as $value_service) : ?>
                         <option
                             value="<?php echo $value_service['service_id'] . "/" . $value_service['service_name']; ?>"><?php echo $value_service['service_name']; ?></option>
                     <?php endforeach; ?>
@@ -32,7 +32,7 @@ include 'admin_menu.php';
                 <label for="service_about">Описание услуги</label>
                 <br />
                 <select name="service_about" id="service_about">
-                    <?php foreach ($serviceInfo as $value_service) : ?>
+                    <?php foreach ($serviceInfoAbout as $value_service) : ?>
                         <option
                             value="<?php echo $value_service['service_id'] . "/" . $value_service['service_about']; ?>"><?php echo $value_service['service_about']; ?></option>
                     <?php endforeach; ?>
@@ -117,17 +117,14 @@ include 'admin_menu.php';
             <th>Описание услуги</th>
             <th>Офис</th>
             <th>Дата начала договора</th>
-            <th>Дата получения счета</th>
             <th>Периодичность оплаты</th>
-<!--            <th>Сумма</th>-->
-<!--            <th>Валюта</th>-->
             <th>Статус</th>
             <th></th>
         </tr>
         <?php foreach($selectJoinInfo as $valueJoinInfo) :?>
             <tr class="table_tr <?php setClassForShowStatusTable($valueJoinInfo['status_id']); ?>"
                 data-agreement="<?php echo $valueJoinInfo['agreement_id'];?>"
-                data-main_id="<?php echo $valueJoinInfo['main'];?>"
+                data-main_id="<?php echo $valueJoinInfo['main_id'];?>"
                 data-month_period="<?php echo $valueJoinInfo['month_period_id'];?>"
                 data-stat_id="<?php echo $valueJoinInfo['stat_id'];?>"
             >
@@ -136,10 +133,8 @@ include 'admin_menu.php';
                 <td class="table_list"><?php echo $valueJoinInfo['service_about'];?></td>
                 <td class="table_list"><?php echo $valueJoinInfo['office_name'];?></td>
                 <td class="table_list"><?php echo $valueJoinInfo['date_start']?></td>
-                <td class="table_list date_recieved"><?php echo $valueJoinInfo['date_recieved']?></td>
+                <td class="table_list date_recieved dspNone"><?php echo $valueJoinInfo['date_recieved']?></td>
                 <td class="table_list"><?php echo $valueJoinInfo['month_count_name'];?></td>
-<!--                <td class="table_list">--><?php //echo $valueJoinInfo['stat_summ'];?><!--</td>-->
-<!--                <td class="table_list">--><?php //echo $valueJoinInfo['cash_country']?><!--</td>-->
                 <td class="table_list"><?php echo $valueJoinInfo['status_name']?></td>
                 <td class="table_list tbl_list_setting">
                     <i class="fa fa-cog"></i>
